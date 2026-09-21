@@ -239,20 +239,20 @@ export const AdminPortal: React.FC = () => {
     <div className="space-y-8 pb-16">
       
       {/* Admin Operations Banner */}
-      <div className="bg-gradient-to-r from-purple-900 via-indigo-900 to-slate-950 text-white rounded-3xl p-6 sm:p-8 border border-purple-800/50 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
           <div className="flex items-center space-x-2">
-            <span className="p-1.5 rounded-lg bg-purple-500/20 border border-purple-400/30 text-purple-300">
+            <span className="p-1.5 rounded-lg bg-slate-800 border border-slate-700 text-slate-300">
               <ShieldCheck className="w-5 h-5" />
             </span>
-            <span className="text-xs font-black uppercase tracking-wider text-purple-300">
+            <span className="text-xs font-black uppercase tracking-wider text-slate-300">
               REM Operations & Inventory Center
             </span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black tracking-tight mt-1 text-white">
             Admin Management Console
           </h1>
-          <p className="text-xs text-purple-200 mt-1">
+          <p className="text-xs text-slate-300 mt-1">
             Publish upcoming products, update prices and dimensions, and manage user investment pledges in real time.
           </p>
         </div>
@@ -266,7 +266,7 @@ export const AdminPortal: React.FC = () => {
               setVideoInputUrl('');
               setActiveAdminTab('add');
             }}
-            className="px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-purple-600/30 transition-all cursor-pointer flex items-center space-x-2"
+            className="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider shadow-md transition-all cursor-pointer flex items-center space-x-2"
           >
             <PlusCircle className="w-4 h-4" />
             <span>Add Upcoming Product</span>
@@ -329,10 +329,10 @@ export const AdminPortal: React.FC = () => {
           <span className="text-xs text-emerald-700 font-medium mt-0.5">Fractional Grade-A</span>
         </div>
 
-        <div className="p-5 rounded-2xl bg-purple-50/60 border border-purple-200 shadow-xs">
-          <span className="text-xs font-bold text-purple-700 uppercase tracking-wider block">Inquiries & Leads</span>
-          <span className="text-2xl font-black text-purple-900 mt-1 block">{inquiries.length}</span>
-          <span className="text-xs text-purple-700 font-medium mt-0.5">Pledges & site visits</span>
+        <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 shadow-xs">
+          <span className="text-xs font-bold text-slate-800 uppercase tracking-wider block">Inquiries & Leads</span>
+          <span className="text-2xl font-black text-slate-900 mt-1 block">{inquiries.length}</span>
+          <span className="text-xs text-slate-800 font-medium mt-0.5">Pledges & site visits</span>
         </div>
       </div>
 
@@ -342,7 +342,7 @@ export const AdminPortal: React.FC = () => {
           onClick={() => setActiveAdminTab('inventory')}
           className={`pb-3 text-sm font-bold transition-all relative ${
             activeAdminTab === 'inventory'
-              ? 'text-purple-700 border-b-2 border-purple-700'
+              ? 'text-slate-800 border-b-2 border-slate-900'
               : 'text-slate-500 hover:text-slate-900'
           }`}
         >
@@ -353,7 +353,7 @@ export const AdminPortal: React.FC = () => {
           onClick={() => setActiveAdminTab('add')}
           className={`pb-3 text-sm font-bold transition-all relative ${
             activeAdminTab === 'add'
-              ? 'text-purple-700 border-b-2 border-purple-700'
+              ? 'text-slate-800 border-b-2 border-slate-900'
               : 'text-slate-500 hover:text-slate-900'
           }`}
         >
@@ -364,7 +364,7 @@ export const AdminPortal: React.FC = () => {
           onClick={() => setActiveAdminTab('leads')}
           className={`pb-3 text-sm font-bold transition-all relative ${
             activeAdminTab === 'leads'
-              ? 'text-purple-700 border-b-2 border-purple-700'
+              ? 'text-slate-800 border-b-2 border-slate-900'
               : 'text-slate-500 hover:text-slate-900'
           }`}
         >
@@ -384,7 +384,7 @@ export const AdminPortal: React.FC = () => {
                 value={inventorySearch}
                 onChange={(e) => setInventorySearch(e.target.value)}
                 placeholder="Search catalog..."
-                className="w-full pl-9 pr-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-semibold text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full pl-9 pr-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-semibold text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
@@ -425,7 +425,7 @@ export const AdminPortal: React.FC = () => {
                     <td className="p-4">
                       <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
                         p.status === 'Ready to Move' ? 'bg-emerald-100 text-emerald-800' :
-                        p.status === 'High Yield Active' ? 'bg-indigo-100 text-indigo-800' :
+                        p.status === 'High Yield Active' ? 'bg-slate-100 text-slate-800' :
                         p.status === 'Pre-Launch' ? 'bg-amber-100 text-amber-900' :
                         'bg-blue-100 text-blue-800'
                       }`}>
@@ -457,7 +457,7 @@ export const AdminPortal: React.FC = () => {
 
                       <button
                         onClick={() => handleEditClick(p)}
-                        className="p-1.5 rounded-lg text-slate-400 hover:text-purple-600 hover:bg-purple-50 transition-all"
+                        className="p-1.5 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-slate-50 transition-all"
                         title="Edit details"
                       >
                         <Edit3 className="w-4 h-4" />
@@ -515,7 +515,7 @@ export const AdminPortal: React.FC = () => {
                 value={formData.title || ''}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 placeholder="e.g. Cascadia Sky Residences"
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-purple-500 outline-none"
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
               />
             </div>
 
@@ -527,7 +527,7 @@ export const AdminPortal: React.FC = () => {
                 value={formData.developer || ''}
                 onChange={(e) => setFormData({ ...formData, developer: e.target.value })}
                 placeholder="e.g. REM Signature Projects"
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-purple-500 outline-none"
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
               />
             </div>
 
@@ -537,7 +537,7 @@ export const AdminPortal: React.FC = () => {
               <select
                 value={formData.category}
                 onChange={(e) => setFormData({ ...formData, category: e.target.value as PropertyCategory })}
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-purple-500 outline-none cursor-pointer"
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none cursor-pointer"
               >
                 <option value="upcoming_launch">Upcoming Launch (Pre-Release)</option>
                 <option value="residential">Residential Homes & Villas</option>
@@ -553,7 +553,7 @@ export const AdminPortal: React.FC = () => {
               <select
                 value={formData.status}
                 onChange={(e) => setFormData({ ...formData, status: e.target.value as PropertyStatus })}
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-purple-500 outline-none cursor-pointer"
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none cursor-pointer"
               >
                 <option value="Pre-Launch">Pre-Launch</option>
                 <option value="Under Construction">Under Construction</option>
@@ -581,7 +581,7 @@ export const AdminPortal: React.FC = () => {
                   });
                 }}
                 placeholder="e.g. 28500000"
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-purple-500 outline-none"
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
               />
             </div>
 
@@ -607,7 +607,7 @@ export const AdminPortal: React.FC = () => {
                   });
                 }}
                 placeholder="e.g. 1980"
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-purple-500 outline-none"
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
               />
             </div>
 
@@ -625,7 +625,7 @@ export const AdminPortal: React.FC = () => {
                   }
                 })}
                 placeholder="e.g. 3 BHK Luxury Condo"
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-purple-500 outline-none"
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
               />
             </div>
 
@@ -643,7 +643,7 @@ export const AdminPortal: React.FC = () => {
                   }
                 })}
                 placeholder="e.g. Indiranagar, Bangalore"
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-purple-500 outline-none"
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
               />
             </div>
 
@@ -653,7 +653,7 @@ export const AdminPortal: React.FC = () => {
           <div className="pt-4 border-t border-slate-100">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
               <div className="flex items-center space-x-2">
-                <Image className="w-4 h-4 text-purple-600" />
+                <Image className="w-4 h-4 text-blue-600" />
                 <label className="text-xs font-bold text-slate-800">
                   Property Photos ({formData.images?.length || 0})
                 </label>
@@ -676,7 +676,7 @@ export const AdminPortal: React.FC = () => {
                     images: [...(formData.images || []), nextPhoto]
                   });
                 }}
-                className="text-[11px] font-bold text-purple-700 hover:text-purple-900 bg-purple-50 hover:bg-purple-100 px-2.5 py-1 rounded-lg transition-all cursor-pointer self-start sm:self-center"
+                className="text-[11px] font-bold text-slate-800 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded-lg transition-all cursor-pointer self-start sm:self-center"
               >
                 + Add Sample Photo
               </button>
@@ -701,7 +701,7 @@ export const AdminPortal: React.FC = () => {
                   }
                 }}
                 placeholder="Paste photo image URL (e.g. https://images.unsplash.com/...)"
-                className="flex-1 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-purple-500 outline-none"
+                className="flex-1 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
               />
               <button
                 type="button"
@@ -758,7 +758,7 @@ export const AdminPortal: React.FC = () => {
           <div className="pt-4 border-t border-slate-100">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
               <div className="flex items-center space-x-2">
-                <Video className="w-4 h-4 text-purple-600" />
+                <Video className="w-4 h-4 text-blue-600" />
                 <label className="text-xs font-bold text-slate-800">
                   Property Videos ({formData.videos?.length || (formData.videoTourUrl ? 1 : 0)})
                 </label>
@@ -783,7 +783,7 @@ export const AdminPortal: React.FC = () => {
                     videoTourUrl: updated[0] || ''
                   });
                 }}
-                className="text-[11px] font-bold text-purple-700 hover:text-purple-900 bg-purple-50 hover:bg-purple-100 px-2.5 py-1 rounded-lg transition-all cursor-pointer self-start sm:self-center"
+                className="text-[11px] font-bold text-slate-800 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded-lg transition-all cursor-pointer self-start sm:self-center"
               >
                 + Add Sample Video
               </button>
@@ -811,7 +811,7 @@ export const AdminPortal: React.FC = () => {
                   }
                 }}
                 placeholder="Paste video walkthrough URL (e.g. https://assets.mixkit.co/...mp4)"
-                className="flex-1 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-purple-500 outline-none"
+                className="flex-1 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
               />
               <button
                 type="button"
@@ -839,7 +839,7 @@ export const AdminPortal: React.FC = () => {
               {(formData.videos || (formData.videoTourUrl ? [formData.videoTourUrl] : [])).map((vidUrl, idx) => (
                 <div key={idx} className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-xs">
                   <div className="flex items-center space-x-2.5 min-w-0 pr-3">
-                    <div className="w-7 h-7 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center shrink-0">
+                    <div className="w-7 h-7 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center shrink-0">
                       <Video className="w-3.5 h-3.5" />
                     </div>
                     <div className="min-w-0">
@@ -885,7 +885,7 @@ export const AdminPortal: React.FC = () => {
 
             <button
               type="submit"
-              className="px-6 py-2.5 rounded-xl bg-purple-700 hover:bg-purple-800 text-white font-black text-xs uppercase tracking-wider shadow-md shadow-purple-700/20 cursor-pointer"
+              className="px-6 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-black text-xs uppercase tracking-wider shadow-md shadow-md cursor-pointer"
             >
               {editingPropertyId ? 'Save Changes' : 'Publish Product to REM Platform'}
             </button>

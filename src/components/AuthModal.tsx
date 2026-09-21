@@ -65,7 +65,7 @@ export const AuthModal: React.FC = () => {
 
         {/* Brand Header */}
         <div className="text-center mb-6">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-700 to-sky-500 text-white font-black text-2xl flex items-center justify-center mx-auto mb-3 shadow-md shadow-blue-500/25">
+          <div className="w-12 h-12 rounded-2xl bg-slate-900 text-white font-black text-2xl flex items-center justify-center mx-auto mb-3 shadow-md">
             REM
           </div>
           <h2 className="text-2xl font-black text-slate-900 tracking-tight">REM Buyer Portal</h2>
@@ -221,7 +221,7 @@ export const AuthModal: React.FC = () => {
               setIsAuthModalOpen(false);
               setIsAdminAuthModalOpen(true);
             }}
-            className="text-slate-400 hover:text-purple-600 font-semibold transition-colors flex items-center space-x-1 cursor-pointer"
+            className="text-slate-400 hover:text-blue-600 font-semibold transition-colors flex items-center space-x-1 cursor-pointer"
           >
             <Lock className="w-3 h-3" />
             <span>Staff Portal</span>
