@@ -8,8 +8,7 @@ import {
   PlayCircle, 
   ShieldCheck, 
   Train, 
-  ArrowRight, 
-  Scale,
+  ArrowRight,
   TrendingUp,
   Users
 } from 'lucide-react';
@@ -23,15 +22,12 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
     currentUser, 
     toggleFavorite, 
     setSelectedProperty,
-    compareIds, 
-    toggleCompare,
     setIsInvestModalOpen,
     setInvestTargetProperty
   } = useApp();
 
   const [activeImgIndex, setActiveImgIndex] = useState(0);
   const isFavorite = currentUser.savedPropertyIds.includes(property.id);
-  const isCompared = compareIds.includes(property.id);
 
   const isRent = property.listingType === 'rent';
 
@@ -74,17 +70,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
 
           {/* Action Buttons: Compare & Favorite */}
           <div className="flex items-center space-x-1.5 pointer-events-auto">
-            <button
-              onClick={() => toggleCompare(property.id)}
-              className={`p-2 rounded-full backdrop-blur-md transition-all ${
-                isCompared 
-                  ? 'bg-blue-600 text-white shadow-md' 
-                  : 'bg-white/80 hover:bg-white text-slate-700'
-              }`}
-              title="Add to Compare tool"
-            >
-              <Scale className="w-3.5 h-3.5" />
-            </button>
+            
 
             <button
               onClick={() => toggleFavorite(property.id)}
