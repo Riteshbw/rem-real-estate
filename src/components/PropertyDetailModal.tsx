@@ -143,7 +143,7 @@ Certified by REM Advisory & Legal Compliance Division.
           <div className="flex items-center space-x-3">
             <span className={`px-2.5 py-1 rounded-full text-xs font-bold ${
               property.status === 'Ready to Move' ? 'bg-emerald-100 text-emerald-800' :
-              property.status === 'High Yield Active' ? 'bg-indigo-100 text-indigo-800' :
+              property.status === 'High Yield Active' ? 'bg-slate-100 text-slate-800' :
               property.status === 'Pre-Launch' ? 'bg-amber-100 text-amber-900' :
               'bg-blue-100 text-blue-800'
             }`}>
@@ -315,7 +315,7 @@ Certified by REM Advisory & Legal Compliance Division.
                     onClick={() => setSelectedVideoIndex(idx)}
                     className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                       selectedVideoIndex === idx
-                        ? 'bg-purple-600 text-white shadow-xs'
+                        ? 'bg-slate-900 text-white shadow-xs'
                         : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
                     }`}
                   >
@@ -372,10 +372,10 @@ Certified by REM Advisory & Legal Compliance Division.
               </span>
             </div>
 
-            <div className="p-4 rounded-2xl bg-indigo-50/50 border border-indigo-200">
-              <span className="text-xs font-bold text-indigo-600 uppercase tracking-wider block">Possession</span>
-              <span className="text-lg font-black text-indigo-900 mt-1 block">{property.possessionDate}</span>
-              <span className="text-xs text-indigo-700 font-medium">
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+              <span className="text-xs font-bold text-slate-600 uppercase tracking-wider block">Possession</span>
+              <span className="text-lg font-black text-slate-900 mt-1 block">{property.possessionDate}</span>
+              <span className="text-xs text-slate-700 font-medium">
                 {property.dimensions.totalUnitsInProject} total units in project
               </span>
             </div>
@@ -465,7 +465,7 @@ Certified by REM Advisory & Legal Compliance Division.
 
               <div className="bg-emerald-500/10 border border-emerald-500/30 px-4 py-2 rounded-2xl text-right">
                 <span className="text-xs text-emerald-300 font-bold block">Estimated Monthly EMI</span>
-                <span className="text-2xl font-black text-emerald-400">₹{formatNumber(monthlyEMI)}</span>
+                <span className="text-2xl font-black text-white">₹{formatNumber(monthlyEMI)}</span>
               </div>
             </div>
 
@@ -553,10 +553,10 @@ Certified by REM Advisory & Legal Compliance Division.
 
           {/* Property Investment Showcase */}
           {property.investment?.isInvestable && (
-            <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-emerald-950 via-slate-900 to-slate-950 text-white border border-emerald-700/50 shadow-xl">
+            <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 text-white border border-slate-800 shadow-xl">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
                 <div>
-                  <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] font-black uppercase tracking-wider mb-2 border border-emerald-400/30">
+                  <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-[11px] font-bold uppercase tracking-wider mb-2 border border-blue-400/20">
                     <TrendingUp className="w-3.5 h-3.5" />
                     <span>High-Yield Property Investment</span>
                   </div>
@@ -570,10 +570,10 @@ Certified by REM Advisory & Legal Compliance Division.
 
                 <div className="p-4 rounded-2xl bg-white/10 border border-white/15 text-right sm:text-right shrink-0">
                   <span className="text-[10px] font-bold text-slate-400 uppercase block">Min. Investment</span>
-                  <span className="text-2xl font-black text-emerald-400 block">
+                  <span className="text-2xl font-black text-white block">
                     {formatINR(property.investment.minTicketSize || 50000)}
                   </span>
-                  <span className="text-[11px] text-teal-300 font-semibold block mt-0.5">
+                  <span className="text-[11px] text-slate-300 font-semibold block mt-0.5">
                     {property.investment.grossRentalYieldPercentage}% Gross Yield
                   </span>
                 </div>
@@ -583,11 +583,11 @@ Certified by REM Advisory & Legal Compliance Division.
               <div className="mt-6 p-4 rounded-2xl bg-white/5 border border-white/10">
                 <div className="flex justify-between items-center text-xs font-bold mb-2">
                   <span className="text-slate-300">Syndicate Funding Progress</span>
-                  <span className="text-emerald-400 font-black">{property.investment.fundedPercentage || 70}% Funded</span>
+                  <span className="text-blue-400 font-bold">{property.investment.fundedPercentage || 70}% Funded</span>
                 </div>
                 <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
                   <div 
-                    className="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full transition-all duration-500" 
+                    className="h-full bg-blue-500 rounded-full transition-all duration-500" 
                     style={{ width: `${Math.min(100, property.investment.fundedPercentage || 70)}%` }}
                   />
                 </div>
@@ -609,10 +609,10 @@ Certified by REM Advisory & Legal Compliance Division.
 
                 <div className="p-3 rounded-xl bg-white/5 border border-white/10">
                   <span className="text-[10px] font-bold text-slate-400 uppercase block">Tenure</span>
-                  <span className="text-base font-black text-teal-300">
+                  <span className="text-base font-black text-white">
                     {property.investment.tenureYears || 4} Years
                   </span>
-                  <span className="text-[9px] text-emerald-400 block mt-0.5">+45% Capital Appreciation</span>
+                  <span className="text-[9px] text-slate-300 block mt-0.5">+45% Capital Appreciation</span>
                 </div>
 
                 <div className="p-3 rounded-xl bg-white/5 border border-white/10">
@@ -632,7 +632,7 @@ Certified by REM Advisory & Legal Compliance Division.
                     setInvestTargetProperty(property);
                     setIsInvestModalOpen(true);
                   }}
-                  className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/25 transition-all cursor-pointer flex items-center justify-center space-x-1.5"
+                  className="w-full sm:w-auto px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider shadow-md transition-all cursor-pointer flex items-center justify-center space-x-1.5"
                 >
                   <TrendingUp className="w-4 h-4" />
                   <span>Invest in Property</span>
@@ -747,7 +747,7 @@ Certified by REM Advisory & Legal Compliance Division.
                   setInvestTargetProperty(property);
                   setIsInvestModalOpen(true);
                 }}
-                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-black text-xs uppercase tracking-wider shadow-md shadow-emerald-600/20 transition-all cursor-pointer flex items-center justify-center space-x-1"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider shadow-md transition-all cursor-pointer flex items-center justify-center space-x-1"
               >
                 <TrendingUp className="w-3.5 h-3.5" />
                 <span>Claim 1 Share ({formatINR(property.investment.sharePrice || 1000000)})</span>

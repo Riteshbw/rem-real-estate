@@ -49,7 +49,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
           <div className="flex flex-wrap gap-1.5 pointer-events-auto">
             <span className={`px-2.5 py-1 rounded-full text-[11px] font-black shadow-sm backdrop-blur-md ${
-              isRent ? 'bg-indigo-600 text-white' : 'bg-blue-600 text-white'
+              isRent ? 'bg-slate-800 text-white' : 'bg-blue-600 text-white'
             }`}>
               {isRent ? 'For Rent' : 'For Sale'}
             </span>

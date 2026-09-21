@@ -292,8 +292,8 @@ export const Navbar: React.FC = () => {
                 onClick={() => setActiveTab(activeTab === 'admin' ? 'properties' : 'admin')}
                 className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   activeTab === 'admin'
-                    ? 'bg-purple-700 text-white shadow-xs'
-                    : 'text-purple-700 bg-purple-50 hover:bg-purple-100 border border-purple-200'
+                    ? 'bg-slate-900 text-white shadow-xs'
+                    : 'text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200'
                 }`}
               >
                 <ShieldCheck className="w-3.5 h-3.5" />
@@ -329,7 +329,7 @@ export const Navbar: React.FC = () => {
                     <p className="text-[10px] text-slate-500 truncate">{currentUser.email}</p>
                     <span className={`inline-block mt-1 text-[10px] font-bold px-2 py-0.5 rounded-full ${
                       currentUser.role === 'admin' 
-                        ? 'bg-purple-100 text-purple-800' 
+                        ? 'bg-slate-900 text-white' 
                         : 'bg-blue-100 text-blue-800'
                     }`}>
                       {currentUser.role === 'admin' ? '🛡️ REM Operations Admin' : '🏡 Verified Homebuyer'}
@@ -339,14 +339,14 @@ export const Navbar: React.FC = () => {
                   {/* Admin-only controls */}
                   {currentUser.role === 'admin' ? (
                     <div className="space-y-1">
-                      <p className="px-3 text-[10px] font-bold text-purple-600 uppercase tracking-wider">
+                      <p className="px-3 text-[10px] font-bold text-slate-600 uppercase tracking-wider">
                         Admin Controls:
                       </p>
                       <button
                         onClick={() => { setActiveTab('admin'); setIsProfileMenuOpen(false); }}
-                        className="w-full text-left px-3 py-1.5 rounded-lg text-xs font-semibold text-purple-700 hover:bg-purple-50 flex items-center space-x-2 cursor-pointer"
+                        className="w-full text-left px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 flex items-center space-x-2 cursor-pointer"
                       >
-                        <ShieldCheck className="w-3.5 h-3.5 text-purple-600" />
+                        <ShieldCheck className="w-3.5 h-3.5 text-slate-600" />
                         <span>Open Admin Console</span>
                       </button>
                       <button

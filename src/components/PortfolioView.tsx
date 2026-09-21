@@ -78,7 +78,7 @@ This document certifies legal title interest in the SPV holding the underlying r
           <img
             src={currentUser.avatar}
             alt={currentUser.name}
-            className="w-16 h-16 rounded-2xl object-cover border-2 border-indigo-200 shadow-sm"
+            className="w-16 h-16 rounded-2xl object-cover border-2 border-slate-200 shadow-sm"
           />
           <div>
             <div className="flex items-center space-x-2">
@@ -119,9 +119,9 @@ This document certifies legal title interest in the SPV holding the underlying r
         </div>
 
         {/* Current Portfolio Valuation */}
-        <div className="p-5 rounded-2xl bg-indigo-50/50 border border-indigo-200 shadow-xs">
-          <span className="text-xs font-bold text-indigo-600 uppercase tracking-wider block">Current Valuation</span>
-          <span className="text-2xl font-black text-indigo-950 mt-1 block">
+        <div className="p-5 rounded-2xl bg-indigo-50/50 border border-slate-200 shadow-xs">
+          <span className="text-xs font-bold text-slate-600 uppercase tracking-wider block">Current Valuation</span>
+          <span className="text-2xl font-black text-slate-900 mt-1 block">
             {formatINR(currentValuation)}
           </span>
           <span className="text-xs font-bold text-emerald-600 block mt-0.5">
@@ -236,7 +236,7 @@ This document certifies legal title interest in the SPV holding the underlying r
                       </div>
                       <div className="border-x border-slate-200">
                         <span className="text-[10px] text-slate-400 font-bold uppercase block">Valuation</span>
-                        <span className="text-xs font-black text-indigo-700 block">{formatINR(inv.currentValuation)}</span>
+                        <span className="text-xs font-black text-slate-800 block">{formatINR(inv.currentValuation)}</span>
                       </div>
                       <div>
                         <span className="text-[10px] text-slate-400 font-bold uppercase block">Monthly Payout</span>
@@ -381,7 +381,7 @@ This document certifies legal title interest in the SPV holding the underlying r
                       </div>
                       <h4 className="text-base font-extrabold text-slate-900 mt-1">{visit.propertyTitle}</h4>
                       <p className="text-xs text-slate-500">{visit.propertyLocation}</p>
-                      <p className="text-xs text-indigo-700 font-medium mt-1">
+                      <p className="text-xs text-slate-800 font-medium mt-1">
                         Concierge: {visit.conciergeAssigned}
                       </p>
                     </div>
