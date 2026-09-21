@@ -5,9 +5,6 @@ import { HeroBanner } from './components/HeroBanner';
 import { CategoryFilter } from './components/CategoryFilter';
 import { PropertyCard } from './components/PropertyCard';
 import { PropertyDetailModal } from './components/PropertyDetailModal';
-import { LoanCalculatorModal } from './components/LoanCalculatorModal';
-import { PropertyValuationModal } from './components/PropertyValuationModal';
-import { ComparisonMatrixModal } from './components/ComparisonMatrixModal';
 import { AdminPortal } from './components/AdminPortal';
 import { InvestmentHub } from './components/InvestmentHub';
 import { PortfolioView } from './components/PortfolioView';
@@ -270,10 +267,6 @@ const MainContent: React.FC = () => {
         />
       )}
 
-      {/* Tools Modals */}
-      <LoanCalculatorModal />
-      <PropertyValuationModal />
-      <ComparisonMatrixModal />
       <InvestModal />
 
       {/* Authentication Modal */}

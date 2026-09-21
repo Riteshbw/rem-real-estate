@@ -6,9 +6,7 @@ import {
   User, 
   ChevronDown, 
   Search,
-  Calculator,
   TrendingUp,
-  Scale,
   Home,
   Briefcase,
   Key,
@@ -35,10 +33,6 @@ export const Navbar: React.FC = () => {
     preLaunchOnly,
     setSelectedCategory,
     selectedCategory,
-    setIsLoanCalcModalOpen,
-    setIsValuationModalOpen,
-    setIsCompareModalOpen,
-    compareIds,
     exitAdminMode,
     logoutUser
   } = useApp();
@@ -287,70 +281,7 @@ export const Navbar: React.FC = () => {
               </span>
             </button>
 
-            {/* 5. TOOLS DROPDOWN */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setActiveDropdown('tools')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button
-                className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  activeDropdown === 'tools'
-                    ? 'bg-slate-100 text-blue-600'
-                    : 'text-slate-700 hover:text-slate-950 hover:bg-slate-50'
-                }`}
-              >
-                <span>Tools</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
-              </button>
-
-              {activeDropdown === 'tools' && (
-                <div className="absolute left-0 mt-1 w-56 bg-white rounded-2xl shadow-xl border border-slate-200 py-2 z-50 animate-in fade-in duration-150">
-                  <div className="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                    Calculators & Valuation
-                  </div>
-                  <button
-                    onClick={() => {
-                      setIsLoanCalcModalOpen(true);
-                      setActiveDropdown(null);
-                    }}
-                    className="w-full text-left px-3.5 py-2 text-xs font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700 flex items-center space-x-2.5 transition-all cursor-pointer"
-                  >
-                    <Calculator className="w-4 h-4 text-blue-600" />
-                    <span>Loan Calculator</span>
-                  </button>
-                  <button
-                    onClick={() => {
-                      setIsValuationModalOpen(true);
-                      setActiveDropdown(null);
-                    }}
-                    className="w-full text-left px-3.5 py-2 text-xs font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 flex items-center space-x-2.5 transition-all cursor-pointer"
-                  >
-                    <TrendingUp className="w-4 h-4 text-emerald-600" />
-                    <span>Property Valuation</span>
-                  </button>
-                  <button
-                    onClick={() => {
-                      setIsCompareModalOpen(true);
-                      setActiveDropdown(null);
-                    }}
-                    className="w-full text-left px-3.5 py-2 text-xs font-semibold text-slate-700 hover:bg-indigo-50 hover:text-indigo-700 flex items-center justify-between transition-all cursor-pointer"
-                  >
-                    <div className="flex items-center space-x-2.5">
-                      <Scale className="w-4 h-4 text-indigo-600" />
-                      <span>Compare</span>
-                    </div>
-                    {compareIds.length > 0 && (
-                      <span className="text-[10px] font-bold px-1.5 py-0.2 rounded-full bg-indigo-100 text-indigo-800">
-                        {compareIds.length}
-                      </span>
-                    )}
-                  </button>
-                </div>
-              )}
-            </div>
-
-          </nav>
+            </nav>
 
           {/* Right Actions: Admin Console & Profile */}
           <div className="flex items-center space-x-3">
@@ -510,26 +441,7 @@ export const Navbar: React.FC = () => {
           >
             Pre-Launch
           </button>
-          <button
-            onClick={() => setIsLoanCalcModalOpen(true)}
-            className="px-2.5 py-1 rounded-lg shrink-0 bg-blue-50 text-blue-700"
-          >
-            Loan Calc
-          </button>
-          <button
-            onClick={() => setIsValuationModalOpen(true)}
-            className="px-2.5 py-1 rounded-lg shrink-0 bg-emerald-50 text-emerald-700"
-          >
-            Valuation
-          </button>
-          <button
-            onClick={() => setIsCompareModalOpen(true)}
-            className="px-2.5 py-1 rounded-lg shrink-0 bg-indigo-50 text-indigo-700"
-          >
-            Compare ({compareIds.length})
-          </button>
-        </div>
-
+          </div>
       </div>
     </header>
   );
