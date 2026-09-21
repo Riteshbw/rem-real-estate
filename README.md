@@ -1,6 +1,7 @@
-# REM Verified Real Estate Portal
+# 🏢 REM Verified Real Estate Portal
 
-A modern, high-performance real estate portal for verified luxury penthouses, gated villas, flats, and pre-launch properties.
+> 🌐 **Live Demo Website:** **[https://hazy-firefly-d82zc7v.shipstatic.com](https://hazy-firefly-d82zc7v.shipstatic.com)**  
+> *Click the link above to explore and test the live interactive application.*
 
 ---
 
