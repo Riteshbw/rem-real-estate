@@ -1,6 +1,6 @@
 # 🏢 REM Verified Real Estate Portal
 
-> 🌐 **Live Demo Website:** **[https://hazy-firefly-d82zc7v.shipstatic.com](https://hazy-firefly-d82zc7v.shipstatic.com)**  
+> 🌐 **Live Demo Website:** **[[https://hazy-firefly-d82zc7v.shipstatic.com](https://riteshbw.github.io/rem-real-estate/)]**  
 > *Click the link above to explore and test the live interactive application.*
 
 ---
