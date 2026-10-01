@@ -1,0 +1,12 @@
+{
+  "name": "rem-real-estate",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "description": "REM Real Estate - Contemporary Architectural Property Platform",
+  "scripts": {
+    "dev": "node serve.js",
+    "build": "node -e \"const fs=require('fs'); fs.mkdirSync('dist', {recursive:true}); fs.copyFileSync('index.html', 'dist/index.html'); fs.copyFileSync('properties.js', 'dist/properties.js'); fs.copyFileSync('index.html', 'dist/404.html'); console.log('Build completed: dist/ prepared');\"",
+    "preview": "node serve.js"
+  }
+}
