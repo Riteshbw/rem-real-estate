@@ -1,73 +1,36 @@
-# 🏢 REM Verified Real Estate Portal
+# REM Residences & Estates
 
-> 🌐 **Live Demo Website:** **[https://riteshbw.github.io/rem-real-estate/](https://riteshbw.github.io/rem-real-estate/)**  
-> *Click the link above to explore and test the live interactive application.*
+A modern web platform for discovering verified real estate listings and exploring fractional property investments across Bengaluru.
 
----
-
-## 🌟 Key Features
-
-* **Hero Showcase:** Verified legal guarantee, 0% brokerage promise, and subtle ambient architectural slideshow.
-* **Category & Type Filters:** Filter by **Flats**, **Villas**, **Penthouses**, **Plots**, and **Commercial** properties.
-* **Location Intelligence:** Filter by micro-market regions including **South Bengaluru** and **North Bengaluru**.
-* **Compact Budget Slider:** Filter listings by purchase budget or monthly rental budget.
-* **Unit Configuration (BHK):** 1 BHK, 2 BHK, 3 BHK, 4 BHK, 4+ BHK.
-* **Property Detail Modal:** Complete carpet area breakdown, RERA verification credentials, and site visit booking.
-* **Admin & Buyer Separation:** Secure admin portal for property management with a clean, unbranded view for buyers.
+**Live Website:** [https://riteshbw.github.io/rem-real-estate/](https://riteshbw.github.io/rem-real-estate/)  
+**GitHub Repository:** [https://github.com/riteshbw/rem-real-estate](https://github.com/riteshbw/rem-real-estate)
 
 ---
 
-## 🚀 Getting Started
+## About the Project
 
-### Prerequisites
-* [Node.js](https://nodejs.org/) (v18+) or [Bun](https://bun.sh/) (v1.0+)
+REM is designed to provide a clean, transparent way to browse premium residential and commercial properties in Bengaluru. It emphasizes verified legal information (RERA registration numbers, clear carpet area breakdowns) and connects buyers directly to property managers with zero brokerage fees.
 
-### Installation
-```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/rem-real-estate.git
+## Features
 
-# Navigate to project directory
-cd rem-real-estate
+- **Verified Bengaluru Listings:** Curated properties across prime micro-markets (Indiranagar, Koramangala, Whitefield, Lavelle Road, Sadashivanagar) with RERA certification and transparent price-per-square-foot details.
+- **Day & Twilight Lighting Toggle:** Interactive view switcher allowing visitors to preview properties in daylight and evening golden hour lighting.
+- **Direct Developer Inquiry:** Direct WhatsApp chat and one-tap phone dialer for immediate inquiries with zero brokerage.
+- **Fractional Investment Calculator:** Interactive tool to calculate projected rental yields, minimum investment amounts, and estimated returns on commercial property shares.
+- **Digital Brochure & Visit Booking:** On-demand digital brochure downloads and site visit scheduling modal.
+- **Responsive Design:** Optimized layout and typography tailored for both desktop and mobile screens.
 
-# Install dependencies
-npm install
-# or
-bun install
-```
+## Tech Stack
 
-### Running Locally
-```bash
-# Start development server
-npm run dev
-# or
-bun run dev
-```
+- **Frontend:** HTML5, Tailwind CSS
+- **Interactivity:** Vanilla JavaScript (ES6+)
+- **Typography:** Google Fonts (Cinzel, Playfair Display, Plus Jakarta Sans)
+- **Deployment:** GitHub Pages
 
-### Production Build
-```bash
-# Build optimized production bundle
-npm run build
+## Running Locally
 
-# Preview production build
-npm run preview
-```
+No build tools, Node packages, or external dependencies are required.
 
----
-
-## 📦 How to Push to GitHub
-
-If you created a new repository on GitHub (e.g., `rem-real-estate`), push this folder with:
-
-```bash
-git remote add origin https://github.com/YOUR_USERNAME/rem-real-estate.git
-git branch -M main
-git push -u origin main
-```
-
----
-
-## 📄 Tech Stack
-* **Framework:** React 19 + TypeScript + Vite
-* **Styling:** Tailwind CSS + Lucide Icons
-* **Deployment:** Ready for Vercel, Netlify, or GitHub Pages
+1. Clone or download the repository:
+   ```bash
+   git clone https://github.com/riteshbw/rem-real-estate.git
