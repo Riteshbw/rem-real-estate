@@ -1,4 +1,4 @@
-﻿name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build-and-deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -23,6 +23,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Prepare distribution
+        run: |
+          mkdir -p dist
+          cp index.html dist/index.html
+          cp properties.js dist/properties.js
+          cp index.html dist/404.html
+          if [ -d "public" ]; then cp -r public/* dist/ 2>/dev/null || true; fi
+          echo "Static dist prepared."
+          ls -la dist/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
