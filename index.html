@@ -1137,6 +1137,34 @@
             <input type="text" id="newBhk" required placeholder="3 BHK Sky Residence" class="w-full p-2 bg-white border border-borderSubtle">
           </div>
         </div>
+
+        <!-- Media Upload Section -->
+        <div class="border-t border-borderSubtle pt-3 space-y-3">
+          <div class="flex items-center justify-between">
+            <label class="block text-[10px] uppercase font-bold text-stone">Property Media (Images &amp; Video Tour)</label>
+            <span class="text-[9px] text-stoneLight">Upload multiple photos &bull; At least 1 video tour</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <!-- Images Upload -->
+            <div>
+              <label class="block text-[9px] uppercase font-bold text-stone mb-1">Add Images (Multiple)</label>
+              <input type="file" id="newPropertyImages" accept="image/*" multiple onchange="handlePropertyImageUpload(event)" 
+                     class="w-full text-[11px] p-2 bg-white border border-borderSubtle file:mr-2 file:py-1 file:px-2.5 file:border-0 file:text-[10px] file:font-bold file:uppercase file:bg-obsidian file:text-white cursor-pointer">
+            </div>
+
+            <!-- Video Upload -->
+            <div>
+              <label class="block text-[9px] uppercase font-bold text-stone mb-1">Add Video Tour</label>
+              <input type="file" id="newPropertyVideo" accept="video/*" onchange="handlePropertyVideoUpload(event)" 
+                     class="w-full text-[11px] p-2 bg-white border border-borderSubtle file:mr-2 file:py-1 file:px-2.5 file:border-0 file:text-[10px] file:font-bold file:uppercase file:bg-obsidian file:text-white cursor-pointer">
+            </div>
+          </div>
+
+          <!-- Previews Container -->
+          <div id="newMediaPreviewContainer" class="flex flex-wrap gap-2 pt-1 empty:hidden"></div>
+        </div>
+
         <div class="flex justify-end space-x-2 pt-2">
           <button type="button" onclick="toggleAddPropertyForm()" class="px-4 py-2 border border-borderSubtle bg-white">Cancel</button>
           <button type="submit" class="px-4 py-2 bg-obsidian text-white font-bold uppercase tracking-wider text-[11px]">Save Listing</button>
@@ -1885,12 +1913,96 @@ Generated: ${new Date().toLocaleString()}
       `).join('');
     }
 
+    // Media Upload State & Handlers for Add Property Form
+    let uploadedPropertyImages = [];
+    let uploadedPropertyVideo = null;
+
+    function handlePropertyImageUpload(e) {
+      const files = Array.from(e.target.files);
+      files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          uploadedPropertyImages.push(event.target.result);
+          renderMediaPreviews();
+        };
+        reader.readAsDataURL(file);
+      });
+      e.target.value = '';
+    }
+
+    function handlePropertyVideoUpload(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const url = URL.createObjectURL(file);
+        uploadedPropertyVideo = { name: file.name, url: url };
+        renderMediaPreviews();
+      }
+      e.target.value = '';
+    }
+
+    function removePropertyImage(index) {
+      uploadedPropertyImages.splice(index, 1);
+      renderMediaPreviews();
+    }
+
+    function removePropertyVideo() {
+      uploadedPropertyVideo = null;
+      renderMediaPreviews();
+    }
+
+    function renderMediaPreviews() {
+      const container = document.getElementById('newMediaPreviewContainer');
+      if (!container) return;
+      let html = '';
+
+      uploadedPropertyImages.forEach((src, idx) => {
+        html += `
+          <div class="relative w-16 h-16 border border-borderSubtle bg-white overflow-hidden group flex-shrink-0">
+            <img src="${src}" class="w-full h-full object-cover">
+            <button type="button" onclick="removePropertyImage(${idx})" 
+                    class="absolute top-0.5 right-0.5 w-4 h-4 bg-red-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center hover:bg-red-700 leading-none shadow">
+              &times;
+            </button>
+            <span class="absolute bottom-0 inset-x-0 bg-black/60 text-white text-[8px] text-center font-mono py-0.5">Photo ${idx + 1}</span>
+          </div>
+        `;
+      });
+
+      if (uploadedPropertyVideo) {
+        html += `
+          <div class="relative w-28 h-16 border border-gold/40 bg-obsidian text-white p-1.5 flex flex-col justify-between overflow-hidden flex-shrink-0">
+            <div class="flex items-center space-x-1 text-[8px] text-gold font-bold uppercase truncate">
+              <span>&#9658; Video Tour</span>
+            </div>
+            <div class="text-[8.5px] truncate font-mono text-stoneLight">${uploadedPropertyVideo.name}</div>
+            <button type="button" onclick="removePropertyVideo()" 
+                    class="absolute top-0.5 right-0.5 w-4 h-4 bg-red-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center hover:bg-red-700 leading-none shadow">
+              &times;
+            </button>
+          </div>
+        `;
+      }
+
+      container.innerHTML = html;
+    }
+
     function toggleAddPropertyForm() {
-      document.getElementById('addPropertyForm').classList.toggle('hidden');
+      const form = document.getElementById('addPropertyForm');
+      form.classList.toggle('hidden');
+      if (form.classList.contains('hidden')) {
+        form.reset();
+        uploadedPropertyImages = [];
+        uploadedPropertyVideo = null;
+        renderMediaPreviews();
+      }
     }
 
     function handleAddPropertySubmit(e) {
       e.preventDefault();
+      const finalImages = uploadedPropertyImages.length > 0
+        ? [...uploadedPropertyImages]
+        : ['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85'];
+
       const newP = {
         id: 'rem-prop-custom-' + Date.now(),
         title: document.getElementById('newTitle').value,
@@ -1921,15 +2033,20 @@ Generated: ${new Date().toLocaleString()}
           airportDistanceKm: 35,
           walkScore: 90,
         },
-        images: ['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85'],
+        images: finalImages,
+        videoTourUrl: uploadedPropertyVideo ? uploadedPropertyVideo.url : 'https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-with-living-room-and-kitchen-42777-large.mp4',
         amenities: ['24/7 Security', 'Clubhouse', 'Private Parking', 'EV Charging']
       };
 
       propertiesList.unshift(newP);
       renderAdminListings();
       renderProperties();
+      document.getElementById('addPropertyForm').reset();
+      uploadedPropertyImages = [];
+      uploadedPropertyVideo = null;
+      renderMediaPreviews();
       toggleAddPropertyForm();
-      alert('Property successfully added to live catalog!');
+      alert('Property successfully added to live catalog with media assets!');
     }
 
     function togglePropertyStatus(id) {
