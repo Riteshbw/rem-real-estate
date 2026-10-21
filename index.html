@@ -250,17 +250,17 @@
     <div class="absolute inset-0 z-0 overflow-hidden">
       <!-- Slide 1: Modern Architectural Residence -->
       <div class="hero-slide active">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85" 
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85" 
              alt="Architecture 1" class="w-full h-full object-cover object-center filter brightness-[0.85]">
       </div>
       <!-- Slide 2: Luxury Villa & Water Pavilion -->
       <div class="hero-slide">
-        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=2000&q=85" 
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=2560&q=85" 
              alt="Architecture 2" class="w-full h-full object-cover object-center filter brightness-[0.85]">
       </div>
       <!-- Slide 3: Minimalist Concrete & Warm Wood Architecture -->
       <div class="hero-slide">
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85" 
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2560&q=85" 
              alt="Architecture 3" class="w-full h-full object-cover object-center filter brightness-[0.85]">
       </div>
 
@@ -488,7 +488,7 @@
         <!-- Left Column: Visual & Lease Details -->
         <div class="lg:col-span-5 space-y-5">
           <div class="relative h-64 sm:h-72 w-full overflow-hidden border border-charcoal">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" 
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2560&q=85" 
                  alt="Silicon Nexus" class="w-full h-full object-cover">
             <div class="absolute top-3 left-3 bg-gold text-obsidian text-[9px] font-bold uppercase tracking-widest px-3 py-1">
               9.6% Net Annual Rental Yield
@@ -1377,7 +1377,7 @@
       // Generate Cards HTML
       grid.innerHTML = filtered.map(p => {
         const isFractional = p.investment && p.investment.isFractionalPool;
-        const mainImg = p.images && p.images[0] ? p.images[0] : 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80';
+        const mainImg = p.images && p.images[0] ? p.images[0] : 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85';
 
         return `
           <div class="era-focus-item era-card bg-white border border-borderSubtle overflow-hidden flex flex-col justify-between group shadow-xs hover:shadow-xl transition-all duration-500">
@@ -1537,7 +1537,7 @@
       if (waBtn) waBtn.href = `https://wa.me/918040008000?text=Hello%20REM%20Residences,%20I%20am%20interested%20in%20inspecting%20${encodeURIComponent(p.title)}%20(ID:%20${p.id}).`;
 
       // Thumbnails and Carousel Setup
-      modalCarouselImages = p.images && p.images.length ? p.images : ['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'];
+      modalCarouselImages = p.images && p.images.length ? p.images : ['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85'];
       const thumbsContainer = document.getElementById('modalThumbs');
       if (thumbsContainer) {
         thumbsContainer.innerHTML = modalCarouselImages.map((img, idx) => `
@@ -1925,7 +1925,7 @@ Generated: ${new Date().toLocaleString()}
           airportDistanceKm: 35,
           walkScore: 90,
         },
-        images: ['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'],
+        images: ['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85'],
         amenities: ['24/7 Security', 'Clubhouse', 'Private Parking', 'EV Charging']
       };
 
