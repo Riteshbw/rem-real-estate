@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>REM Residences &amp; Estates &mdash; Contemporary Living &amp; Fractional Investments</title>
   
-  <!-- Google Fonts: Editorial Serif (Cinzel + Playfair Display) & Clean Sans (Plus Jakarta Sans) -->
+  <!-- Google Fonts: Editorial Serif (Cormorant Garamond + Playfair Display), Modern Numeric (Inter) & Clean Sans (Plus Jakarta Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -32,6 +32,8 @@
           fontFamily: {
             serif: ['"Cormorant Garamond"', '"Playfair Display"', 'Georgia', 'serif'],
             sans: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
+            mono: ['"Inter"', 'ui-monospace', 'monospace'],
+            num: ['"Inter"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
           }
         }
       }
@@ -41,12 +43,24 @@
   <style>
     :root {
       --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --font-num: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
     }
     body {
       background-color: #F9F8F5;
       color: #1C1917;
       font-family: 'Plus Jakarta Sans', sans-serif;
       overflow-x: hidden;
+    }
+
+    /* Modern numeric typography with clear digit differentiation */
+    .font-num, .font-mono, [data-num] {
+      font-family: var(--font-num);
+      font-variant-numeric: tabular-nums lining-nums;
+      font-feature-settings: "tnum" 1, "lnum" 1, "cv05" 1;
+    }
+    .font-serif {
+      font-variant-numeric: lining-nums tabular-nums;
+      font-feature-settings: "lnum" 1, "tnum" 1;
     }
     
     /* Liquid Architectural Button Hover */
@@ -822,17 +836,17 @@
           <div class="grid grid-cols-3 gap-3 text-center text-xs">
             <div class="p-3 bg-limestone border border-borderSubtle">
               <span class="text-stone text-[9px] uppercase tracking-wider block">Nearest Metro</span>
-              <span id="modalMetro" class="font-serif text-base font-bold text-obsidian block mt-0.5">0.4 km</span>
+              <span id="modalMetro" class="font-num text-base font-bold text-obsidian block mt-0.5">0.4 km</span>
               <span class="text-[9px] text-stone">Purple / Blue Line</span>
             </div>
             <div class="p-3 bg-limestone border border-borderSubtle">
               <span class="text-stone text-[9px] uppercase tracking-wider block">Airport (KIA)</span>
-              <span id="modalAirport" class="font-serif text-base font-bold text-obsidian block mt-0.5">38 km</span>
+              <span id="modalAirport" class="font-num text-base font-bold text-obsidian block mt-0.5">38 km</span>
               <span class="text-[9px] text-stone">Direct Express Corridor</span>
             </div>
             <div class="p-3 bg-limestone border border-borderSubtle">
               <span class="text-stone text-[9px] uppercase tracking-wider block">Walk Score</span>
-              <span id="modalWalkScore" class="font-serif text-base font-bold text-emerald-700 block mt-0.5">94 / 100</span>
+              <span id="modalWalkScore" class="font-num text-base font-bold text-emerald-700 block mt-0.5">94 / 100</span>
               <span class="text-[9px] text-stone">Pedestrian Friendly</span>
             </div>
           </div>
@@ -1054,19 +1068,19 @@
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center mb-8">
         <div class="p-3 bg-limestone border border-borderSubtle">
           <span class="text-stone text-[9px] uppercase tracking-wider block">Inventory Value</span>
-          <span class="font-serif text-lg font-bold text-obsidian block mt-0.5">&#8377;84.5 Cr</span>
+          <span class="font-num text-lg font-bold text-obsidian block mt-0.5">&#8377;84.5 Cr</span>
         </div>
         <div class="p-3 bg-limestone border border-borderSubtle">
           <span class="text-stone text-[9px] uppercase tracking-wider block">Active Listings</span>
-          <span id="adminListingsCount" class="font-serif text-lg font-bold text-obsidian block mt-0.5">13</span>
+          <span id="adminListingsCount" class="font-num text-lg font-bold text-obsidian block mt-0.5">13</span>
         </div>
         <div class="p-3 bg-limestone border border-borderSubtle">
           <span class="text-stone text-[9px] uppercase tracking-wider block">Site Visits Booked</span>
-          <span id="adminVisitsCount" class="font-serif text-lg font-bold text-emerald-700 block mt-0.5">0</span>
+          <span id="adminVisitsCount" class="font-num text-lg font-bold text-emerald-700 block mt-0.5">0</span>
         </div>
         <div class="p-3 bg-limestone border border-borderSubtle">
           <span class="text-stone text-[9px] uppercase tracking-wider block">Syndicate Pledges</span>
-          <span id="adminInvestCount" class="font-serif text-lg font-bold text-gold block mt-0.5">0</span>
+          <span id="adminInvestCount" class="font-num text-lg font-bold text-gold block mt-0.5">0</span>
         </div>
       </div>
 
