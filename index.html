@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>REM Residences &amp; Estates &mdash; Contemporary Living &amp; Fractional Investments</title>
   
-  <!-- Google Fonts: Editorial Luxury (Instrument Serif) & Modern Sans/Numeric (Inter) -->
+  <!-- Google Fonts: Editorial Serif (Cormorant Garamond + Playfair Display), Modern Numeric (Inter) & Clean Sans (Plus Jakarta Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -30,8 +30,8 @@
             canvas: '#FAF9F6',
           },
           fontFamily: {
-            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
-            sans: ['"Inter"', '-apple-system', 'sans-serif'],
+            serif: ['"Cormorant Garamond"', '"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
             mono: ['"Inter"', 'ui-monospace', 'monospace'],
             num: ['"Inter"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
           }
@@ -43,14 +43,12 @@
   <style>
     :root {
       --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-      --font-serif: 'Instrument Serif', Georgia, serif;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       --font-num: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
     }
     body {
       background-color: #F9F8F5;
       color: #1C1917;
-      font-family: var(--font-sans);
+      font-family: 'Plus Jakarta Sans', sans-serif;
       overflow-x: hidden;
     }
 
@@ -730,100 +728,84 @@
         &times;
       </button>
 
+      <!-- Dossier Image Presentation (Centered container, controlled height & aspect ratio - not stretched horizontally) -->
+      <div class="max-w-4xl mx-auto px-4 sm:px-8 pt-6">
+        <div id="modalImgWrapper" class="relative w-full h-64 sm:h-80 md:h-[420px] bg-obsidian overflow-hidden group border border-borderSubtle">
+          <img id="modalMainImg" src="" alt="Property" class="w-full h-full object-cover modal-img-enter">
+          <!-- Left Arrow -->
+          <button onclick="modalCarouselPrev()" class="modal-arrow absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/85 transition-all backdrop-blur-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <!-- Right Arrow -->
+          <button onclick="modalCarouselNext()" class="modal-arrow absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/85 transition-all backdrop-blur-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+          <!-- Image Counter -->
+          <div class="absolute bottom-3 right-3 z-20 bg-black/60 text-white text-[10px] font-bold px-2.5 py-0.5 backdrop-blur-sm rounded-full">
+            <span id="modalImgCounter">1 / 1</span>
+          </div>
+          <!-- Category Badge -->
+          <div class="absolute top-3 left-3 z-20">
+            <span id="modalCategoryBadge" class="bg-obsidian/90 text-white text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 backdrop-blur-sm"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thumbnail Strip -->
+      <div class="max-w-4xl mx-auto px-4 sm:px-8 py-3">
+        <div id="modalThumbs" class="flex space-x-2 overflow-x-auto pb-1">
+          <!-- Thumbnails injected via JS -->
+        </div>
+      </div>
+
       <!-- Modal Body Content -->
-      <div class="max-w-6xl mx-auto px-4 sm:px-8 py-8 space-y-8">
+      <div class="max-w-4xl mx-auto px-4 sm:px-8 pb-12 space-y-8">
         
-        <!-- Two-Column Dossier Presentation: Image Carousel Flush With Description Column -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          <!-- Image Column (Fixed aspect ratio, object-fit cover, flush with details) -->
-          <div class="lg:col-span-7 space-y-3">
-            <div id="modalImgWrapper" class="relative w-full aspect-[16/10] max-h-[460px] bg-obsidian overflow-hidden group border border-borderSubtle">
-              <img id="modalMainImg" src="" alt="Property" class="w-full h-full object-cover modal-img-enter">
-              <!-- Left Arrow -->
-              <button onclick="modalCarouselPrev()" class="modal-arrow absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/85 transition-all backdrop-blur-sm">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-              </button>
-              <!-- Right Arrow -->
-              <button onclick="modalCarouselNext()" class="modal-arrow absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/85 transition-all backdrop-blur-sm">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-              </button>
-              <!-- Image Counter -->
-              <div class="absolute bottom-3 right-3 z-20 bg-black/60 text-white text-[10px] font-bold px-2.5 py-0.5 backdrop-blur-sm rounded-full">
-                <span id="modalImgCounter">1 / 1</span>
-              </div>
-              <!-- Category Badge -->
-              <div class="absolute top-3 left-3 z-20">
-                <span id="modalCategoryBadge" class="bg-obsidian/90 text-white text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 backdrop-blur-sm"></span>
-              </div>
-            </div>
+        <!-- Title & Pricing Strip -->
+        <div class="flex flex-col sm:flex-row sm:items-start justify-between border-b border-borderSubtle pb-6 gap-4">
+          <div>
+            <div id="modalDeveloper" class="text-xs uppercase tracking-widest text-gold font-bold"></div>
+            <h2 id="modalTitle" class="font-serif text-3xl sm:text-4xl font-bold text-obsidian mt-1 leading-tight"></h2>
+            <div id="modalLocation" class="text-xs text-stone mt-1.5 flex items-center space-x-1"></div>
+          </div>
+          <div class="text-left sm:text-right flex-shrink-0">
+            <div class="text-[10px] uppercase tracking-wider text-stone">All-Inclusive Price</div>
+            <div id="modalPrice" class="font-num text-3xl sm:text-4xl font-bold text-obsidian"></div>
+            <div id="modalPricePerSqFt" class="text-xs text-stone mt-0.5 font-mono"></div>
+          </div>
+        </div>
 
-            <!-- Thumbnail Strip Flush Under Image -->
-            <div id="modalThumbs" class="flex space-x-2 overflow-x-auto pb-1">
-              <!-- Thumbnails injected via JS -->
+        <!-- Architectural Specifications Table -->
+        <div>
+          <h4 class="font-serif text-sm font-bold uppercase tracking-wider text-obsidian mb-3">Architectural Specifications</h4>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+            <div class="bg-limestone p-3 border border-borderSubtle">
+              <span class="text-stone text-[9px] uppercase tracking-wider block">Carpet Area</span>
+              <span id="modalCarpetArea" class="font-num font-bold text-obsidian text-sm block mt-0.5"></span>
+              <span id="modalEfficiency" class="text-[10px] text-emerald-700 font-semibold block"></span>
+            </div>
+            <div class="bg-limestone p-3 border border-borderSubtle">
+              <span class="text-stone text-[9px] uppercase tracking-wider block">Super Built-Up Area</span>
+              <span id="modalSuperBuiltUp" class="font-num font-bold text-obsidian text-sm block mt-0.5"></span>
+              <span class="text-[10px] text-stone block">Common Space Share</span>
+            </div>
+            <div class="bg-limestone p-3 border border-borderSubtle">
+              <span class="text-stone text-[9px] uppercase tracking-wider block">Configuration / BHK</span>
+              <span id="modalBhk" class="font-bold text-obsidian text-sm block mt-0.5"></span>
+              <span id="modalFacing" class="text-[10px] text-stone block">East Facing</span>
+            </div>
+            <div class="bg-limestone p-3 border border-borderSubtle">
+              <span class="text-stone text-[9px] uppercase tracking-wider block">Possession Status</span>
+              <span id="modalPossession" class="font-bold text-obsidian text-sm block mt-0.5"></span>
+              <span id="modalFloorLevel" class="text-[10px] text-stone block">Floor Level</span>
             </div>
           </div>
+        </div>
 
-          <!-- Description & Architectural Specifications Column -->
-          <div class="lg:col-span-5 flex flex-col space-y-5">
-            
-            <!-- Title & Pricing Strip -->
-            <div class="border-b border-borderSubtle pb-4">
-              <div id="modalDeveloper" class="text-xs uppercase tracking-widest text-gold font-bold"></div>
-              <h2 id="modalTitle" class="font-serif text-2xl sm:text-3xl font-bold text-obsidian mt-1 leading-tight"></h2>
-              <div id="modalLocation" class="text-xs text-stone mt-1.5 flex items-center space-x-1"></div>
-              <div class="mt-4 pt-3 border-t border-borderSubtle/60 flex items-baseline justify-between">
-                <div>
-                  <div class="text-[9px] uppercase tracking-wider text-stone">All-Inclusive Price</div>
-                  <div id="modalPrice" class="font-num text-2xl sm:text-3xl font-bold text-obsidian"></div>
-                </div>
-                <div id="modalPricePerSqFt" class="text-xs text-stone font-mono"></div>
-              </div>
-            </div>
-
-            <!-- Curated Overview Description -->
-            <div>
-              <h4 class="font-serif text-xs font-bold uppercase tracking-wider text-obsidian mb-1.5">Curated Overview</h4>
-              <p id="modalDescription" class="text-xs sm:text-sm text-charcoal/90 leading-relaxed"></p>
-            </div>
-
-            <!-- Architectural Specifications Table -->
-            <div class="grid grid-cols-2 gap-2 text-xs">
-              <div class="bg-limestone p-2.5 border border-borderSubtle">
-                <span class="text-stone text-[9px] uppercase tracking-wider block">Carpet Area</span>
-                <span id="modalCarpetArea" class="font-num font-bold text-obsidian text-sm block mt-0.5"></span>
-                <span id="modalEfficiency" class="text-[10px] text-emerald-700 font-semibold block"></span>
-              </div>
-              <div class="bg-limestone p-2.5 border border-borderSubtle">
-                <span class="text-stone text-[9px] uppercase tracking-wider block">Super Built-Up</span>
-                <span id="modalSuperBuiltUp" class="font-num font-bold text-obsidian text-sm block mt-0.5"></span>
-                <span class="text-[10px] text-stone block">Common Space Share</span>
-              </div>
-              <div class="bg-limestone p-2.5 border border-borderSubtle">
-                <span class="text-stone text-[9px] uppercase tracking-wider block">Configuration</span>
-                <span id="modalBhk" class="font-bold text-obsidian text-sm block mt-0.5"></span>
-                <span id="modalFacing" class="text-[10px] text-stone block">East Facing</span>
-              </div>
-              <div class="bg-limestone p-2.5 border border-borderSubtle">
-                <span class="text-stone text-[9px] uppercase tracking-wider block">Possession</span>
-                <span id="modalPossession" class="font-bold text-obsidian text-sm block mt-0.5"></span>
-                <span id="modalFloorLevel" class="text-[10px] text-stone block">Floor Level</span>
-              </div>
-            </div>
-
-            <!-- Quick Action Links -->
-            <div class="flex items-center space-x-2 pt-1">
-              <a id="modalWhatsAppBtn" href="#" target="_blank" class="flex-1 py-2.5 text-xs font-bold uppercase tracking-wider bg-[#25D366] text-white hover:bg-[#1ebe5a] transition-colors flex items-center justify-center space-x-2 text-center">
-                <svg class="w-4 h-4" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                <span>Chat with Developer</span>
-              </a>
-              <button onclick="openSiteVisitModal()" class="px-4 py-2.5 text-xs font-bold uppercase tracking-wider bg-gold text-obsidian border border-gold hover:bg-goldDark transition-colors">
-                Tour
-              </button>
-            </div>
-
-          </div>
-
+        <!-- Curated Overview Description -->
+        <div>
+          <h4 class="font-serif text-sm font-bold uppercase tracking-wider text-obsidian mb-2">Curated Overview</h4>
+          <p id="modalDescription" class="text-xs sm:text-sm text-charcoal/90 leading-relaxed"></p>
         </div>
 
         <!-- Pros & Considerations -->
