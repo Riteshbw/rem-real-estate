@@ -8,7 +8,7 @@
   <!-- Google Fonts: Editorial Serif (Cinzel + Playfair Display) & Clean Sans (Plus Jakarta Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -30,7 +30,7 @@
             canvas: '#FAF9F6',
           },
           fontFamily: {
-            serif: ['Cinzel', 'Playfair Display', 'Georgia', 'serif'],
+            serif: ['"Cormorant Garamond"', '"Playfair Display"', 'Georgia', 'serif'],
             sans: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
           }
         }
@@ -173,7 +173,7 @@
   <!-- ==================== TOP ARCHITECTURAL ANNOUNCEMENT ==================== -->
   <div class="bg-obsidian text-canvas py-2 px-4 text-center text-xs tracking-widest uppercase font-medium flex items-center justify-center space-x-4 border-b border-charcoal/40">
     <span class="inline-block w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
-    <span>Direct-to-Developer Platform &bull; 100% RERA Certified &bull; 0% Brokerage Overhead</span>
+    <span>Direct-to-Developer Platform &bull; Verified Luxury Residences &bull; Bangalore Prime Corridors</span>
     <span class="hidden md:inline text-stone">&bull;</span>
     <span class="hidden md:inline text-gold">Grade-A Bangalore Prime Asset Portfolios</span>
   </div>
@@ -183,7 +183,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Brand Logo (Aesthetically Aligned Luxury Emblem) -->
-      <a href="#" class="flex items-center space-x-3.5 group">
+      <a href="#" class="flex items-center space-x-3.5 group flex-shrink-0">
         <div class="w-10 h-10 border border-obsidian/25 bg-white flex items-center justify-center font-serif text-lg font-bold text-obsidian tracking-wider shadow-xs group-hover:border-gold group-hover:text-gold transition-colors duration-400">
           R
         </div>
@@ -193,8 +193,8 @@
         </div>
       </a>
 
-      <!-- Clean Primary Navigation Links (De-cluttered, No Clipping) -->
-      <nav class="hidden md:flex items-center space-x-10 text-xs font-semibold uppercase tracking-widest text-obsidian/85">
+      <!-- Clean Primary Navigation Links -->
+      <nav class="hidden md:flex items-center gap-10 text-xs font-semibold uppercase tracking-widest text-obsidian/85">
         <a href="#collection" class="group relative py-2 text-obsidian/80 hover:text-obsidian transition-colors">
           <span>The Collection</span>
           <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
@@ -205,28 +205,23 @@
         </a>
       </nav>
 
-      <!-- Right Action Controls (Balanced & Refined) -->
-      <div class="flex items-center space-x-3 sm:space-x-5">
-        
-        <!-- Wishlist / Shortlist Heart Trigger -->
-        <button id="savedTriggerBtn" class="relative p-2 text-obsidian/80 hover:text-gold transition-colors" title="Shortlisted Residences">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-          <span id="savedBadge" class="hidden absolute -top-1 -right-1 w-4 h-4 rounded-full bg-gold text-obsidian text-[9px] font-bold flex items-center justify-center shadow-xs">0</span>
+      <!-- Right Action Controls -->
+      <div class="flex items-center gap-3 sm:gap-4">
+
+        <!-- User Sign In — minimal rectangle with hover fill -->
+        <button id="authBtn" onclick="openAuthModal()" class="relative group text-xs font-semibold uppercase tracking-widest border border-obsidian/40 text-obsidian/85 hover:border-obsidian hover:text-obsidian transition-all duration-300 py-1.5 px-3.5 overflow-hidden">
+          <span class="absolute inset-0 bg-obsidian scale-y-0 origin-bottom group-hover:scale-y-100 transition-transform duration-300 ease-out z-0"></span>
+          <span id="authBtnText" class="relative z-10 group-hover:text-white transition-colors duration-300">Sign In</span>
         </button>
 
-        <!-- User Sign In / Profile Button -->
-        <button id="authBtn" onclick="openAuthModal()" class="text-xs font-semibold uppercase tracking-wider text-obsidian/85 hover:text-gold transition-colors py-1 px-2.5">
-          <span id="authBtnText">Sign In</span>
-        </button>
-
-        <!-- Discrete Admin Lock Icon (Subtle & Unobtrusive for Normal Users) -->
-        <button onclick="openAdminAuthModal()" class="p-1.5 text-stone/35 hover:text-obsidian transition-colors" title="Administrative Access">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-        </button>
-
-        <!-- Contact Us Action Button (Renamed & Styled) -->
+        <!-- Contact Us Action Button -->
         <button id="conciergeBtn" class="btn-era px-5 py-2.5 text-xs font-semibold tracking-widest uppercase border border-obsidian text-obsidian bg-white hover:text-white transition-all">
           <span>Contact Us</span>
+        </button>
+
+        <!-- Discrete Admin Access — tiny barely-visible trigger, far right -->
+        <button onclick="openAdminAuthModal()" class="p-1 text-stone/20 hover:text-stone/60 transition-colors duration-500" title="Admin" aria-label="Admin Access">
+          <svg class="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3"/></svg>
         </button>
 
       </div>
@@ -264,53 +259,23 @@
     <div class="relative z-20 max-w-7xl mx-auto w-full pt-4">
       <div class="inline-flex items-center space-x-2.5 px-3.5 py-1.5 border border-white/20 bg-black/40 backdrop-blur-md text-[10px] font-bold tracking-[0.25em] uppercase text-goldLight shadow-sm">
         <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
-        <span>Bangalore Curated Living &bull; Zero Brokerage Direct Desk</span>
+        <span>Bangalore Curated Living &bull; Direct Developer Access</span>
       </div>
     </div>
 
-    <!-- Hero Main Typography Headline & Search Panel -->
-    <div class="relative z-20 max-w-7xl mx-auto w-full my-auto py-12">
-      <div class="max-w-3xl">
-        <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] drop-shadow-md">
-          Curated Living.<br>
-          <span class="italic font-normal font-serif text-goldLight">Uncompromising</span> Architecture.
-        </h1>
-        <p class="mt-6 text-sm sm:text-base text-stoneLight font-normal leading-relaxed max-w-2xl drop-shadow-sm">
-          An exclusive architectural platform connecting discerning buyers directly with verified luxury residences, gated villa estates, and commercial co-investment syndicates across prime Bengaluru corridors.
-        </p>
-
-        <!-- Dark Glassmorphism Quick Search Box -->
-        <div class="mt-8 bg-black/60 backdrop-blur-xl border border-white/15 p-4 sm:p-5 shadow-2xl max-w-2xl">
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div>
-              <label class="block text-[9px] uppercase tracking-widest font-bold text-stoneLight mb-1.5">Micro-Market Corridor</label>
-              <select id="heroLocationSelect" class="w-full text-xs bg-white/10 border border-white/20 p-2.5 font-medium text-white focus:outline-none focus:border-gold">
-                <option value="all" class="text-obsidian bg-white">All Prime Corridors</option>
-                <option value="South Bengaluru" class="text-obsidian bg-white">South Bengaluru (Indiranagar, Koramangala)</option>
-                <option value="North Bengaluru" class="text-obsidian bg-white">North Bengaluru (Hebbal, Airport)</option>
-                <option value="Central" class="text-obsidian bg-white">Central CBD (Lavelle, MG Road)</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-[9px] uppercase tracking-widest font-bold text-stoneLight mb-1.5">Asset Typology</label>
-              <select id="heroTypeSelect" class="w-full text-xs bg-white/10 border border-white/20 p-2.5 font-medium text-white focus:outline-none focus:border-gold">
-                <option value="all" class="text-obsidian bg-white">All Typologies</option>
-                <option value="Apartment" class="text-obsidian bg-white">Luxury Apartments</option>
-                <option value="Villa" class="text-obsidian bg-white">Gated Villa Mansions</option>
-                <option value="Penthouse" class="text-obsidian bg-white">Sky Penthouses</option>
-                <option value="Commercial" class="text-obsidian bg-white">Commercial Tech Floors</option>
-                <option value="Plot" class="text-obsidian bg-white">Gated Estate Plots</option>
-              </select>
-            </div>
-            <div class="flex items-end">
-              <button onclick="applyHeroSearch()" class="btn-era-gold w-full py-2.5 bg-gold text-obsidian text-xs font-bold uppercase tracking-widest border border-gold text-center transition-all">
-                Explore Assets
-              </button>
-            </div>
-          </div>
-        </div>
-
-      </div>
+    <!-- Hero Main Typography — Centered & Aesthetic -->
+    <div class="relative z-20 max-w-7xl mx-auto w-full my-auto py-12 flex flex-col items-center text-center">
+      <h1 class="font-serif text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-tight text-white leading-[1.06] drop-shadow-md max-w-4xl">
+        Curated Living.<br>
+        <span class="italic font-normal text-goldLight">Uncompromising</span> Architecture.
+      </h1>
+      <p class="mt-8 text-sm sm:text-base text-stoneLight/90 font-normal leading-relaxed max-w-2xl drop-shadow-sm">
+        An exclusive architectural platform connecting discerning buyers directly with verified luxury residences, gated villa estates, and commercial co-investment syndicates across prime Bengaluru corridors.
+      </p>
+      <a href="#collection" class="mt-10 btn-era-gold inline-flex items-center space-x-2 px-8 py-3.5 bg-gold text-obsidian text-xs font-bold uppercase tracking-widest border border-gold transition-all">
+        <span>Explore The Collection</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </a>
     </div>
 
     <!-- Hero Bottom Live Metrics Strip -->
@@ -318,9 +283,9 @@
       <div class="flex items-center space-x-6 text-stoneLight font-medium">
         <div><strong class="text-white font-serif text-sm">13</strong> Verified Bangalore Assets</div>
         <div class="hidden sm:inline text-white/30">&bull;</div>
-        <div><strong class="text-white font-serif text-sm">100%</strong> RERA Statutory Clearances</div>
+        <div><strong class="text-white font-serif text-sm">Direct</strong> Developer Access</div>
         <div class="hidden sm:inline text-white/30">&bull;</div>
-        <div><strong class="text-white font-serif text-sm">&#8377;0</strong> Brokerage Overhead</div>
+        <div><strong class="text-white font-serif text-sm">Zero</strong> Brokerage Desk</div>
       </div>
       <div class="flex items-center space-x-3 text-[11px] text-stoneLight/80">
         <span>Indiranagar &bull; Lavelle Road &bull; Koramangala &bull; Whitefield</span>
@@ -338,7 +303,7 @@
         <div class="text-[10px] uppercase tracking-[0.25em] text-gold font-bold mb-2">Curated Portfolio</div>
         <h2 class="font-serif text-3xl sm:text-4xl font-bold text-obsidian tracking-tight">The Architectural Collection</h2>
         <p class="text-xs sm:text-sm text-stone mt-2 max-w-xl">
-          Verified dossiers featuring carpet area efficiency indices, statutory RERA credentials, and direct developer connection.
+          Verified dossiers featuring carpet area efficiency indices, direct developer connections, and transparent pricing.
         </p>
       </div>
       <div class="flex items-center space-x-3 text-xs text-stone">
@@ -424,7 +389,7 @@
         <div>
           <label class="block text-[9px] uppercase tracking-widest font-bold text-stone mb-1.5">Sort Order</label>
           <select id="sortSelect" class="w-full text-xs bg-limestone border border-borderSubtle p-2.5 font-medium text-obsidian focus:outline-none focus:border-obsidian">
-            <option value="score_desc">Highest Peace of Mind Score</option>
+            <option value="score_desc">Best Match</option>
             <option value="price_asc">Price: Low to High</option>
             <option value="price_desc">Price: High to Low</option>
             <option value="area_desc">Largest Carpet Area</option>
@@ -634,19 +599,19 @@
           </div>
         </div>
 
-        <!-- Pillar 02: Statutory RERA Verification & Spatial Efficiency -->
+        <!-- Pillar 02: Verified Documentation & Spatial Efficiency -->
         <div class="p-8 bg-white border border-borderSubtle shadow-xs hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
           <div>
             <div class="w-12 h-12 border border-obsidian/20 bg-limestone flex items-center justify-center font-serif text-base font-bold text-obsidian mb-6">
               02
             </div>
-            <h3 class="font-serif text-lg font-bold text-obsidian leading-snug">Statutory RERA Verification &amp; Spatial Efficiency</h3>
+            <h3 class="font-serif text-lg font-bold text-obsidian leading-snug">Verified Documentation &amp; Spatial Efficiency</h3>
             <p class="text-xs text-stone mt-3 leading-relaxed">
-              Eradicates listing fraud and duplicate postings by enforcing authenticated Karnataka RERA registration credentials (<span class="font-mono text-[10px] text-obsidian">PRM/KA/RERA/...</span>) and verified title deeds. Every listing mandates transparent carpet area efficiency scoring (up to 88% usable spatial ratio).
+              Eradicates listing ambiguity and duplicate postings by enforcing authenticated statutory title deeds and structural engineering clearances. Every listing mandates transparent carpet area efficiency scoring (up to 88% usable spatial ratio).
             </p>
           </div>
           <div class="mt-8 pt-4 border-t border-borderSubtle text-[10px] font-bold text-gold uppercase tracking-widest flex items-center justify-between">
-            <span>100% RERA Certified</span>
+            <span>Verified Title Deeds</span>
             <span>&bull; Usable Space Index</span>
           </div>
         </div>
@@ -711,7 +676,7 @@
         <div>
           <h4 class="font-serif text-xs font-bold uppercase tracking-widest text-gold mb-3">Platform &amp; Legal</h4>
           <p class="text-stoneLight leading-relaxed">
-            100% RERA Certified Listings. Zero Brokerage Guarantee. All statutory clearances verified directly with Karnataka Real Estate Regulatory Authority.
+            Direct Developer Platform. Transparent Pricing. All statutory clearances and architectural blueprints verified directly.
           </p>
           <div class="mt-4">
             <a href="https://github.com/riteshbw/rem-real-estate" target="_blank" class="inline-flex items-center space-x-1.5 text-gold hover:underline">
@@ -725,63 +690,77 @@
 
       <div class="pt-8 text-center text-stone text-[11px] flex flex-col sm:flex-row items-center justify-between gap-2">
         <div>&copy; 2026 REM Residences &amp; Estates. All rights reserved.</div>
-        <div>Karnataka RERA: PRM/KA/RERA/1251/310/PR/240101/006421</div>
       </div>
     </div>
   </footer>
 
-  <!-- ==================== PROPERTY DOSSIER DETAIL MODAL ==================== -->
-  <div id="propertyModal" class="fixed inset-0 z-50 modal-backdrop hidden overflow-y-auto flex items-center justify-center p-4 sm:p-6">
-    <div class="relative bg-white border border-borderSubtle max-w-4xl w-full max-h-[92vh] overflow-y-auto shadow-2xl">
+  <!-- ==================== PROPERTY DOSSIER DETAIL MODAL (FULL-SCREEN) ==================== -->
+  <style>
+    /* Dossier Image Carousel */
+    @keyframes modalImgFadeIn {
+      from { opacity: 0; transform: scale(1.04); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    #modalMainImg {
+      transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.25,1,0.5,1);
+    }
+    .modal-img-enter {
+      animation: modalImgFadeIn 0.7s cubic-bezier(0.25,1,0.5,1) both;
+    }
+    /* Arrow buttons fade in on hover */
+    #modalImgWrapper:hover .modal-arrow { opacity: 1; }
+    .modal-arrow { opacity: 0; transition: opacity 0.3s; }
+  </style>
+
+  <div id="propertyModal" class="fixed inset-0 z-50 modal-backdrop hidden overflow-y-auto flex items-start justify-center">
+    <div class="relative bg-white w-full min-h-screen shadow-2xl">
       
       <!-- Modal Close Button -->
-      <button onclick="closePropertyModal()" class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-obsidian text-canvas flex items-center justify-center text-sm font-bold hover:bg-gold transition-colors">
+      <button onclick="closePropertyModal()" class="fixed top-5 right-5 z-30 w-9 h-9 rounded-full bg-obsidian text-canvas flex items-center justify-center text-sm font-bold hover:bg-gold transition-colors shadow-lg">
         &times;
       </button>
 
-      <!-- Modal Gallery & Header -->
-      <div class="relative">
-        <!-- Main Image -->
-        <div class="relative h-72 sm:h-96 w-full bg-limestone overflow-hidden">
-          <img id="modalMainImg" src="" alt="Property" class="w-full h-full object-cover">
-          <div class="absolute top-4 left-4 flex flex-wrap gap-2 z-10">
-            <span id="modalCategoryBadge" class="bg-obsidian/90 text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 backdrop-blur-sm"></span>
-            <span id="modalReraBadge" class="bg-emerald-800 text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1"></span>
-            <span class="bg-white/90 text-obsidian text-[9px] font-bold uppercase tracking-widest px-3 py-1">0% Brokerage</span>
-          </div>
+      <!-- Full-Width Image Carousel -->
+      <div id="modalImgWrapper" class="relative w-full h-[55vh] sm:h-[65vh] bg-obsidian overflow-hidden group">
+        <img id="modalMainImg" src="" alt="Property" class="w-full h-full object-cover modal-img-enter">
+        <!-- Left Arrow -->
+        <button onclick="modalCarouselPrev()" class="modal-arrow absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/80 transition-all backdrop-blur-sm">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <!-- Right Arrow -->
+        <button onclick="modalCarouselNext()" class="modal-arrow absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/80 transition-all backdrop-blur-sm">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+        <!-- Image Counter -->
+        <div class="absolute bottom-4 right-4 z-20 bg-black/50 text-white text-[11px] font-bold px-3 py-1 backdrop-blur-sm rounded-full">
+          <span id="modalImgCounter">1 / 1</span>
         </div>
-
-        <!-- Gallery / Floor Plan Toggle Tabs & Thumbnails -->
-        <div class="p-4 bg-limestone border-b border-borderSubtle flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div id="modalThumbs" class="flex space-x-2 overflow-x-auto max-w-full pb-1">
-            <!-- Thumbnails injected via JS -->
-          </div>
-          <div class="inline-flex border border-borderSubtle bg-white text-xs font-semibold uppercase tracking-wider p-0.5">
-            <button id="modalTabGallery" onclick="setModalTab('gallery')" class="px-3 py-1 bg-obsidian text-canvas font-bold">Photos</button>
-            <button id="modalTabFloorPlan" onclick="setModalTab('floorplan')" class="px-3 py-1 text-stone hover:text-obsidian">RERA Layout</button>
-          </div>
+        <!-- Category Badge -->
+        <div class="absolute top-4 left-4 z-20">
+          <span id="modalCategoryBadge" class="bg-obsidian/90 text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 backdrop-blur-sm"></span>
         </div>
+      </div>
 
-        <!-- Floor Plan Overlay (Hidden by default) -->
-        <div id="modalFloorPlanContainer" class="hidden p-6 bg-white border-b border-borderSubtle text-center">
-          <img id="modalFloorPlanImg" src="" alt="Floor Plan" class="max-h-80 mx-auto object-contain border border-borderSubtle">
-          <span class="text-[10px] text-stone mt-2 block">Statutory RERA Architectural Layout &bull; Usable Carpet Area Certified</span>
+      <!-- Thumbnail Strip -->
+      <div class="bg-limestone border-b border-borderSubtle px-4 sm:px-8 py-3">
+        <div id="modalThumbs" class="flex space-x-2 overflow-x-auto pb-1">
+          <!-- Thumbnails injected via JS -->
         </div>
       </div>
 
       <!-- Modal Body Content -->
-      <div class="p-6 sm:p-8 space-y-8">
+      <div class="max-w-5xl mx-auto px-4 sm:px-8 py-8 space-y-8">
         
         <!-- Title & Pricing Strip -->
         <div class="flex flex-col sm:flex-row sm:items-start justify-between border-b border-borderSubtle pb-6 gap-4">
           <div>
             <div id="modalDeveloper" class="text-xs uppercase tracking-widest text-gold font-bold"></div>
-            <h2 id="modalTitle" class="font-serif text-2xl sm:text-3xl font-bold text-obsidian mt-1"></h2>
+            <h2 id="modalTitle" class="font-serif text-3xl sm:text-4xl font-bold text-obsidian mt-1"></h2>
             <div id="modalLocation" class="text-xs text-stone mt-1.5 flex items-center space-x-1"></div>
           </div>
           <div class="text-left sm:text-right flex-shrink-0">
             <div class="text-[10px] uppercase tracking-wider text-stone">All-Inclusive Price</div>
-            <div id="modalPrice" class="font-serif text-2xl sm:text-3xl font-bold text-obsidian"></div>
+            <div id="modalPrice" class="font-serif text-3xl sm:text-4xl font-bold text-obsidian"></div>
             <div id="modalPricePerSqFt" class="text-xs text-stone mt-0.5 font-medium"></div>
           </div>
         </div>
@@ -791,7 +770,7 @@
           <h4 class="font-serif text-sm font-bold uppercase tracking-wider text-obsidian mb-3">Architectural Specifications</h4>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
             <div class="bg-limestone p-3 border border-borderSubtle">
-              <span class="text-stone text-[9px] uppercase tracking-wider block">RERA Carpet Area</span>
+              <span class="text-stone text-[9px] uppercase tracking-wider block">Carpet Area</span>
               <span id="modalCarpetArea" class="font-bold text-obsidian text-sm block mt-0.5"></span>
               <span id="modalEfficiency" class="text-[10px] text-emerald-700 font-semibold block"></span>
             </div>
@@ -817,56 +796,6 @@
         <div>
           <h4 class="font-serif text-sm font-bold uppercase tracking-wider text-obsidian mb-2">Curated Overview</h4>
           <p id="modalDescription" class="text-xs sm:text-sm text-charcoal/90 leading-relaxed"></p>
-        </div>
-
-        <!-- Peace of Mind Score Breakdown -->
-        <div class="bg-limestone p-5 border border-borderSubtle space-y-4">
-          <div class="flex items-center justify-between border-b border-borderSubtle pb-2">
-            <div class="flex items-center space-x-2">
-              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clip-rule="evenodd"/></svg>
-              <h4 class="font-serif text-xs font-bold uppercase tracking-wider text-obsidian">Peace of Mind Rating</h4>
-            </div>
-            <span id="modalOverallScore" class="font-serif text-lg font-bold text-gold">97 / 100</span>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-            <div>
-              <div class="flex justify-between text-[11px] mb-1">
-                <span class="text-stone">Builder Credibility</span>
-                <span id="scoreBuilder" class="font-bold text-obsidian">98%</span>
-              </div>
-              <div class="w-full bg-borderSubtle h-1.5 rounded-full overflow-hidden">
-                <div id="barBuilder" class="bg-obsidian h-full rounded-full" style="width: 98%;"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between text-[11px] mb-1">
-                <span class="text-stone">Legal Clearance (RERA)</span>
-                <span id="scoreLegal" class="font-bold text-obsidian">99%</span>
-              </div>
-              <div class="w-full bg-borderSubtle h-1.5 rounded-full overflow-hidden">
-                <div id="barLegal" class="bg-emerald-700 h-full rounded-full" style="width: 99%;"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between text-[11px] mb-1">
-                <span class="text-stone">Carpet Efficiency</span>
-                <span id="scoreEfficiency" class="font-bold text-obsidian">95%</span>
-              </div>
-              <div class="w-full bg-borderSubtle h-1.5 rounded-full overflow-hidden">
-                <div id="barEfficiency" class="bg-gold h-full rounded-full" style="width: 95%;"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between text-[11px] mb-1">
-                <span class="text-stone">Capital Appreciation Potential</span>
-                <span id="scoreAppreciation" class="font-bold text-obsidian">96%</span>
-              </div>
-              <div class="w-full bg-borderSubtle h-1.5 rounded-full overflow-hidden">
-                <div id="barAppreciation" class="bg-obsidian h-full rounded-full" style="width: 96%;"></div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- Pros & Considerations -->
@@ -928,8 +857,9 @@
             </button>
           </div>
           <div class="flex items-center space-x-2">
-            <a id="modalWhatsAppBtn" href="#" target="_blank" class="px-4 py-2.5 text-xs font-bold uppercase tracking-wider bg-emerald-700 text-white hover:bg-emerald-800 transition-colors flex items-center space-x-1.5">
-              <span>WhatsApp Developer</span>
+            <a id="modalWhatsAppBtn" href="#" target="_blank" class="px-4 py-2.5 text-xs font-bold uppercase tracking-wider bg-[#25D366] text-white hover:bg-[#1ebe5a] transition-colors flex items-center space-x-2">
+              <svg class="w-4 h-4" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Chat with Developer</span>
             </a>
             <a href="tel:+918040008000" class="p-2.5 border border-borderSubtle bg-white text-obsidian hover:border-obsidian transition-colors" title="Call Desk">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
@@ -1259,34 +1189,6 @@
     </div>
   </div>
 
-  <!-- ==================== SAVED SHORTLIST SLIDE-OVER DRAWER ==================== -->
-  <div id="savedDrawer" class="fixed inset-0 z-50 modal-backdrop hidden flex justify-end">
-    <div class="relative bg-white w-full max-w-md h-full shadow-2xl flex flex-col justify-between p-6">
-      
-      <div>
-        <div class="flex items-center justify-between border-b border-borderSubtle pb-4 mb-4">
-          <div>
-            <h3 class="font-serif text-lg font-bold text-obsidian">Shortlisted Residences</h3>
-            <span id="savedCountText" class="text-xs text-stone">0 properties saved</span>
-          </div>
-          <button id="closeSavedBtn" class="text-stone hover:text-obsidian text-xl font-bold">&times;</button>
-        </div>
-
-        <div id="savedList" class="space-y-3 max-h-[68vh] overflow-y-auto pr-1">
-          <!-- Injected via JS -->
-        </div>
-      </div>
-
-      <div class="pt-4 border-t border-borderSubtle flex items-center justify-between">
-        <button onclick="clearAllSaved()" class="text-xs text-stone hover:text-red-600 underline">Clear All</button>
-        <button onclick="inquireAllSaved()" class="btn-era px-4 py-2.5 bg-obsidian text-canvas text-xs font-bold uppercase tracking-wider border border-obsidian">
-          Inquire Shortlist (WhatsApp)
-        </button>
-      </div>
-
-    </div>
-  </div>
-
   <!-- ==================== CONTACT US MODAL ==================== -->
   <div id="conciergeModal" class="fixed inset-0 z-50 modal-backdrop hidden overflow-y-auto flex items-center justify-center p-4">
     <div class="relative bg-white border border-borderSubtle max-w-sm w-full p-6 sm:p-8 shadow-2xl text-center">
@@ -1314,7 +1216,6 @@
   <script>
     // Global Application State
     let propertiesList = [...(window.PROPERTIES || [])];
-    let savedIds = JSON.parse(localStorage.getItem('rem_saved_properties') || '[]');
     let userPortfolio = JSON.parse(localStorage.getItem('rem_user_portfolio') || '[]');
     let adminLeads = JSON.parse(localStorage.getItem('rem_admin_leads') || '[]');
     let currentUser = JSON.parse(localStorage.getItem('rem_current_user') || 'null') || { name: 'Guest Investor', role: 'Home Buyer' };
@@ -1441,12 +1342,10 @@
         return;
       }
 
-      // Generate Cards HTML (Clean SVG Star, Clean \u20B9)
+      // Generate Cards HTML
       grid.innerHTML = filtered.map(p => {
-        const isSaved = savedIds.includes(p.id);
         const isFractional = p.investment && p.investment.isFractionalPool;
         const mainImg = p.images && p.images[0] ? p.images[0] : 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80';
-        const peaceScore = (p.peaceOfMind && p.peaceOfMind.overall) || 95;
 
         return `
           <div class="era-focus-item era-card bg-white border border-borderSubtle overflow-hidden flex flex-col justify-between group shadow-xs hover:shadow-xl transition-all duration-500">
@@ -1455,7 +1354,7 @@
               <div class="relative h-64 sm:h-72 w-full overflow-hidden bg-limestone">
                 <img src="${mainImg}" alt="${p.title}" class="era-img-zoom w-full h-full object-cover">
                 
-                <!-- Category / Status Badges -->
+                <!-- Category / Status Badge only -->
                 <div class="absolute top-3.5 left-3.5 z-10 flex flex-col gap-1.5 items-start">
                   ${isFractional ? `
                     <span class="bg-gold text-obsidian text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 shadow">
@@ -1466,21 +1365,7 @@
                       ${p.dimensions.bhk}
                     </span>
                   `}
-                  <div class="flex items-center space-x-1">
-                    <span class="bg-white/95 text-obsidian text-[8.5px] font-semibold tracking-wider px-2 py-0.5 border border-borderSubtle">
-                      0% Brokerage
-                    </span>
-                    <span class="inline-flex items-center space-x-1 bg-emerald-800 text-white text-[8.5px] font-bold px-1.5 py-0.5">
-                      <svg class="w-2.5 h-2.5 fill-current text-amber-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                      <span>${peaceScore}/100</span>
-                    </span>
-                  </div>
                 </div>
-
-                <!-- Heart Shortlist Trigger -->
-                <button onclick="toggleSaveProperty('${p.id}', event)" class="absolute top-3.5 right-3.5 z-10 p-2 bg-white/90 backdrop-blur-sm text-obsidian hover:text-red-600 transition-colors shadow" title="Shortlist Property">
-                  <svg class="w-4 h-4 ${isSaved ? 'text-red-600 fill-red-600' : 'text-obsidian'}" fill="${isSaved ? 'currentColor' : 'none'}" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                </button>
 
                 <!-- Subtle Price Overlay on bottom of image -->
                 <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-obsidian/85 via-obsidian/40 to-transparent p-4 flex items-end justify-between text-white">
@@ -1527,8 +1412,8 @@
                 Explore Dossier
               </button>
               <a href="https://wa.me/918040008000?text=Hello%20REM,%20I%20am%20enquiring%20about%20${encodeURIComponent(p.title)}" target="_blank" 
-                 class="p-2.5 border border-emerald-700 bg-emerald-700 text-white hover:bg-emerald-800 transition-colors flex items-center justify-center" title="Instant WhatsApp">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.584 1.761.895 2.796.896h.005c3.181 0 5.767-2.586 5.767-5.766.001-3.18-2.585-5.765-5.766-5.765zm0 10.373c-.933 0-1.671-.249-2.413-.689l-.173-.102-1.785.468.477-1.741-.112-.178c-.484-.77-.738-1.527-.737-2.365.001-2.518 2.05-4.566 4.57-4.566 2.519 0 4.567 2.048 4.568 4.566 0 2.519-2.048 4.567-4.568 4.567z"/></svg>
+                 class="p-2.5 border border-[#25D366] bg-[#25D366] text-white hover:bg-[#1ebe5a] transition-colors flex items-center justify-center" title="WhatsApp Developer">
+                <svg class="w-4 h-4" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               </a>
               <a href="tel:+918040008000" class="p-2.5 border border-borderSubtle bg-white text-obsidian hover:border-obsidian transition-colors flex items-center justify-center" title="Direct Phone Call">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
@@ -1540,14 +1425,43 @@
       }).join('');
     }
 
-    // Property Detail Modal Handler
+    // Property Detail Modal & Carousel Handler
     let activeModalProperty = null;
+    let modalCarouselImages = [];
+    let modalCarouselIndex = 0;
+
+    function modalCarouselGo(index) {
+      const imgs = modalCarouselImages;
+      if (!imgs || !imgs.length) return;
+      modalCarouselIndex = (index + imgs.length) % imgs.length;
+      const imgEl = document.getElementById('modalMainImg');
+      if (imgEl) {
+        imgEl.classList.remove('modal-img-enter');
+        void imgEl.offsetWidth; // Force CSS reflow to replay animation
+        imgEl.src = imgs[modalCarouselIndex];
+        imgEl.classList.add('modal-img-enter');
+      }
+      const counter = document.getElementById('modalImgCounter');
+      if (counter) counter.innerText = `${modalCarouselIndex + 1} / ${imgs.length}`;
+      document.querySelectorAll('#modalThumbs img').forEach((t, i) => {
+        t.classList.toggle('border-obsidian', i === modalCarouselIndex);
+        t.classList.toggle('border-borderSubtle', i !== modalCarouselIndex);
+      });
+    }
+
+    function modalCarouselPrev() {
+      modalCarouselGo(modalCarouselIndex - 1);
+    }
+
+    function modalCarouselNext() {
+      modalCarouselGo(modalCarouselIndex + 1);
+    }
+
     function openPropertyModal(id) {
       const p = propertiesList.find(item => item.id === id);
       if (!p) return;
       activeModalProperty = p;
 
-      document.getElementById('modalMainImg').src = p.images[0] || '';
       document.getElementById('modalTitle').innerText = p.title;
       document.getElementById('modalDeveloper').innerText = p.developer;
       document.getElementById('modalLocation').innerHTML = `
@@ -1565,57 +1479,56 @@
       document.getElementById('modalFloorLevel').innerText = p.dimensions.floorLevel || 'Multi-Level';
       document.getElementById('modalDescription').innerText = p.description;
       document.getElementById('modalCategoryBadge').innerText = p.category.replace(/_/g, ' ');
-      document.getElementById('modalReraBadge').innerText = (p.peaceOfMind && p.peaceOfMind.reraId) || 'RERA CERTIFIED';
-      document.getElementById('modalFloorPlanImg').src = p.floorPlanUrl || p.images[0];
-
-      // Peace of Mind Breakdown
-      const peace = p.peaceOfMind || { overall: 96, builderCredibility: 95, projectEfficiency: 95, legalClearance: 99, appreciationPotential: 95, pros: [], cons: [] };
-      document.getElementById('modalOverallScore').innerText = `${peace.overall || 96} / 100`;
-      document.getElementById('scoreBuilder').innerText = `${peace.builderCredibility || 95}%`;
-      document.getElementById('barBuilder').style.width = `${peace.builderCredibility || 95}%`;
-      document.getElementById('scoreLegal').innerText = `${peace.legalClearance || 99}%`;
-      document.getElementById('barLegal').style.width = `${peace.legalClearance || 99}%`;
-      document.getElementById('scoreEfficiency').innerText = `${peace.projectEfficiency || 95}%`;
-      document.getElementById('barEfficiency').style.width = `${peace.projectEfficiency || 95}%`;
-      document.getElementById('scoreAppreciation').innerText = `${peace.appreciationPotential || 95}%`;
-      document.getElementById('barAppreciation').style.width = `${peace.appreciationPotential || 95}%`;
 
       // Pros & Cons
+      const peace = p.peaceOfMind || {};
       const prosList = document.getElementById('modalPros');
-      prosList.innerHTML = (peace.pros && peace.pros.length ? peace.pros : ['100% Clear legal title registered with RERA Karnataka', 'US-grade sound dampening and high-efficiency spatial planning']).map(pr => `<li>&bull; ${pr}</li>`).join('');
+      if (prosList) {
+        prosList.innerHTML = (peace.pros && peace.pros.length ? peace.pros : ['100% Clear legal title deeds and verified architectural planning', 'US-grade sound dampening and high-efficiency spatial planning']).map(pr => `<li>&bull; ${pr}</li>`).join('');
+      }
 
       const consList = document.getElementById('modalCons');
-      consList.innerHTML = (peace.cons && peace.cons.length ? peace.cons : ['Limited inventory remaining in current release stage']).map(cn => `<li>&bull; ${cn}</li>`).join('');
+      if (consList) {
+        consList.innerHTML = (peace.cons && peace.cons.length ? peace.cons : ['Limited inventory remaining in current release stage']).map(cn => `<li>&bull; ${cn}</li>`).join('');
+      }
 
       // Connectivity
-      document.getElementById('modalMetro').innerText = `${p.location.nearestMetroDistanceKm || 0.8} km`;
-      document.getElementById('modalAirport').innerText = `${p.location.airportDistanceKm || 38} km`;
-      document.getElementById('modalWalkScore').innerText = `${p.location.walkScore || 92} / 100`;
+      const metroEl = document.getElementById('modalMetro');
+      if (metroEl) metroEl.innerText = `${p.location.nearestMetroDistanceKm || 0.8} km`;
+      const airportEl = document.getElementById('modalAirport');
+      if (airportEl) airportEl.innerText = `${p.location.airportDistanceKm || 38} km`;
+      const walkEl = document.getElementById('modalWalkScore');
+      if (walkEl) walkEl.innerText = `${p.location.walkScore || 92} / 100`;
 
       // WhatsApp Button
-      document.getElementById('modalWhatsAppBtn').href = `https://wa.me/918040008000?text=Hello%20REM%20Residences,%20I%20am%20interested%20in%20inspecting%20${encodeURIComponent(p.title)}%20(ID:%20${p.id}).`;
+      const waBtn = document.getElementById('modalWhatsAppBtn');
+      if (waBtn) waBtn.href = `https://wa.me/918040008000?text=Hello%20REM%20Residences,%20I%20am%20interested%20in%20inspecting%20${encodeURIComponent(p.title)}%20(ID:%20${p.id}).`;
 
-      // Thumbnails
+      // Thumbnails and Carousel Setup
+      modalCarouselImages = p.images && p.images.length ? p.images : ['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'];
       const thumbsContainer = document.getElementById('modalThumbs');
-      thumbsContainer.innerHTML = p.images.map(img => `
-        <img src="${img}" onclick="document.getElementById('modalMainImg').src='${img}'"
-             class="h-14 w-20 object-cover cursor-pointer border border-borderSubtle hover:border-obsidian transition-colors flex-shrink-0">
-      `).join('');
+      if (thumbsContainer) {
+        thumbsContainer.innerHTML = modalCarouselImages.map((img, idx) => `
+          <img src="${img}" onclick="modalCarouselGo(${idx})"
+               class="h-14 w-20 object-cover cursor-pointer border border-borderSubtle hover:border-obsidian transition-colors flex-shrink-0">
+        `).join('');
+      }
+      modalCarouselGo(0);
 
       // Amenities
       const amenitiesContainer = document.getElementById('modalAmenities');
-      amenitiesContainer.innerHTML = (p.amenities || []).map(a => `
-        <li class="flex items-center space-x-1.5 p-1 bg-limestone/50 border border-borderSubtle/40">
-          <span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>
-          <span class="truncate">${a}</span>
-        </li>
-      `).join('');
+      if (amenitiesContainer) {
+        amenitiesContainer.innerHTML = (p.amenities || []).map(a => `
+          <li class="flex items-center space-x-1.5 p-1 bg-limestone/50 border border-borderSubtle/40">
+            <span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>
+            <span class="truncate">${a}</span>
+          </li>
+        `).join('');
+      }
 
       // Brochure Button
-      document.getElementById('modalBrochureBtn').onclick = () => downloadPropertyBrochure(p);
-
-      // Reset Tab
-      setModalTab('gallery');
+      const brochureBtn = document.getElementById('modalBrochureBtn');
+      if (brochureBtn) brochureBtn.onclick = () => downloadPropertyBrochure(p);
 
       document.getElementById('propertyModal').classList.remove('hidden');
       document.body.style.overflow = 'hidden';
@@ -1624,22 +1537,6 @@
     function closePropertyModal() {
       document.getElementById('propertyModal').classList.add('hidden');
       document.body.style.overflow = 'auto';
-    }
-
-    function setModalTab(tab) {
-      const galleryBtn = document.getElementById('modalTabGallery');
-      const floorBtn = document.getElementById('modalTabFloorPlan');
-      const floorContainer = document.getElementById('modalFloorPlanContainer');
-
-      if (tab === 'floorplan') {
-        floorContainer.classList.remove('hidden');
-        floorBtn.className = 'px-3 py-1 bg-obsidian text-canvas font-bold';
-        galleryBtn.className = 'px-3 py-1 text-stone hover:text-obsidian';
-      } else {
-        floorContainer.classList.add('hidden');
-        galleryBtn.className = 'px-3 py-1 bg-obsidian text-canvas font-bold';
-        floorBtn.className = 'px-3 py-1 text-stone hover:text-obsidian';
-      }
     }
 
     // Instant Client-Side Brochure Download
@@ -1654,22 +1551,21 @@ Title:             ${p.title}
 Developer:         ${p.developer}
 Location:          ${p.location.locality}, ${p.location.city}
 Landmark:          ${p.location.landmark}
-RERA ID:           ${(p.peaceOfMind && p.peaceOfMind.reraId) || 'Certified'}
 
 FINANCIAL DETAILS:
 Total Price:       ${formatINR(p.pricing.totalPrice)}
 Rate per sq.ft:    \u20B9${p.pricing.pricePerSqFt.toLocaleString('en-IN')}/sq.ft
-Brokerage:         0% (Direct Developer Connect)
+Direct Connect:    Direct Developer Desk (Zero Brokerage)
 Possession:        ${p.possessionDate}
 
 ARCHITECTURAL SPECIFICATIONS:
-RERA Carpet Area:  ${p.dimensions.carpetAreaSqFt} sq.ft
+Carpet Area:       ${p.dimensions.carpetAreaSqFt} sq.ft
 Super Built-Up:    ${p.dimensions.superBuiltUpSqFt} sq.ft
 Spatial Ratio:     ${p.dimensions.efficiencyPercentage}% Usable Ratio
 Layout / BHK:      ${p.dimensions.bhk}
 Facing:            ${p.dimensions.facing || 'East'}
 
-AMENITIES & STATUTORY CLEARANCES:
+AMENITIES & SPECIFICATIONS:
 ${(p.amenities || []).map(a => ' - ' + a).join('\n')}
 
 DIRECT DEVELOPER CONCIERGE:
@@ -2054,79 +1950,6 @@ Generated: ${new Date().toLocaleString()}
       }
     }
 
-    // Save Property (Favorites / Shortlist) Handlers
-    function toggleSaveProperty(id, e) {
-      if (e) e.stopPropagation();
-      if (savedIds.includes(id)) {
-        savedIds = savedIds.filter(item => item !== id);
-      } else {
-        savedIds.push(id);
-      }
-      localStorage.setItem('rem_saved_properties', JSON.stringify(savedIds));
-      updateSavedBadge();
-      renderProperties();
-      renderSavedDrawer();
-    }
-
-    function updateSavedBadge() {
-      const badge = document.getElementById('savedBadge');
-      if (savedIds.length > 0) {
-        badge.innerText = savedIds.length;
-        badge.classList.remove('hidden');
-      } else {
-        badge.classList.add('hidden');
-      }
-    }
-
-    function renderSavedDrawer() {
-      const list = document.getElementById('savedList');
-      const countText = document.getElementById('savedCountText');
-      countText.innerText = `${savedIds.length} properties shortlisted`;
-
-      if (savedIds.length === 0) {
-        list.innerHTML = `<div class="text-center py-12 text-xs text-stone">Your shortlisted residences will appear here. Click the bookmark icon on any property.</div>`;
-        return;
-      }
-
-      const savedProps = propertiesList.filter(p => savedIds.includes(p.id));
-      list.innerHTML = savedProps.map(p => `
-        <div class="flex items-center space-x-3 p-3 bg-limestone border border-borderSubtle">
-          <img src="${p.images[0]}" class="w-14 h-14 object-cover flex-shrink-0">
-          <div class="flex-1 min-w-0">
-            <h4 class="font-serif text-xs font-bold text-obsidian truncate">${p.title}</h4>
-            <div class="text-[10px] text-stone">${p.location.locality}</div>
-            <div class="text-xs font-serif font-bold text-gold">${formatINR(p.pricing.totalPrice)}</div>
-          </div>
-          <button onclick="toggleSaveProperty('${p.id}')" class="text-stone hover:text-red-600 text-xs p-1">&times;</button>
-        </div>
-      `).join('');
-    }
-
-    function clearAllSaved() {
-      savedIds = [];
-      localStorage.removeItem('rem_saved_properties');
-      updateSavedBadge();
-      renderProperties();
-      renderSavedDrawer();
-    }
-
-    function inquireAllSaved() {
-      const savedProps = propertiesList.filter(p => savedIds.includes(p.id));
-      if (savedProps.length === 0) return;
-      const text = `Hello REM Residences, I am interested in exploring my shortlisted properties: ${savedProps.map(p => p.title).join(', ')}`;
-      window.open(`https://wa.me/918040008000?text=${encodeURIComponent(text)}`, '_blank');
-    }
-
-    // Hero Quick Search Trigger
-    function applyHeroSearch() {
-      currentLocation = document.getElementById('heroLocationSelect').value;
-      currentTypology = document.getElementById('heroTypeSelect').value;
-      document.getElementById('locationSelect').value = currentLocation;
-      document.getElementById('typologySelect').value = currentTypology;
-      renderProperties();
-      document.getElementById('collection').scrollIntoView({ behavior: 'smooth' });
-    }
-
     // Listing Type (Sale vs Rent)
     function setListingType(type) {
       currentListingType = type;
@@ -2216,8 +2039,6 @@ Generated: ${new Date().toLocaleString()}
       document.getElementById('keywordInput').value = '';
       document.getElementById('locationSelect').value = 'all';
       document.getElementById('typologySelect').value = 'all';
-      document.getElementById('heroLocationSelect').value = 'all';
-      document.getElementById('heroTypeSelect').value = 'all';
       document.getElementById('sortSelect').value = 'score_desc';
       document.getElementById('preLaunchCheck').checked = false;
       document.getElementById('budgetRange').value = 150000000;
@@ -2235,14 +2056,6 @@ Generated: ${new Date().toLocaleString()}
       renderProperties();
     }
 
-    // Saved Drawer Trigger
-    const savedDrawer = document.getElementById('savedDrawer');
-    document.getElementById('savedTriggerBtn').onclick = () => {
-      renderSavedDrawer();
-      savedDrawer.classList.remove('hidden');
-    };
-    document.getElementById('closeSavedBtn').onclick = () => savedDrawer.classList.add('hidden');
-
     // Concierge (Contact Us) Modal Controls
     const conciergeModal = document.getElementById('conciergeModal');
     document.getElementById('conciergeBtn').onclick = () => conciergeModal.classList.remove('hidden');
@@ -2253,7 +2066,6 @@ Generated: ${new Date().toLocaleString()}
     // App Initialization
     window.addEventListener('DOMContentLoaded', () => {
       renderProperties();
-      updateSavedBadge();
       updateAuthUI();
     });
   </script>
