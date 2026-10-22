@@ -514,6 +514,7 @@
       color: #57534E;
       background: transparent;
       border: 1px solid transparent;
+      box-shadow: none !important;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: pointer;
       white-space: nowrap;
@@ -521,11 +522,12 @@
     .liquid-dossier-pill:hover {
       color: #1C1917;
       background: rgba(255, 255, 255, 0.6);
+      box-shadow: none !important;
     }
     .liquid-dossier-pill.active {
       color: #FAF9F6 !important;
       background: #1C1917 !important;
-      box-shadow: 0 4px 14px -2px rgba(28, 25, 23, 0.30);
+      box-shadow: none !important;
     }
 
     .liquid-dossier-card {
@@ -1191,48 +1193,34 @@
       <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
 
         <!-- Modern Propsoch Multi-Image Photo Mosaic Grid (1 Hero on Left + 2x2 Grid on Right) -->
-        <div class="relative w-full rounded-2xl overflow-hidden border border-borderSubtle bg-obsidian mb-8">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-2 h-[340px] sm:h-[420px] lg:h-[480px]">
+        <div class="relative w-full rounded-2xl overflow-hidden bg-[#FAF9F6] mb-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 h-[340px] sm:h-[420px] lg:h-[480px]">
             
             <!-- 1 Large Featured Photo (Left Column - 7 Cols) -->
-            <div id="modalHeroTile" class="relative lg:col-span-7 h-full bg-charcoal overflow-hidden group cursor-pointer" onclick="modalCarouselGo(0)">
-              <img id="modalMainImg" src="" alt="Property Hero" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-out">
-              
-              <!-- Category Badge -->
-              <div class="absolute top-4 left-4 z-20">
-                <span id="modalCategoryBadge" class="liquid-badge-dark text-[9.5px] font-bold px-3 py-1 tracking-wider uppercase"></span>
-              </div>
+            <div id="modalHeroTile" class="relative lg:col-span-7 h-full rounded-xl overflow-hidden bg-limestone group cursor-pointer" onclick="openLightbox(modalCarouselImages[0] || '')">
+              <img id="modalMainImg" src="" alt="Property Hero" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out">
             </div>
 
             <!-- 2x2 Photo Grid (Right Column - 5 Cols) -->
-            <div class="hidden lg:grid lg:col-span-5 grid-cols-2 grid-rows-2 gap-2 h-full">
+            <div class="hidden lg:grid lg:col-span-5 grid-cols-2 grid-rows-2 gap-3 h-full">
               <!-- Top Left Small Tile (Photo 2) -->
-              <div class="relative h-full overflow-hidden bg-charcoal group cursor-pointer" onclick="modalCarouselGo(1)">
+              <div class="relative h-full rounded-xl overflow-hidden bg-limestone group cursor-pointer" onclick="openLightbox(modalCarouselImages[1] || modalCarouselImages[0])">
                 <img id="modalGridImg1" src="" alt="Property View 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               </div>
 
               <!-- Top Right Small Tile (Photo 3) -->
-              <div class="relative h-full overflow-hidden bg-charcoal group cursor-pointer" onclick="modalCarouselGo(2)">
+              <div class="relative h-full rounded-xl overflow-hidden bg-limestone group cursor-pointer" onclick="openLightbox(modalCarouselImages[2] || modalCarouselImages[0])">
                 <img id="modalGridImg2" src="" alt="Property View 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               </div>
 
               <!-- Bottom Left Small Tile (Photo 4) -->
-              <div class="relative h-full overflow-hidden bg-charcoal group cursor-pointer" onclick="modalCarouselGo(3)">
+              <div class="relative h-full rounded-xl overflow-hidden bg-limestone group cursor-pointer" onclick="openLightbox(modalCarouselImages[3] || modalCarouselImages[0])">
                 <img id="modalGridImg3" src="" alt="Property View 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               </div>
 
-              <!-- Bottom Right Small Tile (Photo 5 with "Show all photos" floating pill) -->
-              <div class="relative h-full overflow-hidden bg-charcoal group cursor-pointer" onclick="modalCarouselGo(0)">
+              <!-- Bottom Right Small Tile (Photo 5) -->
+              <div class="relative h-full rounded-xl overflow-hidden bg-limestone group cursor-pointer" onclick="openLightbox(modalCarouselImages[4] || modalCarouselImages[1] || modalCarouselImages[0])">
                 <img id="modalGridImg4" src="" alt="Property View 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                
-                <!-- Floating Liquid Glass 'Show all photos' Pill (Exact Propsoch Match) -->
-                <div class="absolute bottom-3 right-3 z-20">
-                  <div class="px-3 py-1.5 rounded-md bg-white/95 text-obsidian text-xs font-semibold flex items-center space-x-1.5 shadow-md border border-white/60 hover:bg-white transition-all">
-                    <svg class="w-3.5 h-3.5 text-obsidian/80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                    <span id="modalImgCounter">Show all photos</span>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -1581,6 +1569,18 @@
 
       </main>
 
+    </div>
+  </div>
+
+  <!-- ==================== IMAGE LIGHTBOX MODAL (Smooth Blur & Enlarge) ==================== -->
+  <div id="imageLightboxModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-8 bg-black/80 backdrop-blur-xl transition-all duration-300 opacity-0 pointer-events-none" onclick="closeLightbox()">
+    <!-- Close Button -->
+    <button onclick="closeLightbox()" class="absolute top-5 right-5 z-30 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center text-lg font-bold hover:bg-black/90 transition-all border border-white/20">
+      &times;
+    </button>
+    <!-- Enlarged Image with Scale/Zoom Animation -->
+    <div class="relative max-w-5xl max-h-[90vh] w-full flex items-center justify-center" onclick="event.stopPropagation()">
+      <img id="lightboxImg" src="" alt="Property View" class="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl transition-all duration-300 transform scale-95 opacity-0">
     </div>
   </div>
 
@@ -2435,9 +2435,6 @@
       const gridImg4 = document.getElementById('modalGridImg4');
       if (gridImg4) gridImg4.src = modalCarouselImages[4] || modalCarouselImages[1] || modalCarouselImages[0];
 
-      const counter = document.getElementById('modalImgCounter');
-      if (counter) counter.innerText = `Show all ${modalCarouselImages.length} photos`;
-
       // Amenities Categorization into 3 columns
       const amList = p.amenities || [];
       const amLifestyle = document.getElementById('modalAmenitiesLifestyle');
@@ -2490,6 +2487,40 @@
     function closePropertyModal() {
       document.getElementById('propertyModal').classList.add('hidden');
       document.body.style.overflow = 'auto';
+    }
+
+    // Lightbox Handlers
+    function openLightbox(src) {
+      if (!src) return;
+      const modal = document.getElementById('imageLightboxModal');
+      const img = document.getElementById('lightboxImg');
+      if (!modal || !img) return;
+
+      img.src = src;
+      modal.classList.remove('hidden', 'pointer-events-none');
+      // Trigger animation
+      requestAnimationFrame(() => {
+        modal.classList.remove('opacity-0');
+        modal.classList.add('opacity-100');
+        img.classList.remove('scale-95', 'opacity-0');
+        img.classList.add('scale-100', 'opacity-100');
+      });
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('imageLightboxModal');
+      const img = document.getElementById('lightboxImg');
+      if (!modal || !img) return;
+
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0');
+      img.classList.remove('scale-100', 'opacity-100');
+      img.classList.add('scale-95', 'opacity-0');
+
+      setTimeout(() => {
+        modal.classList.add('hidden', 'pointer-events-none');
+        img.src = '';
+      }, 300);
     }
 
     // Instant Client-Side Brochure Download
