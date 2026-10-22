@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>REM Residences &amp; Estates &mdash; Contemporary Living &amp; Fractional Investments</title>
   
-  <!-- Google Fonts: Editorial Serif (Cormorant Garamond + Playfair Display), Modern Numeric (Inter) & Clean Sans (Plus Jakarta Sans) -->
+  <!-- Google Fonts: Squarespace-style grotesk (Inter Tight display + Inter text) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -30,8 +30,8 @@
             canvas: '#FAF9F6',
           },
           fontFamily: {
-            serif: ['"Cormorant Garamond"', '"Playfair Display"', 'Georgia', 'serif'],
-            sans: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
+            serif: ['"Inter Tight"', '"Inter"', '-apple-system', 'sans-serif'],
+            sans: ['"Inter"', '-apple-system', 'sans-serif'],
             mono: ['"Inter"', 'ui-monospace', 'monospace'],
             num: ['"Inter"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
           }
@@ -48,9 +48,27 @@
     body {
       background-color: #F9F8F5;
       color: #1C1917;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Inter', -apple-system, sans-serif;
+      letter-spacing: -0.006em;
+      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
+
+    /* Squarespace-style text aesthetic: tight grotesk headings, medium weight, no italics, sentence case */
+    h1, h2, h3, h4, .font-serif {
+      font-family: 'Inter Tight', 'Inter', -apple-system, sans-serif;
+      font-weight: 500 !important;
+      font-style: normal !important;
+      letter-spacing: -0.035em !important;
+    }
+    h1 { line-height: 1.02 !important; letter-spacing: -0.045em !important; }
+    .uppercase {
+      text-transform: none !important;
+      letter-spacing: -0.005em !important;
+    }
+    /* tiny labels were sized for all-caps; give mixed-case text a readable size */
+    .uppercase.text-\[8\.5px\], .uppercase.text-\[9px\], .uppercase.text-\[10px\] { font-size: 12px !important; }
+    .uppercase.text-xs { font-size: 13px !important; }
 
     /* Modern numeric typography with clear digit differentiation */
     .font-num, .font-mono, [data-num] {
