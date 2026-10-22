@@ -515,6 +515,100 @@
       transform: translateY(-2px);
     }
 
+    /* Option B: Modern Floating Chip Toolbar & Liquid Popovers */
+    @keyframes popoverIn {
+      from {
+        opacity: 0;
+        transform: translateY(-4px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .liquid-filter-bar {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(24px) saturate(190%);
+      -webkit-backdrop-filter: blur(24px) saturate(190%);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      box-shadow: 0 4px 20px -2px rgba(28, 25, 23, 0.05), inset 0 1px 1.5px rgba(255, 255, 255, 1);
+      border-radius: 16px;
+    }
+
+    .filter-chip-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 13px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #1C1917;
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 10px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .filter-chip-btn:hover {
+      background: #FAF9F6;
+      border-color: #D1D5DB;
+    }
+    .filter-chip-btn.active-filter {
+      background: #1C1917;
+      color: #FFFFFF;
+      border-color: #1C1917;
+      box-shadow: 0 2px 8px rgba(28, 25, 23, 0.22);
+    }
+    .filter-chip-btn.active-filter svg {
+      color: #FFFFFF;
+    }
+
+    .liquid-filter-popover {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      z-index: 60;
+      min-width: 250px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(28px) saturate(190%);
+      -webkit-backdrop-filter: blur(28px) saturate(190%);
+      border: 1px solid rgba(229, 231, 235, 0.95);
+      box-shadow:
+        0 16px 36px -6px rgba(28, 25, 23, 0.14),
+        0 4px 12px -2px rgba(28, 25, 23, 0.05),
+        inset 0 1px 1px rgba(255, 255, 255, 1);
+      animation: popoverIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .popover-option-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #374151;
+      border-radius: 8px;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      text-align: left;
+    }
+    .popover-option-item:hover {
+      background: #F4F3F0;
+      color: #111827;
+    }
+    .popover-option-item.selected {
+      background: #1C1917;
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
     /* Apple Liquid Glass Dossier Elements */
     .liquid-dossier-nav {
       border-radius: 9999px;
@@ -770,131 +864,232 @@
       </div>
     </div>
 
-    <!-- ==================== COMPREHENSIVE MULTI-FILTER BAR ==================== -->
-    <div class="bg-white border border-stone-200 p-5 sm:p-6 mb-10 shadow-2xs rounded-xl">
-      
-      <!-- Top Row: Real-time Search Input & Quick Category Pills -->
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-5 border-b border-stone-200/80">
+    <!-- ==================== OPTION B: LIQUID GLASS FLOATING CHIP TOOLBAR ==================== -->
+    
+    <!-- Category Pills Strip (Apple Liquid Glass) -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-4 scrollbar-none">
+      <button class="cat-pill active px-4 py-2 text-xs font-semibold tracking-wider uppercase rounded-xl border border-obsidian bg-obsidian text-canvas shadow-xs transition-all duration-200" data-cat="all">
+        All Assets
+      </button>
+      <button class="cat-pill px-4 py-2 text-xs font-semibold tracking-wider uppercase rounded-xl border border-stone-200 bg-white/90 text-stone hover:text-obsidian hover:border-obsidian transition-all duration-200 shadow-2xs" data-cat="high_yield_investment">
+        Commercial Syndicate
+      </button>
+      <button class="cat-pill px-4 py-2 text-xs font-semibold tracking-wider uppercase rounded-xl border border-stone-200 bg-white/90 text-stone hover:text-obsidian hover:border-obsidian transition-all duration-200 shadow-2xs" data-cat="luxury_residential">
+        Luxury Residential
+      </button>
+      <button class="cat-pill px-4 py-2 text-xs font-semibold tracking-wider uppercase rounded-xl border border-stone-200 bg-white/90 text-stone hover:text-obsidian hover:border-obsidian transition-all duration-200 shadow-2xs" data-cat="gated_villa">
+        Gated Villas
+      </button>
+      <button class="cat-pill px-4 py-2 text-xs font-semibold tracking-wider uppercase rounded-xl border border-stone-200 bg-white/90 text-stone hover:text-obsidian hover:border-obsidian transition-all duration-200 shadow-2xs" data-cat="upcoming_launch">
+        Pre-Launch
+      </button>
+    </div>
+
+    <!-- Floating Chip Toolbar with Liquid Glass Popovers -->
+    <div class="liquid-filter-bar p-2.5 sm:p-3 mb-10 relative z-30">
+      <div class="flex flex-col lg:flex-row items-stretch lg:items-center gap-2.5">
+        
         <!-- Live Search Input -->
-        <div class="relative flex-1 max-w-md">
-          <input type="text" id="keywordInput" placeholder="Search by property, builder, corridor (e.g. Indiranagar, Lavelle)..." 
-                 class="w-full pl-9 pr-4 py-2.5 text-xs bg-white border border-stone-200 text-obsidian placeholder-stoneLight focus:outline-none focus:border-stone-400 rounded-lg shadow-2xs font-medium">
-          <svg class="w-4 h-4 text-stone absolute left-3 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <div class="relative flex-1 min-w-[260px] flex items-center bg-[#FAF9F6] focus-within:bg-white border border-stone-200/90 focus-within:border-stone-400 rounded-xl px-3.5 py-2 transition-all shadow-2xs">
+          <svg class="w-4 h-4 text-stone/80 flex-shrink-0 mr-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" id="keywordInput" placeholder="Search luxury residences, penthouses, corridors..." class="bg-transparent text-xs text-obsidian placeholder-stoneLight focus:outline-none w-full font-medium">
+          <button type="button" id="clearSearchBtn" onclick="clearKeywordSearch()" class="text-stone hover:text-obsidian text-sm font-bold hidden ml-2">&times;</button>
         </div>
 
-        <!-- Category Pills -->
-        <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
-          <button class="cat-pill active px-3.5 py-2 text-xs font-semibold tracking-wider uppercase border border-obsidian bg-obsidian text-canvas rounded-lg transition-all" data-cat="all">
-            All Assets
-          </button>
-          <button class="cat-pill px-3.5 py-2 text-xs font-semibold tracking-wider uppercase border border-stone-200 bg-white text-stone hover:text-obsidian hover:border-obsidian rounded-lg transition-all shadow-2xs" data-cat="high_yield_investment">
-            Commercial Syndicate
-          </button>
-          <button class="cat-pill px-3.5 py-2 text-xs font-semibold tracking-wider uppercase border border-stone-200 bg-white text-stone hover:text-obsidian hover:border-obsidian rounded-lg transition-all shadow-2xs" data-cat="luxury_residential">
-            Luxury Residential
-          </button>
-          <button class="cat-pill px-3.5 py-2 text-xs font-semibold tracking-wider uppercase border border-stone-200 bg-white text-stone hover:text-obsidian hover:border-obsidian rounded-lg transition-all shadow-2xs" data-cat="gated_villa">
-            Gated Villas
-          </button>
-          <button class="cat-pill px-3.5 py-2 text-xs font-semibold tracking-wider uppercase border border-stone-200 bg-white text-stone hover:text-obsidian hover:border-obsidian rounded-lg transition-all shadow-2xs" data-cat="upcoming_launch">
-            Pre-Launch
-          </button>
-        </div>
-      </div>
+        <!-- Filter Chips Strip -->
+        <div class="flex items-center gap-2 overflow-x-visible flex-wrap">
 
-      <!-- Second Row: Micro-Market, Typology, BHK Pills, Budget Slider, Sort -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-5 items-end">
-        
-        <!-- Location Corridor Dropdown -->
-        <div>
-          <label class="block text-[9px] uppercase tracking-widest font-bold text-stone mb-1.5">Corridor / Zone</label>
-          <select id="locationSelect" class="w-full text-xs bg-white border border-stone-200 p-2.5 font-medium text-obsidian focus:outline-none focus:border-stone-400 rounded-lg shadow-2xs">
-            <option value="all">All Prime Corridors</option>
-            <option value="South Bengaluru">South Bengaluru (Indiranagar, Koramangala, Bellandur, Sarjapur)</option>
-            <option value="North Bengaluru">North Bengaluru (Hebbal, Yelahanka, Airport)</option>
-            <option value="Central">Central CBD (Lavelle Road, MG Road, Richmond Town)</option>
-          </select>
-        </div>
-
-        <!-- Property Typology Dropdown -->
-        <div>
-          <label class="block text-[9px] uppercase tracking-widest font-bold text-stone mb-1.5">Asset Typology</label>
-          <select id="typologySelect" class="w-full text-xs bg-white border border-stone-200 p-2.5 font-medium text-obsidian focus:outline-none focus:border-stone-400 rounded-lg shadow-2xs">
-            <option value="all">All Typologies</option>
-            <option value="Apartment">Apartments / Flats</option>
-            <option value="Villa">Gated Villa Mansions</option>
-            <option value="Penthouse">Sky Penthouses</option>
-            <option value="Commercial">Commercial Tech Floors</option>
-            <option value="Plot">Gated Estate Plots</option>
-          </select>
-        </div>
-
-        <!-- Budget Range Slider (Clean Encoding Without Mojibake) -->
-        <div>
-          <div class="flex items-center justify-between mb-1.5">
-            <label class="text-[9px] uppercase tracking-widest font-bold text-stone">Max Investment Budget</label>
-            <span id="budgetValue" class="text-xs font-serif font-bold text-gold">&#8377;15.00+ Cr</span>
-          </div>
-          <input type="range" id="budgetRange" min="2000000" max="150000000" step="500000" value="150000000" class="liquid-slider my-2">
-          <div class="flex justify-between text-[9px] text-stoneLight mt-1 font-mono">
-            <span>&#8377;20L</span>
-            <span>&#8377;5Cr</span>
-            <span>&#8377;15Cr+</span>
-          </div>
-        </div>
-
-        <!-- Sort Criteria Dropdown -->
-        <div>
-          <label class="block text-[9px] uppercase tracking-widest font-bold text-stone mb-1.5">Sort Order</label>
-          <select id="sortSelect" class="w-full text-xs bg-white border border-stone-200 p-2.5 font-medium text-obsidian focus:outline-none focus:border-stone-400 rounded-lg shadow-2xs">
-            <option value="score_desc">Best Match</option>
-            <option value="price_asc">Price: Low to High</option>
-            <option value="price_desc">Price: High to Low</option>
-            <option value="area_desc">Largest Carpet Area</option>
-          </select>
-        </div>
-
-      </div>
-
-      <!-- Third Row: BHK Pills, Sale/Rent Toggle, Pre-Launch Switch, Reset Button -->
-      <div class="flex flex-wrap items-center justify-between gap-4 pt-5 mt-4 border-t border-stone-200/60">
-        
-        <!-- BHK Pills -->
-        <div class="flex items-center space-x-2">
-          <span class="text-[9px] uppercase tracking-widest font-bold text-stone hidden sm:inline">Bedrooms:</span>
-          <div class="inline-flex flex-wrap gap-1">
-            <button class="bhk-pill active px-2.5 py-1 text-[11px] font-semibold border border-obsidian bg-obsidian text-canvas rounded-md" data-bhk="all">All</button>
-            <button class="bhk-pill px-2.5 py-1 text-[11px] font-semibold border border-stone-200 bg-white text-stone hover:text-obsidian rounded-md shadow-2xs" data-bhk="1 BHK">1 BHK</button>
-            <button class="bhk-pill px-2.5 py-1 text-[11px] font-semibold border border-stone-200 bg-white text-stone hover:text-obsidian rounded-md shadow-2xs" data-bhk="2 BHK">2 BHK</button>
-            <button class="bhk-pill px-2.5 py-1 text-[11px] font-semibold border border-stone-200 bg-white text-stone hover:text-obsidian rounded-md shadow-2xs" data-bhk="3 BHK">3 BHK</button>
-            <button class="bhk-pill px-2.5 py-1 text-[11px] font-semibold border border-stone-200 bg-white text-stone hover:text-obsidian rounded-md shadow-2xs" data-bhk="4 BHK">4 BHK</button>
-            <button class="bhk-pill px-2.5 py-1 text-[11px] font-semibold border border-stone-200 bg-white text-stone hover:text-obsidian rounded-md shadow-2xs" data-bhk="4+ BHK">4+ BHK</button>
-          </div>
-        </div>
-
-        <!-- Listing Type & Pre-Launch Switches -->
-        <div class="flex items-center space-x-4">
-          <!-- Buy vs Rent Toggle -->
-          <div class="inline-flex border border-stone-200 p-0.5 bg-stone-50 text-xs font-semibold uppercase tracking-wider rounded-lg">
-            <button id="typeSaleBtn" onclick="setListingType('sale')" class="px-3 py-1 bg-white text-obsidian shadow-2xs font-bold rounded-md">For Sale</button>
-            <button id="typeRentBtn" onclick="setListingType('rent')" class="px-3 py-1 text-stone hover:text-obsidian rounded-md">For Lease</button>
+          <!-- 1. Transaction Type Chip -->
+          <div class="relative chip-dropdown-wrapper">
+            <button type="button" onclick="toggleFilterPopover('popoverType')" id="chipTypeBtn" class="filter-chip-btn">
+              <span id="chipTypeLabel">For Sale</span>
+              <svg class="w-3 h-3 text-stone transition-transform duration-200 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="popoverType" class="liquid-filter-popover hidden p-3 w-52 left-0">
+              <div class="text-[9px] uppercase tracking-widest font-bold text-stone mb-2 px-1">Transaction</div>
+              <div class="space-y-1">
+                <button type="button" onclick="selectListingType('sale', 'For Sale')" id="typeOptSale" class="popover-option-item selected">
+                  <span>For Sale</span>
+                  <svg class="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </button>
+                <button type="button" onclick="selectListingType('rent', 'For Lease')" id="typeOptRent" class="popover-option-item">
+                  <span>For Lease</span>
+                  <svg class="w-3.5 h-3.5 text-white hidden" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </button>
+              </div>
+              <div class="pt-2 mt-2 border-t border-stone-200/80">
+                <label class="flex items-center space-x-2 text-xs text-stone hover:text-obsidian cursor-pointer px-1 py-1">
+                  <input type="checkbox" id="preLaunchCheck" onchange="togglePreLaunch(this.checked)" class="accent-gold rounded cursor-pointer">
+                  <span class="text-[11px] font-medium">Pre-Launch Only</span>
+                </label>
+              </div>
+            </div>
           </div>
 
-          <!-- Pre-Launch Checkbox -->
-          <label class="flex items-center space-x-1.5 text-xs text-stone font-medium cursor-pointer">
-            <input type="checkbox" id="preLaunchCheck" class="accent-gold rounded cursor-pointer">
-            <span class="text-[11px]">Pre-Launch Only</span>
-          </label>
+          <!-- 2. Corridor / Zone Chip -->
+          <div class="relative chip-dropdown-wrapper">
+            <button type="button" onclick="toggleFilterPopover('popoverCorridor')" id="chipCorridorBtn" class="filter-chip-btn">
+              <span id="chipCorridorLabel">All Corridors</span>
+              <svg class="w-3 h-3 text-stone transition-transform duration-200 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="popoverCorridor" class="liquid-filter-popover hidden p-3 w-72 left-0">
+              <div class="text-[9px] uppercase tracking-widest font-bold text-stone mb-2 px-1">Corridor / Zone</div>
+              <div class="space-y-1">
+                <button type="button" onclick="selectCorridor('all', 'All Corridors')" class="popover-option-item selected" data-value="all">
+                  <span>All Prime Corridors</span>
+                </button>
+                <button type="button" onclick="selectCorridor('South Bengaluru', 'South Bengaluru')" class="popover-option-item" data-value="South Bengaluru">
+                  <span>South Bengaluru (Indiranagar, Bellandur, Sarjapur)</span>
+                </button>
+                <button type="button" onclick="selectCorridor('North Bengaluru', 'North Bengaluru')" class="popover-option-item" data-value="North Bengaluru">
+                  <span>North Bengaluru (Hebbal, Yelahanka, Airport)</span>
+                </button>
+                <button type="button" onclick="selectCorridor('Central', 'Central CBD')" class="popover-option-item" data-value="Central">
+                  <span>Central CBD (Lavelle Rd, Richmond Town)</span>
+                </button>
+              </div>
+            </div>
+          </div>
 
-          <!-- Reset Filters Button -->
-          <button onclick="resetAllFilters()" class="text-xs font-semibold text-stone hover:text-obsidian flex items-center space-x-1 underline decoration-stone/40 hover:decoration-obsidian">
+          <!-- 3. Typology Chip -->
+          <div class="relative chip-dropdown-wrapper">
+            <button type="button" onclick="toggleFilterPopover('popoverTypology')" id="chipTypologyBtn" class="filter-chip-btn">
+              <span id="chipTypologyLabel">All Typologies</span>
+              <svg class="w-3 h-3 text-stone transition-transform duration-200 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="popoverTypology" class="liquid-filter-popover hidden p-3 w-60 left-0">
+              <div class="text-[9px] uppercase tracking-widest font-bold text-stone mb-2 px-1">Asset Typology</div>
+              <div class="space-y-1">
+                <button type="button" onclick="selectTypology('all', 'All Typologies')" class="popover-option-item selected" data-value="all">
+                  <span>All Typologies</span>
+                </button>
+                <button type="button" onclick="selectTypology('Apartment', 'Apartments')" class="popover-option-item" data-value="Apartment">
+                  <span>Apartments / Flats</span>
+                </button>
+                <button type="button" onclick="selectTypology('Villa', 'Villas')" class="popover-option-item" data-value="Villa">
+                  <span>Gated Villa Mansions</span>
+                </button>
+                <button type="button" onclick="selectTypology('Penthouse', 'Penthouses')" class="popover-option-item" data-value="Penthouse">
+                  <span>Sky Penthouses</span>
+                </button>
+                <button type="button" onclick="selectTypology('Commercial', 'Commercial')" class="popover-option-item" data-value="Commercial">
+                  <span>Commercial Tech Floors</span>
+                </button>
+                <button type="button" onclick="selectTypology('Plot', 'Plots')" class="popover-option-item" data-value="Plot">
+                  <span>Gated Estate Plots</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Bedrooms Chip -->
+          <div class="relative chip-dropdown-wrapper">
+            <button type="button" onclick="toggleFilterPopover('popoverBedrooms')" id="chipBhkBtn" class="filter-chip-btn">
+              <span id="chipBhkLabel">Bedrooms</span>
+              <svg class="w-3 h-3 text-stone transition-transform duration-200 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="popoverBedrooms" class="liquid-filter-popover hidden p-3.5 w-64 left-0 sm:left-auto">
+              <div class="text-[9px] uppercase tracking-widest font-bold text-stone mb-2.5 px-0.5">Select Bedrooms</div>
+              <div class="grid grid-cols-3 gap-1.5">
+                <button type="button" onclick="selectBhk('all', 'Bedrooms')" class="bhk-chip-opt px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-obsidian bg-obsidian text-white transition-all text-center" data-bhk="all">All</button>
+                <button type="button" onclick="selectBhk('1 BHK', '1 BHK')" class="bhk-chip-opt px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-stone-200 bg-white text-stone hover:text-obsidian hover:border-obsidian transition-all text-center" data-bhk="1 BHK">1 BHK</button>
+                <button type="button" onclick="selectBhk('2 BHK', '2 BHK')" class="bhk-chip-opt px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-stone-200 bg-white text-stone hover:text-obsidian hover:border-obsidian transition-all text-center" data-bhk="2 BHK">2 BHK</button>
+                <button type="button" onclick="selectBhk('3 BHK', '3 BHK')" class="bhk-chip-opt px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-stone-200 bg-white text-stone hover:text-obsidian hover:border-obsidian transition-all text-center" data-bhk="3 BHK">3 BHK</button>
+                <button type="button" onclick="selectBhk('4 BHK', '4 BHK')" class="bhk-chip-opt px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-stone-200 bg-white text-stone hover:text-obsidian hover:border-obsidian transition-all text-center" data-bhk="4 BHK">4 BHK</button>
+                <button type="button" onclick="selectBhk('4+ BHK', '4+ BHK')" class="bhk-chip-opt px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-stone-200 bg-white text-stone hover:text-obsidian hover:border-obsidian transition-all text-center" data-bhk="4+ BHK">4+ BHK</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Budget Popover Chip (The Option B Hero Popover) -->
+          <div class="relative chip-dropdown-wrapper">
+            <button type="button" onclick="toggleFilterPopover('popoverBudget')" id="chipBudgetBtn" class="filter-chip-btn">
+              <span id="chipBudgetLabel">Budget</span>
+              <svg class="w-3 h-3 text-stone transition-transform duration-200 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="popoverBudget" class="liquid-filter-popover hidden p-4 w-80 left-0 sm:left-auto sm:right-0">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-[9.5px] uppercase tracking-widest font-bold text-stone">Max Investment Budget</span>
+                <span id="budgetValue" class="text-xs font-serif font-bold text-gold">&#8377;15.00+ Cr</span>
+              </div>
+              
+              <input type="range" id="budgetRange" min="2000000" max="150000000" step="500000" value="150000000" oninput="handleBudgetSlider(this.value)" class="liquid-slider my-2.5 w-full">
+              <div class="flex justify-between text-[9px] text-stoneLight mb-3.5 font-mono">
+                <span>&#8377;20L</span>
+                <span>&#8377;5Cr</span>
+                <span>&#8377;15Cr+</span>
+              </div>
+
+              <div class="text-[9px] uppercase tracking-widest font-bold text-stone mb-1.5">Quick Presets</div>
+              <div class="grid grid-cols-2 gap-1.5 mb-3.5">
+                <button type="button" onclick="setBudgetPreset(30000000, 'Under ₹3 Cr')" class="budget-preset-btn px-2.5 py-1.5 text-[11px] font-medium rounded-lg border border-stone-200 bg-stone-50 hover:bg-stone-100 text-obsidian text-left transition-all">Under &#8377;3 Cr</button>
+                <button type="button" onclick="setBudgetPreset(70000000, 'Up to ₹7 Cr')" class="budget-preset-btn px-2.5 py-1.5 text-[11px] font-medium rounded-lg border border-stone-200 bg-stone-50 hover:bg-stone-100 text-obsidian text-left transition-all">Up to &#8377;7 Cr</button>
+                <button type="button" onclick="setBudgetPreset(120000000, 'Up to ₹12 Cr')" class="budget-preset-btn px-2.5 py-1.5 text-[11px] font-medium rounded-lg border border-stone-200 bg-stone-50 hover:bg-stone-100 text-obsidian text-left transition-all">Up to &#8377;12 Cr</button>
+                <button type="button" onclick="setBudgetPreset(150000000, 'Any Budget')" class="budget-preset-btn active-preset px-2.5 py-1.5 text-[11px] font-medium rounded-lg border border-obsidian bg-obsidian text-white text-left font-semibold transition-all">Any (&#8377;15Cr+)</button>
+              </div>
+
+              <button type="button" onclick="closeAllFilterPopovers()" class="w-full py-2 bg-obsidian hover:bg-black text-white text-xs font-semibold rounded-lg transition-colors shadow-2xs">
+                Apply Budget
+              </button>
+            </div>
+          </div>
+
+          <!-- 6. Sort Order Chip -->
+          <div class="relative chip-dropdown-wrapper">
+            <button type="button" onclick="toggleFilterPopover('popoverSort')" id="chipSortBtn" class="filter-chip-btn">
+              <span id="chipSortLabel">Sort</span>
+              <svg class="w-3 h-3 text-stone transition-transform duration-200 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="popoverSort" class="liquid-filter-popover hidden p-3 w-56 right-0">
+              <div class="text-[9px] uppercase tracking-widest font-bold text-stone mb-2 px-1">Sort Properties By</div>
+              <div class="space-y-1">
+                <button type="button" onclick="selectSort('score_desc', 'Sort: Best Match')" class="popover-option-item selected" data-value="score_desc">
+                  <span>Best Match</span>
+                </button>
+                <button type="button" onclick="selectSort('price_asc', 'Price: Low to High')" class="popover-option-item" data-value="price_asc">
+                  <span>Price: Low to High</span>
+                </button>
+                <button type="button" onclick="selectSort('price_desc', 'Price: High to Low')" class="popover-option-item" data-value="price_desc">
+                  <span>Price: High to Low</span>
+                </button>
+                <button type="button" onclick="selectSort('area_desc', 'Largest Carpet Area')" class="popover-option-item" data-value="area_desc">
+                  <span>Largest Area</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Reset Filters Button -->
+          <button type="button" onclick="resetAllFilters()" title="Reset All Filters" class="px-2.5 py-2 text-xs font-medium text-stone hover:text-obsidian border border-transparent hover:border-stone-200 rounded-xl hover:bg-white transition-all flex items-center gap-1.5 shadow-none hover:shadow-2xs">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-            <span>Reset</span>
+            <span class="hidden sm:inline">Reset</span>
           </button>
+
         </div>
 
       </div>
 
+      <!-- Hidden standard fallback inputs to maintain full script compatibility -->
+      <select id="locationSelect" class="hidden">
+        <option value="all">All</option>
+        <option value="South Bengaluru">South Bengaluru</option>
+        <option value="North Bengaluru">North Bengaluru</option>
+        <option value="Central">Central</option>
+      </select>
+      <select id="typologySelect" class="hidden">
+        <option value="all">All</option>
+        <option value="Apartment">Apartment</option>
+        <option value="Villa">Villa</option>
+        <option value="Penthouse">Penthouse</option>
+        <option value="Commercial">Commercial</option>
+        <option value="Plot">Plot</option>
+      </select>
+      <select id="sortSelect" class="hidden">
+        <option value="score_desc">score_desc</option>
+        <option value="price_asc">price_asc</option>
+        <option value="price_desc">price_desc</option>
+        <option value="area_desc">area_desc</option>
+      </select>
     </div>
 
     <!-- ==================== PROPERTY CARDS GRID CONTAINER ==================== -->
@@ -3175,42 +3370,254 @@ Generated: ${new Date().toLocaleString()}
       });
     });
 
+    // ==================== OPTION B: FLOATING CHIP POPOVER CONTROLS ====================
+    let activeFilterPopoverId = null;
+
+    function toggleFilterPopover(popoverId) {
+      const popover = document.getElementById(popoverId);
+      if (!popover) return;
+      const isCurrentlyOpen = !popover.classList.contains('hidden');
+      closeAllFilterPopovers();
+      if (!isCurrentlyOpen) {
+        popover.classList.remove('hidden');
+        activeFilterPopoverId = popoverId;
+        const wrapper = popover.closest('.chip-dropdown-wrapper');
+        const chevron = wrapper ? wrapper.querySelector('.chevron') : null;
+        if (chevron) chevron.classList.add('rotate-180');
+      }
+    }
+
+    function closeAllFilterPopovers() {
+      document.querySelectorAll('.liquid-filter-popover').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('.chip-dropdown-wrapper .chevron').forEach(c => c.classList.remove('rotate-180'));
+      activeFilterPopoverId = null;
+    }
+
+    // Dismiss popovers when clicking outside or pressing Escape
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.chip-dropdown-wrapper')) {
+        closeAllFilterPopovers();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeAllFilterPopovers();
+      }
+    });
+
+    function selectListingType(type, label) {
+      currentListingType = type;
+      const chipLabel = document.getElementById('chipTypeLabel');
+      if (chipLabel) chipLabel.innerText = label;
+
+      const optSale = document.getElementById('typeOptSale');
+      const optRent = document.getElementById('typeOptRent');
+      if (optSale && optRent) {
+        if (type === 'sale') {
+          optSale.classList.add('selected');
+          optSale.querySelector('svg').classList.remove('hidden');
+          optRent.classList.remove('selected');
+          optRent.querySelector('svg').classList.add('hidden');
+        } else {
+          optRent.classList.add('selected');
+          optRent.querySelector('svg').classList.remove('hidden');
+          optSale.classList.remove('selected');
+          optSale.querySelector('svg').classList.add('hidden');
+        }
+      }
+
+      const btn = document.getElementById('chipTypeBtn');
+      if (btn) {
+        if (type !== 'sale' || currentPreLaunchOnly) btn.classList.add('active-filter');
+        else btn.classList.remove('active-filter');
+      }
+
+      closeAllFilterPopovers();
+      renderProperties();
+    }
+
+    function togglePreLaunch(checked) {
+      currentPreLaunchOnly = checked;
+      const btn = document.getElementById('chipTypeBtn');
+      if (btn) {
+        if (checked || currentListingType !== 'sale') btn.classList.add('active-filter');
+        else btn.classList.remove('active-filter');
+      }
+      renderProperties();
+    }
+
+    function selectCorridor(val, label) {
+      currentLocation = val;
+      const chipLabel = document.getElementById('chipCorridorLabel');
+      if (chipLabel) chipLabel.innerText = label;
+
+      const popover = document.getElementById('popoverCorridor');
+      if (popover) {
+        popover.querySelectorAll('.popover-option-item').forEach(item => {
+          if (item.getAttribute('data-value') === val) item.classList.add('selected');
+          else item.classList.remove('selected');
+        });
+      }
+
+      const btn = document.getElementById('chipCorridorBtn');
+      if (btn) {
+        if (val !== 'all') btn.classList.add('active-filter');
+        else btn.classList.remove('active-filter');
+      }
+
+      closeAllFilterPopovers();
+      renderProperties();
+    }
+
+    function selectTypology(val, label) {
+      currentTypology = val;
+      const chipLabel = document.getElementById('chipTypologyLabel');
+      if (chipLabel) chipLabel.innerText = label;
+
+      const popover = document.getElementById('popoverTypology');
+      if (popover) {
+        popover.querySelectorAll('.popover-option-item').forEach(item => {
+          if (item.getAttribute('data-value') === val) item.classList.add('selected');
+          else item.classList.remove('selected');
+        });
+      }
+
+      const btn = document.getElementById('chipTypologyBtn');
+      if (btn) {
+        if (val !== 'all') btn.classList.add('active-filter');
+        else btn.classList.remove('active-filter');
+      }
+
+      closeAllFilterPopovers();
+      renderProperties();
+    }
+
+    function selectBhk(val, label) {
+      currentBhk = val;
+      const chipLabel = document.getElementById('chipBhkLabel');
+      if (chipLabel) chipLabel.innerText = label === 'all' ? 'Bedrooms' : label;
+
+      const popover = document.getElementById('popoverBedrooms');
+      if (popover) {
+        popover.querySelectorAll('.bhk-chip-opt').forEach(btn => {
+          if (btn.getAttribute('data-bhk') === val) {
+            btn.className = 'bhk-chip-opt px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-obsidian bg-obsidian text-white transition-all text-center';
+          } else {
+            btn.className = 'bhk-chip-opt px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-stone-200 bg-white text-stone hover:text-obsidian hover:border-obsidian transition-all text-center';
+          }
+        });
+      }
+
+      const btn = document.getElementById('chipBhkBtn');
+      if (btn) {
+        if (val !== 'all') btn.classList.add('active-filter');
+        else btn.classList.remove('active-filter');
+      }
+
+      closeAllFilterPopovers();
+      renderProperties();
+    }
+
+    function handleBudgetSlider(val) {
+      currentMaxBudget = parseInt(val);
+      const budgetValEl = document.getElementById('budgetValue');
+      if (budgetValEl) budgetValEl.innerText = formatINR(currentMaxBudget);
+
+      const chipLabel = document.getElementById('chipBudgetLabel');
+      const btn = document.getElementById('chipBudgetBtn');
+      if (currentMaxBudget >= 150000000) {
+        if (chipLabel) chipLabel.innerText = 'Budget';
+        if (btn) btn.classList.remove('active-filter');
+      } else {
+        if (chipLabel) chipLabel.innerText = 'Max: ' + formatINR(currentMaxBudget);
+        if (btn) btn.classList.add('active-filter');
+      }
+
+      document.querySelectorAll('.budget-preset-btn').forEach(b => {
+        b.className = 'budget-preset-btn px-2.5 py-1.5 text-[11px] font-medium rounded-lg border border-stone-200 bg-stone-50 hover:bg-stone-100 text-obsidian text-left transition-all';
+      });
+
+      renderProperties();
+    }
+
+    function setBudgetPreset(amount, label) {
+      const slider = document.getElementById('budgetRange');
+      if (slider) slider.value = amount;
+      currentMaxBudget = amount;
+
+      const budgetValEl = document.getElementById('budgetValue');
+      if (budgetValEl) budgetValEl.innerText = formatINR(amount);
+
+      const chipLabel = document.getElementById('chipBudgetLabel');
+      const btn = document.getElementById('chipBudgetBtn');
+      if (amount >= 150000000) {
+        if (chipLabel) chipLabel.innerText = 'Budget';
+        if (btn) btn.classList.remove('active-filter');
+      } else {
+        if (chipLabel) chipLabel.innerText = label;
+        if (btn) btn.classList.add('active-filter');
+      }
+
+      document.querySelectorAll('.budget-preset-btn').forEach(b => {
+        if (b.innerText.includes(label) || (amount >= 150000000 && b.innerText.includes('Any'))) {
+          b.className = 'budget-preset-btn active-preset px-2.5 py-1.5 text-[11px] font-medium rounded-lg border border-obsidian bg-obsidian text-white text-left font-semibold transition-all';
+        } else {
+          b.className = 'budget-preset-btn px-2.5 py-1.5 text-[11px] font-medium rounded-lg border border-stone-200 bg-stone-50 hover:bg-stone-100 text-obsidian text-left transition-all';
+        }
+      });
+
+      closeAllFilterPopovers();
+      renderProperties();
+    }
+
+    function selectSort(val, label) {
+      currentSort = val;
+      const chipLabel = document.getElementById('chipSortLabel');
+      if (chipLabel) chipLabel.innerText = label;
+
+      const popover = document.getElementById('popoverSort');
+      if (popover) {
+        popover.querySelectorAll('.popover-option-item').forEach(item => {
+          if (item.getAttribute('data-value') === val) item.classList.add('selected');
+          else item.classList.remove('selected');
+        });
+      }
+
+      const btn = document.getElementById('chipSortBtn');
+      if (btn) {
+        if (val !== 'score_desc') btn.classList.add('active-filter');
+        else btn.classList.remove('active-filter');
+      }
+
+      closeAllFilterPopovers();
+      renderProperties();
+    }
+
+    function clearKeywordSearch() {
+      const input = document.getElementById('keywordInput');
+      if (input) input.value = '';
+      currentSearch = '';
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (clearBtn) clearBtn.classList.add('hidden');
+      renderProperties();
+    }
+
     // Keyword Search Input Listener
-    document.getElementById('keywordInput').addEventListener('input', (e) => {
-      currentSearch = e.target.value;
-      renderProperties();
-    });
+    const keyInput = document.getElementById('keywordInput');
+    if (keyInput) {
+      keyInput.addEventListener('input', (e) => {
+        currentSearch = e.target.value;
+        const clearBtn = document.getElementById('clearSearchBtn');
+        if (clearBtn) {
+          if (currentSearch.trim().length > 0) clearBtn.classList.remove('hidden');
+          else clearBtn.classList.add('hidden');
+        }
+        renderProperties();
+      });
+    }
 
-    // Dropdown Event Listeners
-    document.getElementById('locationSelect').addEventListener('change', (e) => {
-      currentLocation = e.target.value;
-      renderProperties();
-    });
-
-    document.getElementById('typologySelect').addEventListener('change', (e) => {
-      currentTypology = e.target.value;
-      renderProperties();
-    });
-
-    document.getElementById('sortSelect').addEventListener('change', (e) => {
-      currentSort = e.target.value;
-      renderProperties();
-    });
-
-    // Pre-launch checkbox
-    document.getElementById('preLaunchCheck').addEventListener('change', (e) => {
-      currentPreLaunchOnly = e.target.checked;
-      renderProperties();
-    });
-
-    // Budget Slider
-    document.getElementById('budgetRange').addEventListener('input', (e) => {
-      currentMaxBudget = parseInt(e.target.value);
-      document.getElementById('budgetValue').innerText = formatINR(currentMaxBudget);
-      renderProperties();
-    });
-
-    // Reset Filters
+    // Reset All Filters
     function resetAllFilters() {
       currentCategory = 'all';
       currentSearch = '';
@@ -3222,23 +3629,54 @@ Generated: ${new Date().toLocaleString()}
       currentMaxBudget = 150000000;
       currentSort = 'score_desc';
 
-      document.getElementById('keywordInput').value = '';
-      document.getElementById('locationSelect').value = 'all';
-      document.getElementById('typologySelect').value = 'all';
-      document.getElementById('sortSelect').value = 'score_desc';
-      document.getElementById('preLaunchCheck').checked = false;
-      document.getElementById('budgetRange').value = 150000000;
-      document.getElementById('budgetValue').innerText = '\u20B915.00+ Cr';
+      const searchInput = document.getElementById('keywordInput');
+      if (searchInput) searchInput.value = '';
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (clearBtn) clearBtn.classList.add('hidden');
+
+      const preCheck = document.getElementById('preLaunchCheck');
+      if (preCheck) preCheck.checked = false;
+
+      const slider = document.getElementById('budgetRange');
+      if (slider) slider.value = 150000000;
+
+      const budgetVal = document.getElementById('budgetValue');
+      if (budgetVal) budgetVal.innerText = '\u20B915.00+ Cr';
+
+      // Reset chip labels
+      const typeLabel = document.getElementById('chipTypeLabel');
+      if (typeLabel) typeLabel.innerText = 'For Sale';
+
+      const corrLabel = document.getElementById('chipCorridorLabel');
+      if (corrLabel) corrLabel.innerText = 'All Corridors';
+
+      const typoLabel = document.getElementById('chipTypologyLabel');
+      if (typoLabel) typoLabel.innerText = 'All Typologies';
+
+      const bhkLabel = document.getElementById('chipBhkLabel');
+      if (bhkLabel) bhkLabel.innerText = 'Bedrooms';
+
+      const budgLabel = document.getElementById('chipBudgetLabel');
+      if (budgLabel) budgLabel.innerText = 'Budget';
+
+      const sortLabel = document.getElementById('chipSortLabel');
+      if (sortLabel) sortLabel.innerText = 'Sort';
+
+      // Remove active-filter highlights on chip buttons
+      document.querySelectorAll('.filter-chip-btn').forEach(b => b.classList.remove('active-filter'));
+
+      // Reset popover selections
+      selectCorridor('all', 'All Corridors');
+      selectTypology('all', 'All Typologies');
+      selectBhk('all', 'Bedrooms');
+      selectListingType('sale', 'For Sale');
+      selectSort('score_desc', 'Sort');
 
       document.querySelectorAll('.cat-pill').forEach((b, idx) => {
-        b.className = idx === 0 ? 'cat-pill active px-3.5 py-2 text-xs font-semibold tracking-wider uppercase border border-obsidian bg-obsidian text-canvas transition-all' : 'cat-pill px-3.5 py-2 text-xs font-semibold tracking-wider uppercase border border-borderSubtle bg-white text-stone hover:text-obsidian hover:border-obsidian transition-all';
+        b.className = idx === 0 ? 'cat-pill active px-4 py-2 text-xs font-semibold tracking-wider uppercase rounded-xl border border-obsidian bg-obsidian text-canvas shadow-xs transition-all duration-200' : 'cat-pill px-4 py-2 text-xs font-semibold tracking-wider uppercase rounded-xl border border-stone-200 bg-white/90 text-stone hover:text-obsidian hover:border-obsidian transition-all duration-200 shadow-2xs';
       });
 
-      document.querySelectorAll('.bhk-pill').forEach((b, idx) => {
-        b.className = idx === 0 ? 'bhk-pill active px-2.5 py-1 text-[11px] font-semibold border border-obsidian bg-obsidian text-canvas' : 'bhk-pill px-2.5 py-1 text-[11px] font-semibold border border-borderSubtle bg-white text-stone hover:text-obsidian';
-      });
-
-      setListingType('sale');
+      closeAllFilterPopovers();
       renderProperties();
     }
 
