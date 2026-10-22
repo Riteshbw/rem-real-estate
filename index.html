@@ -477,22 +477,42 @@
       box-shadow: 0 8px 20px -4px rgba(28, 25, 23, 0.16);
     }
 
-    /* Apple Liquid Glass Status Badges (Direct match for Reference Screenshot 1 & 2) */
+    /* Property Card Badges (Solid Warm Mocha Pill Matching User Reference Screenshot 3) */
     .liquid-badge-gold,
     .liquid-badge-dark {
-      border-radius: 6px !important; /* Subtle decurved liquid glass squircle */
-      background: linear-gradient(180deg, rgba(38, 34, 32, 0.65) 0%, rgba(18, 16, 15, 0.48) 100%) !important;
-      backdrop-filter: blur(24px) saturate(210%) contrast(105%);
-      -webkit-backdrop-filter: blur(24px) saturate(210%) contrast(105%);
-      border: 1px solid rgba(255, 255, 255, 0.20) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      line-height: 1 !important;
+      padding: 6px 13px !important;
+      border-radius: 6px !important;
+      background: #3B312A !important; /* Warm rich dark mocha solid from reference screenshot */
+      border: 1px solid rgba(255, 255, 255, 0.14) !important;
       color: #ffffff !important;
+      font-size: 11px !important;
       font-weight: 500 !important;
       letter-spacing: 0.02em !important;
-      box-shadow:
-        inset 0 1px 1px 0 rgba(255, 255, 255, 0.35),
-        inset 0 -1px 1px 0 rgba(0, 0, 0, 0.30),
-        0 8px 20px -4px rgba(0, 0, 0, 0.45) !important;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.40);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22) !important;
+      text-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      vertical-align: middle;
+    }
+
+    /* Apple Liquid Glass Platform Pillar Cards */
+    .liquid-pillar-card {
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(250, 248, 245, 0.74) 100%);
+      backdrop-filter: blur(24px) saturate(190%);
+      -webkit-backdrop-filter: blur(24px) saturate(190%);
+      border: 1px solid rgba(255, 255, 255, 0.90);
+      box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.95), 0 8px 24px -6px rgba(28, 25, 23, 0.08);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .liquid-pillar-card:hover {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(252, 251, 249, 0.85) 100%);
+      box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 1), 0 12px 32px -6px rgba(28, 25, 23, 0.12);
+      transform: translateY(-2px);
     }
 
     /* Apple Liquid Glass Dossier Elements */
@@ -654,14 +674,13 @@
       <!-- Right Action Controls -->
       <div class="flex items-center gap-3 sm:gap-4">
 
-        <!-- User Sign In — minimal rectangle with hover fill -->
-        <button id="authBtn" onclick="openAuthModal()" class="relative group text-xs font-semibold uppercase tracking-widest border border-obsidian/40 text-obsidian/85 hover:border-obsidian hover:text-obsidian transition-all duration-300 py-1.5 px-3.5 overflow-hidden" style="border-radius: 8px;">
-          <span class="absolute inset-0 bg-obsidian scale-y-0 origin-bottom group-hover:scale-y-100 transition-transform duration-300 ease-out z-0"></span>
-          <span id="authBtnText" class="relative z-10 group-hover:text-white transition-colors duration-300">Sign In</span>
+        <!-- User Sign In — clean translucent pill matching Reference Screenshot 4 -->
+        <button id="authBtn" onclick="openAuthModal()" class="px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider border border-black/10 bg-white/80 hover:bg-white text-obsidian hover:border-black/20 transition-all duration-300 shadow-2xs rounded-lg">
+          <span id="authBtnText">Sign In</span>
         </button>
 
-        <!-- Contact Us Action Button -->
-        <button id="conciergeBtn" class="btn-era px-3.5 py-1.5 text-xs font-semibold tracking-widest uppercase border border-obsidian text-obsidian bg-white hover:text-white transition-all" style="border-radius: 8px;">
+        <!-- Contact Us Action Button — clean matching pill without black outline -->
+        <button id="conciergeBtn" class="btn-era px-3.5 py-1.5 text-xs font-semibold tracking-wider uppercase border border-black/10 bg-white text-obsidian hover:bg-obsidian hover:text-white transition-all duration-300 shadow-2xs rounded-lg">
           <span>Contact Us</span>
         </button>
 
@@ -752,32 +771,32 @@
     </div>
 
     <!-- ==================== COMPREHENSIVE MULTI-FILTER BAR ==================== -->
-    <div class="bg-white border border-borderSubtle p-5 sm:p-6 mb-10 shadow-xs">
+    <div class="bg-white border border-stone-200 p-5 sm:p-6 mb-10 shadow-2xs rounded-xl">
       
       <!-- Top Row: Real-time Search Input & Quick Category Pills -->
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-5 border-b border-borderSubtle">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-5 border-b border-stone-200/80">
         <!-- Live Search Input -->
         <div class="relative flex-1 max-w-md">
           <input type="text" id="keywordInput" placeholder="Search by property, builder, corridor (e.g. Indiranagar, Lavelle)..." 
-                 class="w-full pl-9 pr-4 py-2.5 text-xs bg-limestone border border-borderSubtle text-obsidian placeholder-stoneLight focus:outline-none focus:border-obsidian font-medium">
+                 class="w-full pl-9 pr-4 py-2.5 text-xs bg-white border border-stone-200 text-obsidian placeholder-stoneLight focus:outline-none focus:border-stone-400 rounded-lg shadow-2xs font-medium">
           <svg class="w-4 h-4 text-stone absolute left-3 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         </div>
 
         <!-- Category Pills -->
         <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
-          <button class="cat-pill active px-3.5 py-2 text-xs font-semibold tracking-wider uppercase border border-obsidian bg-obsidian text-canvas transition-all" data-cat="all">
+          <button class="cat-pill active px-3.5 py-2 text-xs font-semibold tracking-wider uppercase border border-obsidian bg-obsidian text-canvas rounded-lg transition-all" data-cat="all">
             All Assets
           </button>
-          <button class="cat-pill px-3.5 py-2 text-xs font-semibold tracking-wider uppercase border border-borderSubtle bg-white text-stone hover:text-obsidian hover:border-obsidian transition-all" data-cat="high_yield_investment">
+          <button class="cat-pill px-3.5 py-2 text-xs font-semibold tracking-wider uppercase border border-stone-200 bg-white text-stone hover:text-obsidian hover:border-obsidian rounded-lg transition-all shadow-2xs" data-cat="high_yield_investment">
             Commercial Syndicate
           </button>
-          <button class="cat-pill px-3.5 py-2 text-xs font-semibold tracking-wider uppercase border border-borderSubtle bg-white text-stone hover:text-obsidian hover:border-obsidian transition-all" data-cat="luxury_residential">
+          <button class="cat-pill px-3.5 py-2 text-xs font-semibold tracking-wider uppercase border border-stone-200 bg-white text-stone hover:text-obsidian hover:border-obsidian rounded-lg transition-all shadow-2xs" data-cat="luxury_residential">
             Luxury Residential
           </button>
-          <button class="cat-pill px-3.5 py-2 text-xs font-semibold tracking-wider uppercase border border-borderSubtle bg-white text-stone hover:text-obsidian hover:border-obsidian transition-all" data-cat="gated_villa">
+          <button class="cat-pill px-3.5 py-2 text-xs font-semibold tracking-wider uppercase border border-stone-200 bg-white text-stone hover:text-obsidian hover:border-obsidian rounded-lg transition-all shadow-2xs" data-cat="gated_villa">
             Gated Villas
           </button>
-          <button class="cat-pill px-3.5 py-2 text-xs font-semibold tracking-wider uppercase border border-borderSubtle bg-white text-stone hover:text-obsidian hover:border-obsidian transition-all" data-cat="upcoming_launch">
+          <button class="cat-pill px-3.5 py-2 text-xs font-semibold tracking-wider uppercase border border-stone-200 bg-white text-stone hover:text-obsidian hover:border-obsidian rounded-lg transition-all shadow-2xs" data-cat="upcoming_launch">
             Pre-Launch
           </button>
         </div>
@@ -789,7 +808,7 @@
         <!-- Location Corridor Dropdown -->
         <div>
           <label class="block text-[9px] uppercase tracking-widest font-bold text-stone mb-1.5">Corridor / Zone</label>
-          <select id="locationSelect" class="w-full text-xs bg-limestone border border-borderSubtle p-2.5 font-medium text-obsidian focus:outline-none focus:border-obsidian">
+          <select id="locationSelect" class="w-full text-xs bg-white border border-stone-200 p-2.5 font-medium text-obsidian focus:outline-none focus:border-stone-400 rounded-lg shadow-2xs">
             <option value="all">All Prime Corridors</option>
             <option value="South Bengaluru">South Bengaluru (Indiranagar, Koramangala, Bellandur, Sarjapur)</option>
             <option value="North Bengaluru">North Bengaluru (Hebbal, Yelahanka, Airport)</option>
@@ -800,7 +819,7 @@
         <!-- Property Typology Dropdown -->
         <div>
           <label class="block text-[9px] uppercase tracking-widest font-bold text-stone mb-1.5">Asset Typology</label>
-          <select id="typologySelect" class="w-full text-xs bg-limestone border border-borderSubtle p-2.5 font-medium text-obsidian focus:outline-none focus:border-obsidian">
+          <select id="typologySelect" class="w-full text-xs bg-white border border-stone-200 p-2.5 font-medium text-obsidian focus:outline-none focus:border-stone-400 rounded-lg shadow-2xs">
             <option value="all">All Typologies</option>
             <option value="Apartment">Apartments / Flats</option>
             <option value="Villa">Gated Villa Mansions</option>
@@ -827,7 +846,7 @@
         <!-- Sort Criteria Dropdown -->
         <div>
           <label class="block text-[9px] uppercase tracking-widest font-bold text-stone mb-1.5">Sort Order</label>
-          <select id="sortSelect" class="w-full text-xs bg-limestone border border-borderSubtle p-2.5 font-medium text-obsidian focus:outline-none focus:border-obsidian">
+          <select id="sortSelect" class="w-full text-xs bg-white border border-stone-200 p-2.5 font-medium text-obsidian focus:outline-none focus:border-stone-400 rounded-lg shadow-2xs">
             <option value="score_desc">Best Match</option>
             <option value="price_asc">Price: Low to High</option>
             <option value="price_desc">Price: High to Low</option>
@@ -838,27 +857,27 @@
       </div>
 
       <!-- Third Row: BHK Pills, Sale/Rent Toggle, Pre-Launch Switch, Reset Button -->
-      <div class="flex flex-wrap items-center justify-between gap-4 pt-5 mt-4 border-t border-borderSubtle/60">
+      <div class="flex flex-wrap items-center justify-between gap-4 pt-5 mt-4 border-t border-stone-200/60">
         
         <!-- BHK Pills -->
         <div class="flex items-center space-x-2">
           <span class="text-[9px] uppercase tracking-widest font-bold text-stone hidden sm:inline">Bedrooms:</span>
           <div class="inline-flex flex-wrap gap-1">
-            <button class="bhk-pill active px-2.5 py-1 text-[11px] font-semibold border border-obsidian bg-obsidian text-canvas" data-bhk="all">All</button>
-            <button class="bhk-pill px-2.5 py-1 text-[11px] font-semibold border border-borderSubtle bg-white text-stone hover:text-obsidian" data-bhk="1 BHK">1 BHK</button>
-            <button class="bhk-pill px-2.5 py-1 text-[11px] font-semibold border border-borderSubtle bg-white text-stone hover:text-obsidian" data-bhk="2 BHK">2 BHK</button>
-            <button class="bhk-pill px-2.5 py-1 text-[11px] font-semibold border border-borderSubtle bg-white text-stone hover:text-obsidian" data-bhk="3 BHK">3 BHK</button>
-            <button class="bhk-pill px-2.5 py-1 text-[11px] font-semibold border border-borderSubtle bg-white text-stone hover:text-obsidian" data-bhk="4 BHK">4 BHK</button>
-            <button class="bhk-pill px-2.5 py-1 text-[11px] font-semibold border border-borderSubtle bg-white text-stone hover:text-obsidian" data-bhk="4+ BHK">4+ BHK</button>
+            <button class="bhk-pill active px-2.5 py-1 text-[11px] font-semibold border border-obsidian bg-obsidian text-canvas rounded-md" data-bhk="all">All</button>
+            <button class="bhk-pill px-2.5 py-1 text-[11px] font-semibold border border-stone-200 bg-white text-stone hover:text-obsidian rounded-md shadow-2xs" data-bhk="1 BHK">1 BHK</button>
+            <button class="bhk-pill px-2.5 py-1 text-[11px] font-semibold border border-stone-200 bg-white text-stone hover:text-obsidian rounded-md shadow-2xs" data-bhk="2 BHK">2 BHK</button>
+            <button class="bhk-pill px-2.5 py-1 text-[11px] font-semibold border border-stone-200 bg-white text-stone hover:text-obsidian rounded-md shadow-2xs" data-bhk="3 BHK">3 BHK</button>
+            <button class="bhk-pill px-2.5 py-1 text-[11px] font-semibold border border-stone-200 bg-white text-stone hover:text-obsidian rounded-md shadow-2xs" data-bhk="4 BHK">4 BHK</button>
+            <button class="bhk-pill px-2.5 py-1 text-[11px] font-semibold border border-stone-200 bg-white text-stone hover:text-obsidian rounded-md shadow-2xs" data-bhk="4+ BHK">4+ BHK</button>
           </div>
         </div>
 
         <!-- Listing Type & Pre-Launch Switches -->
         <div class="flex items-center space-x-4">
           <!-- Buy vs Rent Toggle -->
-          <div class="inline-flex border border-borderSubtle p-0.5 bg-limestone text-xs font-semibold uppercase tracking-wider">
-            <button id="typeSaleBtn" onclick="setListingType('sale')" class="px-3 py-1 bg-white text-obsidian shadow-xs font-bold">For Sale</button>
-            <button id="typeRentBtn" onclick="setListingType('rent')" class="px-3 py-1 text-stone hover:text-obsidian">For Lease</button>
+          <div class="inline-flex border border-stone-200 p-0.5 bg-stone-50 text-xs font-semibold uppercase tracking-wider rounded-lg">
+            <button id="typeSaleBtn" onclick="setListingType('sale')" class="px-3 py-1 bg-white text-obsidian shadow-2xs font-bold rounded-md">For Sale</button>
+            <button id="typeRentBtn" onclick="setListingType('rent')" class="px-3 py-1 text-stone hover:text-obsidian rounded-md">For Lease</button>
           </div>
 
           <!-- Pre-Launch Checkbox -->
@@ -1018,13 +1037,13 @@
         </p>
       </div>
 
-      <!-- The 3 Optimized Research Cards -->
+      <!-- The 3 Liquid Glass Research Cards -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <!-- Pillar 01: Direct Developer Disintermediation -->
-        <div class="p-8 bg-white border border-borderSubtle shadow-xs hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
+        <div class="liquid-pillar-card p-8 flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 border border-obsidian/20 bg-limestone flex items-center justify-center font-serif text-base font-bold text-obsidian mb-6">
+            <div class="w-12 h-12 rounded-xl border border-obsidian/15 bg-white/70 backdrop-blur-md flex items-center justify-center font-serif text-base font-bold text-obsidian mb-6 shadow-2xs">
               01
             </div>
             <h3 class="font-serif text-lg font-bold text-obsidian leading-snug">Direct Developer Disintermediation</h3>
@@ -1032,16 +1051,16 @@
               Eliminates the traditional 1%–2% broker commission penalty. Integrates direct telephonic dialers and verified WhatsApp bridges directly with project developers, guaranteeing 100% pricing transparency without gated broker leads.
             </p>
           </div>
-          <div class="mt-8 pt-4 border-t border-borderSubtle text-[10px] font-bold text-gold uppercase tracking-widest flex items-center justify-between">
+          <div class="mt-8 pt-4 border-t border-stone-200/60 text-[10px] font-bold text-gold uppercase tracking-widest flex items-center justify-between">
             <span>Zero Brokerage Overhead</span>
             <span>&bull; Direct Desk</span>
           </div>
         </div>
 
         <!-- Pillar 02: Verified Documentation & Spatial Efficiency -->
-        <div class="p-8 bg-white border border-borderSubtle shadow-xs hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
+        <div class="liquid-pillar-card p-8 flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 border border-obsidian/20 bg-limestone flex items-center justify-center font-serif text-base font-bold text-obsidian mb-6">
+            <div class="w-12 h-12 rounded-xl border border-obsidian/15 bg-white/70 backdrop-blur-md flex items-center justify-center font-serif text-base font-bold text-obsidian mb-6 shadow-2xs">
               02
             </div>
             <h3 class="font-serif text-lg font-bold text-obsidian leading-snug">Verified Documentation &amp; Spatial Efficiency</h3>
@@ -1049,16 +1068,16 @@
               Eradicates listing ambiguity and duplicate postings by enforcing authenticated statutory title deeds and structural engineering clearances. Every listing mandates transparent carpet area efficiency scoring (up to 88% usable spatial ratio).
             </p>
           </div>
-          <div class="mt-8 pt-4 border-t border-borderSubtle text-[10px] font-bold text-gold uppercase tracking-widest flex items-center justify-between">
+          <div class="mt-8 pt-4 border-t border-stone-200/60 text-[10px] font-bold text-gold uppercase tracking-widest flex items-center justify-between">
             <span>Verified Title Deeds</span>
             <span>&bull; Usable Space Index</span>
           </div>
         </div>
 
         <!-- Pillar 03: Algorithmic Fractional Co-Ownership -->
-        <div class="p-8 bg-white border border-borderSubtle shadow-xs hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
+        <div class="liquid-pillar-card p-8 flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 border border-obsidian/20 bg-limestone flex items-center justify-center font-serif text-base font-bold text-obsidian mb-6">
+            <div class="w-12 h-12 rounded-xl border border-obsidian/15 bg-white/70 backdrop-blur-md flex items-center justify-center font-serif text-base font-bold text-obsidian mb-6 shadow-2xs">
               03
             </div>
             <h3 class="font-serif text-lg font-bold text-obsidian leading-snug">Algorithmic Fractional Co-Ownership</h3>
@@ -1066,7 +1085,7 @@
               Partitions high-value commercial tech floors pre-leased to Fortune 500 MNCs (Deloitte &amp; AWS under 9-year corporate lock-in leases) into standardized 10-share micro-equity pools. Delivers 9.6% net annual rental yields and accessible entry thresholds for retail investors.
             </p>
           </div>
-          <div class="mt-8 pt-4 border-t border-borderSubtle text-[10px] font-bold text-gold uppercase tracking-widest flex items-center justify-between">
+          <div class="mt-8 pt-4 border-t border-stone-200/60 text-[10px] font-bold text-gold uppercase tracking-widest flex items-center justify-between">
             <span>9.6% Net Annual Yield</span>
             <span>&bull; 10-Share Pool</span>
           </div>
@@ -1166,11 +1185,11 @@
 
         <!-- Sticky Floating Liquid Glass Sub-Nav Pills (Propsoch Dossier Flow) -->
         <nav class="hidden md:flex items-center space-x-1.5 p-1 liquid-dossier-nav">
-          <a href="#dossier-overview" class="liquid-dossier-pill active" onclick="setDossierNavActive(this)">Overview</a>
-          <a href="#dossier-specs" class="liquid-dossier-pill" onclick="setDossierNavActive(this)">Specifications</a>
-          <a href="#dossier-connectivity" class="liquid-dossier-pill" onclick="setDossierNavActive(this)">Connectivity</a>
-          <a href="#dossier-amenities" class="liquid-dossier-pill" onclick="setDossierNavActive(this)">Amenities</a>
-          <a href="#dossier-legal" class="liquid-dossier-pill" onclick="setDossierNavActive(this)">Legal &amp; Approvals</a>
+          <a href="#dossier-overview" class="liquid-dossier-pill active" onclick="setDossierNavActive(event, this); return false;">Overview</a>
+          <a href="#dossier-specs" class="liquid-dossier-pill" onclick="setDossierNavActive(event, this); return false;">Specifications</a>
+          <a href="#dossier-connectivity" class="liquid-dossier-pill" onclick="setDossierNavActive(event, this); return false;">Connectivity</a>
+          <a href="#dossier-amenities" class="liquid-dossier-pill" onclick="setDossierNavActive(event, this); return false;">Amenities</a>
+          <a href="#dossier-legal" class="liquid-dossier-pill" onclick="setDossierNavActive(event, this); return false;">Legal &amp; Approvals</a>
         </nav>
 
         <!-- Close Button -->
@@ -1597,20 +1616,20 @@
       <form id="siteVisitForm" onsubmit="handleSiteVisitSubmit(event)" class="mt-6 space-y-4 text-xs">
         <div>
           <label class="block text-[10px] uppercase tracking-wider font-bold text-stone mb-1">Your Full Name</label>
-          <input type="text" id="visitName" required placeholder="e.g. Ritesh Sharma" class="w-full p-2.5 bg-limestone border border-borderSubtle text-obsidian focus:outline-none focus:border-obsidian">
+          <input type="text" id="visitName" required placeholder="e.g. Ritesh Sharma" class="w-full p-2.5 bg-white border border-stone-200 text-obsidian rounded-lg shadow-2xs focus:outline-none focus:border-stone-400 font-medium">
         </div>
         <div>
           <label class="block text-[10px] uppercase tracking-wider font-bold text-stone mb-1">Mobile / WhatsApp Number</label>
-          <input type="tel" id="visitPhone" required placeholder="+91 98450 12345" class="w-full p-2.5 bg-limestone border border-borderSubtle text-obsidian focus:outline-none focus:border-obsidian">
+          <input type="tel" id="visitPhone" required placeholder="+91 98450 12345" class="w-full p-2.5 bg-white border border-stone-200 text-obsidian rounded-lg shadow-2xs focus:outline-none focus:border-stone-400 font-medium">
         </div>
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block text-[10px] uppercase tracking-wider font-bold text-stone mb-1">Preferred Date</label>
-            <input type="date" id="visitDate" required class="w-full p-2.5 bg-limestone border border-borderSubtle text-obsidian focus:outline-none focus:border-obsidian">
+            <input type="date" id="visitDate" required class="w-full p-2.5 bg-white border border-stone-200 text-obsidian rounded-lg shadow-2xs focus:outline-none focus:border-stone-400 font-medium">
           </div>
           <div>
             <label class="block text-[10px] uppercase tracking-wider font-bold text-stone mb-1">Preferred Time</label>
-            <select id="visitTime" class="w-full p-2.5 bg-limestone border border-borderSubtle text-obsidian focus:outline-none focus:border-obsidian">
+            <select id="visitTime" class="w-full p-2.5 bg-white border border-stone-200 text-obsidian rounded-lg shadow-2xs focus:outline-none focus:border-stone-400 font-medium">
               <option value="Morning (10:30 AM)">Morning (10:30 AM)</option>
               <option value="Afternoon (2:30 PM)">Afternoon (2:30 PM)</option>
               <option value="Twilight (5:30 PM)">Twilight (5:30 PM)</option>
@@ -1619,10 +1638,10 @@
         </div>
         <div>
           <label class="block text-[10px] uppercase tracking-wider font-bold text-stone mb-1">Special Requirements (Optional)</label>
-          <textarea id="visitNotes" rows="2" placeholder="Driver assistance, architect consultation..." class="w-full p-2.5 bg-limestone border border-borderSubtle text-obsidian focus:outline-none focus:border-obsidian"></textarea>
+          <textarea id="visitNotes" rows="2" placeholder="Driver assistance, architect consultation..." class="w-full p-2.5 bg-white border border-stone-200 text-obsidian rounded-lg shadow-2xs focus:outline-none focus:border-stone-400 font-medium"></textarea>
         </div>
 
-        <button type="submit" class="btn-era w-full py-3 bg-obsidian text-canvas font-bold uppercase tracking-wider text-xs border border-obsidian text-center mt-4">
+        <button type="submit" class="btn-era w-full py-3 bg-obsidian text-canvas font-bold uppercase tracking-wider text-xs border border-obsidian text-center mt-4 rounded-lg">
           Confirm Private Tour Booking
         </button>
       </form>
@@ -1641,7 +1660,7 @@
       <form id="investForm" onsubmit="handleInvestSubmit(event)" class="mt-6 space-y-4 text-xs">
         <div>
           <label class="block text-[10px] uppercase tracking-wider font-bold text-stone mb-1">Select Number of Shares</label>
-          <select id="investSharesCount" onchange="updateInvestCalculation()" class="w-full p-2.5 bg-limestone border border-borderSubtle text-obsidian font-bold">
+          <select id="investSharesCount" onchange="updateInvestCalculation()" class="w-full p-2.5 bg-white border border-stone-200 text-obsidian font-bold rounded-lg shadow-2xs focus:outline-none focus:border-stone-400">
             <option value="1">1 Share &mdash; &#8377;10,00,000 (10% Equity)</option>
             <option value="2">2 Shares &mdash; &#8377;20,00,000 (20% Equity)</option>
             <option value="3">3 Shares &mdash; &#8377;30,00,000 (30% Equity)</option>
@@ -1666,25 +1685,25 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block text-[10px] uppercase tracking-wider font-bold text-stone mb-1">Investor Name</label>
-            <input type="text" id="investorName" required placeholder="Ritesh Sharma" class="w-full p-2.5 bg-limestone border border-borderSubtle text-obsidian">
+            <input type="text" id="investorName" required placeholder="Ritesh Sharma" class="w-full p-2.5 bg-white border border-stone-200 text-obsidian rounded-lg shadow-2xs focus:outline-none focus:border-stone-400 font-medium">
           </div>
           <div>
             <label class="block text-[10px] uppercase tracking-wider font-bold text-stone mb-1">PAN / Tax ID</label>
-            <input type="text" id="investorPan" required placeholder="ABCDE1234F" class="w-full p-2.5 bg-limestone border border-borderSubtle text-obsidian uppercase">
+            <input type="text" id="investorPan" required placeholder="ABCDE1234F" class="w-full p-2.5 bg-white border border-stone-200 text-obsidian uppercase rounded-lg shadow-2xs focus:outline-none focus:border-stone-400 font-medium">
           </div>
         </div>
 
         <div>
           <label class="block text-[10px] uppercase tracking-wider font-bold text-stone mb-1">Phone Number</label>
-          <input type="tel" id="investorPhone" required placeholder="+91 98450 12345" class="w-full p-2.5 bg-limestone border border-borderSubtle text-obsidian">
+          <input type="tel" id="investorPhone" required placeholder="+91 98450 12345" class="w-full p-2.5 bg-white border border-stone-200 text-obsidian rounded-lg shadow-2xs focus:outline-none focus:border-stone-400 font-medium">
         </div>
 
         <div>
           <label class="block text-[10px] uppercase tracking-wider font-bold text-stone mb-1">Email Address</label>
-          <input type="email" id="investorEmail" required placeholder="ritesh@example.com" class="w-full p-2.5 bg-limestone border border-borderSubtle text-obsidian">
+          <input type="email" id="investorEmail" required placeholder="ritesh@example.com" class="w-full p-2.5 bg-white border border-stone-200 text-obsidian rounded-lg shadow-2xs focus:outline-none focus:border-stone-400 font-medium">
         </div>
 
-        <button type="submit" class="btn-era-gold w-full py-3 bg-gold text-obsidian font-bold uppercase tracking-wider text-xs border border-gold text-center mt-2">
+        <button type="submit" class="btn-era-gold w-full py-3 bg-gold text-obsidian font-bold uppercase tracking-wider text-xs border border-gold text-center mt-2 rounded-lg">
           Confirm Syndicate Commitment
         </button>
       </form>
@@ -1741,9 +1760,9 @@
       <form onsubmit="handleAdminLogin(event)" class="mt-6 space-y-4 text-xs">
         <div>
           <label class="block text-[10px] uppercase tracking-wider font-bold text-stone mb-1">Passcode</label>
-          <input type="password" id="adminPasscode" required placeholder="Enter passcode" autocomplete="off" class="w-full p-2.5 bg-limestone border border-borderSubtle text-obsidian focus:outline-none focus:border-obsidian">
+          <input type="password" id="adminPasscode" required placeholder="Enter passcode" autocomplete="off" class="w-full p-2.5 bg-white border border-stone-200 text-obsidian rounded-lg shadow-2xs focus:outline-none focus:border-stone-400 font-medium">
         </div>
-        <button type="submit" class="btn-era w-full py-3 bg-obsidian text-canvas font-bold uppercase tracking-wider text-xs border border-obsidian text-center">
+        <button type="submit" class="btn-era w-full py-3 bg-obsidian text-canvas font-bold uppercase tracking-wider text-xs border border-obsidian text-center rounded-lg">
           Authenticate Admin
         </button>
       </form>
@@ -1797,29 +1816,29 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div>
             <label class="block text-[9px] uppercase font-bold text-stone mb-1">Title</label>
-            <input type="text" id="newTitle" required placeholder="Property Name" class="w-full p-2 bg-white border border-borderSubtle">
+            <input type="text" id="newTitle" required placeholder="Property Name" class="w-full p-2 bg-white border border-stone-200 rounded-lg shadow-2xs">
           </div>
           <div>
             <label class="block text-[9px] uppercase font-bold text-stone mb-1">Developer</label>
-            <input type="text" id="newDev" required placeholder="Developer Name" class="w-full p-2 bg-white border border-borderSubtle">
+            <input type="text" id="newDev" required placeholder="Developer Name" class="w-full p-2 bg-white border border-stone-200 rounded-lg shadow-2xs">
           </div>
           <div>
             <label class="block text-[9px] uppercase font-bold text-stone mb-1">Price (&#8377;)</label>
-            <input type="number" id="newPrice" required placeholder="15000000" class="w-full p-2 bg-white border border-borderSubtle">
+            <input type="number" id="newPrice" required placeholder="15000000" class="w-full p-2 bg-white border border-stone-200 rounded-lg shadow-2xs">
           </div>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div>
             <label class="block text-[9px] uppercase font-bold text-stone mb-1">Locality</label>
-            <input type="text" id="newLocality" required placeholder="Indiranagar" class="w-full p-2 bg-white border border-borderSubtle">
+            <input type="text" id="newLocality" required placeholder="Indiranagar" class="w-full p-2 bg-white border border-stone-200 rounded-lg shadow-2xs">
           </div>
           <div>
             <label class="block text-[9px] uppercase font-bold text-stone mb-1">Carpet Area (sqft)</label>
-            <input type="number" id="newCarpet" required placeholder="1850" class="w-full p-2 bg-white border border-borderSubtle">
+            <input type="number" id="newCarpet" required placeholder="1850" class="w-full p-2 bg-white border border-stone-200 rounded-lg shadow-2xs">
           </div>
           <div>
             <label class="block text-[9px] uppercase font-bold text-stone mb-1">BHK / Type</label>
-            <input type="text" id="newBhk" required placeholder="3 BHK Sky Residence" class="w-full p-2 bg-white border border-borderSubtle">
+            <input type="text" id="newBhk" required placeholder="3 BHK Sky Residence" class="w-full p-2 bg-white border border-stone-200 rounded-lg shadow-2xs">
           </div>
         </div>
 
@@ -1909,7 +1928,7 @@
       <form onsubmit="handleAuthSubmit(event)" class="mt-6 space-y-4 text-xs">
         <div>
           <label class="block text-[10px] uppercase tracking-wider font-bold text-stone mb-1">Account Role</label>
-          <select id="authRole" class="w-full p-2.5 bg-limestone border border-borderSubtle text-obsidian font-bold">
+          <select id="authRole" class="w-full p-2.5 bg-white border border-stone-200 text-obsidian font-bold rounded-lg shadow-2xs focus:outline-none focus:border-stone-400">
             <option value="Home Buyer">Home Buyer</option>
             <option value="Commercial Investor">Commercial Co-Investor</option>
             <option value="Developer">Property Developer</option>
@@ -1917,13 +1936,13 @@
         </div>
         <div>
           <label class="block text-[10px] uppercase tracking-wider font-bold text-stone mb-1">Your Name</label>
-          <input type="text" id="authName" required placeholder="Ritesh Sharma" class="w-full p-2.5 bg-limestone border border-borderSubtle text-obsidian">
+          <input type="text" id="authName" required placeholder="Ritesh Sharma" class="w-full p-2.5 bg-white border border-stone-200 text-obsidian rounded-lg shadow-2xs focus:outline-none focus:border-stone-400">
         </div>
         <div>
           <label class="block text-[10px] uppercase tracking-wider font-bold text-stone mb-1">Email</label>
-          <input type="email" id="authEmail" required placeholder="ritesh@example.com" class="w-full p-2.5 bg-limestone border border-borderSubtle text-obsidian">
+          <input type="email" id="authEmail" required placeholder="ritesh@example.com" class="w-full p-2.5 bg-white border border-stone-200 text-obsidian rounded-lg shadow-2xs focus:outline-none focus:border-stone-400">
         </div>
-        <button type="submit" class="btn-era w-full py-3 bg-obsidian text-canvas font-bold uppercase tracking-wider text-xs border border-obsidian text-center">
+        <button type="submit" class="btn-era w-full py-3 bg-obsidian text-canvas font-bold uppercase tracking-wider text-xs border border-obsidian text-center rounded-lg">
           Confirm Sign In
         </button>
       </form>
@@ -2095,14 +2114,14 @@
               <div class="relative h-64 sm:h-72 w-full overflow-hidden bg-limestone">
                 <img src="${mainImg}" alt="${p.title}" class="era-img-zoom w-full h-full object-cover">
                 
-                <!-- Category / Status Badge only -->
+                <!-- Category / Status Badge only (Warm Mocha Pill matching Screenshot 3) -->
                 <div class="absolute top-3.5 left-3.5 z-10 flex flex-col gap-1.5 items-start">
                   ${isFractional ? `
-                    <span class="liquid-badge-gold text-[9.5px] font-bold px-3 py-1 tracking-wider">
+                    <span class="liquid-badge-gold">
                       Fractional Pool &bull; ${p.investment.grossRentalYieldPercentage}% Yield
                     </span>
                   ` : `
-                    <span class="liquid-badge-dark text-[9.5px] font-bold px-3 py-1 tracking-wider">
+                    <span class="liquid-badge-dark">
                       ${p.dimensions.bhk}
                     </span>
                   `}
@@ -2166,22 +2185,66 @@
       }).join('');
     }
 
-    function setDossierNavActive(el) {
+    function setDossierNavActive(event, el) {
+      if (event) {
+        if (event.preventDefault) event.preventDefault();
+        if (event.stopPropagation) event.stopPropagation();
+      }
+      if (!el && event && (event.currentTarget || event.target)) {
+        el = event.currentTarget || event.target;
+      }
+      if (!el) return;
+
       document.querySelectorAll('.liquid-dossier-nav .liquid-dossier-pill').forEach(btn => btn.classList.remove('active'));
-      if (el) el.classList.add('active');
+      el.classList.add('active');
+
       const href = el.getAttribute('href');
       if (href && href.startsWith('#')) {
         const targetId = href.substring(1);
         const targetEl = document.getElementById(targetId);
         const modalContainer = document.getElementById('propertyModal');
         if (targetEl && modalContainer) {
-          const topOffset = targetEl.getBoundingClientRect().top + modalContainer.scrollTop - 80;
+          const modalRect = modalContainer.getBoundingClientRect();
+          const targetRect = targetEl.getBoundingClientRect();
+          const targetOffset = modalContainer.scrollTop + (targetRect.top - modalRect.top) - 75;
           modalContainer.scrollTo({
-            top: topOffset,
+            top: Math.max(0, Math.round(targetOffset)),
             behavior: 'smooth'
           });
         }
       }
+    }
+
+    let dossierScrollSpyActive = false;
+    function initDossierScrollSpy() {
+      const modalContainer = document.getElementById('propertyModal');
+      if (!modalContainer || dossierScrollSpyActive) return;
+      dossierScrollSpyActive = true;
+
+      modalContainer.addEventListener('scroll', () => {
+        const sections = ['dossier-overview', 'dossier-specs', 'dossier-connectivity', 'dossier-amenities', 'dossier-legal'];
+        const modalRect = modalContainer.getBoundingClientRect();
+        let currentActive = 'dossier-overview';
+
+        for (const id of sections) {
+          const el = document.getElementById(id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top - modalRect.top <= 120) {
+              currentActive = id;
+            }
+          }
+        }
+
+        document.querySelectorAll('.liquid-dossier-nav .liquid-dossier-pill').forEach(pill => {
+          const href = pill.getAttribute('href');
+          if (href === '#' + currentActive) {
+            pill.classList.add('active');
+          } else {
+            pill.classList.remove('active');
+          }
+        });
+      }, { passive: true });
     }
 
     function switchConnectivityTab(btn, type) {
@@ -2495,8 +2558,17 @@
       const brochureBtn = document.getElementById('modalBrochureBtn');
       if (brochureBtn) brochureBtn.onclick = () => downloadPropertyBrochure(p);
 
-      document.getElementById('propertyModal').classList.remove('hidden');
+      const modalCont = document.getElementById('propertyModal');
+      modalCont.classList.remove('hidden');
+      modalCont.scrollTop = 0;
       document.body.style.overflow = 'hidden';
+
+      // Reset dossier pills active state
+      document.querySelectorAll('.liquid-dossier-nav .liquid-dossier-pill').forEach((pill, idx) => {
+        if (idx === 0) pill.classList.add('active');
+        else pill.classList.remove('active');
+      });
+      initDossierScrollSpy();
     }
 
     function closePropertyModal() {
