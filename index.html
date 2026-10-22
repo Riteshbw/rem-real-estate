@@ -187,60 +187,81 @@
     .glass-nav {
       position: relative;
       isolation: isolate;
-      background: linear-gradient(135deg, rgba(255,255,255,0.62) 0%, rgba(255,255,255,0.38) 100%);
-      backdrop-filter: blur(22px) saturate(190%) brightness(1.06);
-      -webkit-backdrop-filter: blur(22px) saturate(190%) brightness(1.06);
-      border: 1px solid rgba(255,255,255,0.55);
-      border-radius: 22px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.58) 0%, rgba(255, 255, 255, 0.28) 100%);
+      backdrop-filter: blur(28px) saturate(200%) contrast(102%);
+      -webkit-backdrop-filter: blur(28px) saturate(200%) contrast(102%);
+      border: 1px solid rgba(255, 255, 255, 0.45);
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.85),
-        inset 0 -1px 0 rgba(255,255,255,0.18),
-        inset 0 0 18px rgba(255,255,255,0.22),
-        0 10px 36px -8px rgba(28,25,23,0.18),
-        0 2px 6px rgba(28,25,23,0.05);
-      transition: background .5s var(--ease-out), border-color .5s var(--ease-out), box-shadow .5s var(--ease-out);
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.85),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.20),
+        inset 0 -1px 1px 0 rgba(0, 0, 0, 0.06),
+        0 16px 36px -10px rgba(28, 25, 23, 0.12),
+        0 2px 6px -1px rgba(28, 25, 23, 0.05);
+      transition: background 0.4s var(--ease-out), border-color 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
     }
-    /* specular sheen across the top edge */
+    /* Liquid specular sheen across top contour */
     .glass-nav::before {
       content: "";
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       border-radius: inherit;
-      background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.08) 45%, rgba(255,255,255,0) 60%);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.04) 40%, transparent 65%);
       pointer-events: none;
-      z-index: -1;
+      z-index: 1;
     }
-    /* refraction rim */
-    .glass-nav::after {
-      content: "";
-      position: absolute; inset: 0;
-      border-radius: inherit;
-      padding: 1px;
-      background: linear-gradient(120deg, rgba(255,255,255,0.7), rgba(255,255,255,0.06) 35%, rgba(255,255,255,0.03) 65%, rgba(255,255,255,0.45));
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor; mask-composite: exclude;
-      pointer-events: none;
-    }
-    /* adaptive dark variant while floating over the hero */
+    /* Ambient liquid dark mode while hovering over the hero */
     .glass-nav.on-dark {
-      background: linear-gradient(135deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.06) 100%);
-      border-color: rgba(255,255,255,0.22);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 100%);
+      backdrop-filter: blur(32px) saturate(220%) contrast(104%);
+      -webkit-backdrop-filter: blur(32px) saturate(220%) contrast(104%);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.35),
-        inset 0 -1px 0 rgba(255,255,255,0.06),
-        inset 0 0 22px rgba(255,255,255,0.06),
-        0 12px 40px -10px rgba(0,0,0,0.45);
+        inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.42),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+        inset 0 -1px 1px 0 rgba(0, 0, 0, 0.35),
+        0 22px 48px -12px rgba(0, 0, 0, 0.60),
+        0 4px 12px -2px rgba(0, 0, 0, 0.30);
     }
-    .glass-nav.on-dark::before { background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.03) 45%, rgba(255,255,255,0) 60%); }
+    .glass-nav.on-dark::before {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.02) 42%, transparent 65%);
+    }
     .glass-nav.on-dark .text-obsidian,
     .glass-nav.on-dark .text-obsidian\/80,
-    .glass-nav.on-dark .text-obsidian\/85 { color: rgba(255,255,255,0.92) !important; }
-    .glass-nav.on-dark .text-stone { color: rgba(255,255,255,0.6) !important; }
-    .glass-nav.on-dark #authBtn { border-color: rgba(255,255,255,0.45) !important; }
-    .glass-nav.on-dark #authBtn > span:first-child { background: #fff; }
-    .glass-nav.on-dark #authBtn:hover #authBtnText { color: #1C1917 !important; }
-    .glass-nav.on-dark a > div.bg-white { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.35); }
-    .glass-nav.on-dark #conciergeBtn { border-color: #fff !important; color: #1C1917 !important; }
-    .glass-nav.on-dark #conciergeBtn:hover { color: #F9F8F5 !important; }
+    .glass-nav.on-dark .text-obsidian\/85 {
+      color: rgba(255, 255, 255, 0.94) !important;
+    }
+    .glass-nav.on-dark .text-stone {
+      color: rgba(255, 255, 255, 0.65) !important;
+    }
+    .glass-nav.on-dark #brandEmblem {
+      background: rgba(255, 255, 255, 0.12) !important;
+      border-color: rgba(255, 255, 255, 0.25) !important;
+      color: #ffffff !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .glass-nav.on-dark #authBtn {
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-color: rgba(255, 255, 255, 0.30) !important;
+      color: rgba(255, 255, 255, 0.92) !important;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .glass-nav.on-dark #authBtn:hover {
+      background: rgba(255, 255, 255, 0.18) !important;
+      border-color: rgba(255, 255, 255, 0.55) !important;
+    }
+    .glass-nav.on-dark #conciergeBtn {
+      background: #ffffff !important;
+      border-color: #ffffff !important;
+      color: #1C1917 !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+    .glass-nav.on-dark #conciergeBtn:hover {
+      background: #f4f2ee !important;
+      color: #1C1917 !important;
+    }
 
     section[id] { scroll-margin-top: 96px; }
     
@@ -275,7 +296,7 @@
       
       <!-- Brand Logo (Aesthetically Aligned Luxury Emblem) -->
       <a href="#" class="flex items-center space-x-3.5 group flex-shrink-0">
-        <div class="w-10 h-10 border border-obsidian/25 bg-white flex items-center justify-center font-serif text-lg font-bold text-obsidian tracking-wider shadow-xs group-hover:border-gold group-hover:text-gold transition-colors duration-400">
+        <div id="brandEmblem" class="w-9 h-9 rounded-lg border border-obsidian/20 bg-white/70 backdrop-blur-md flex items-center justify-center font-serif text-base font-bold text-obsidian tracking-wider shadow-xs group-hover:border-gold group-hover:text-gold transition-all duration-300">
           R
         </div>
         <div class="flex flex-col justify-center">
@@ -300,13 +321,13 @@
       <div class="flex items-center gap-3 sm:gap-4">
 
         <!-- User Sign In — minimal rectangle with hover fill -->
-        <button id="authBtn" onclick="openAuthModal()" class="relative group text-xs font-semibold uppercase tracking-widest border border-obsidian/40 text-obsidian/85 hover:border-obsidian hover:text-obsidian transition-all duration-300 py-1.5 px-3.5 overflow-hidden" style="border-radius: 3px;">
+        <button id="authBtn" onclick="openAuthModal()" class="relative group text-xs font-semibold uppercase tracking-widest border border-obsidian/40 text-obsidian/85 hover:border-obsidian hover:text-obsidian transition-all duration-300 py-1.5 px-3.5 overflow-hidden" style="border-radius: 8px;">
           <span class="absolute inset-0 bg-obsidian scale-y-0 origin-bottom group-hover:scale-y-100 transition-transform duration-300 ease-out z-0"></span>
           <span id="authBtnText" class="relative z-10 group-hover:text-white transition-colors duration-300">Sign In</span>
         </button>
 
         <!-- Contact Us Action Button -->
-        <button id="conciergeBtn" class="btn-era px-3.5 py-1.5 text-xs font-semibold tracking-widest uppercase border border-obsidian text-obsidian bg-white hover:text-white transition-all" style="border-radius: 3px;">
+        <button id="conciergeBtn" class="btn-era px-3.5 py-1.5 text-xs font-semibold tracking-widest uppercase border border-obsidian text-obsidian bg-white hover:text-white transition-all" style="border-radius: 8px;">
           <span>Contact Us</span>
         </button>
 
