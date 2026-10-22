@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>REM Residences &amp; Estates &mdash; Contemporary Living &amp; Fractional Investments</title>
   
-  <!-- Google Fonts: Squarespace-style grotesk (Inter Tight display + Inter text) -->
+  <!-- Google Fonts: Squarespace-style grotesk (Inter Tight display + Inter text) + Plus Jakarta Sans for crisp modern numerals -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -32,8 +32,8 @@
           fontFamily: {
             serif: ['"Inter Tight"', '"Inter"', '-apple-system', 'sans-serif'],
             sans: ['"Inter"', '-apple-system', 'sans-serif'],
-            mono: ['"Inter"', 'ui-monospace', 'monospace'],
-            num: ['"Inter"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['"Plus Jakarta Sans"', 'ui-monospace', 'monospace'],
+            num: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
           }
         }
       }
@@ -43,7 +43,7 @@
   <style>
     :root {
       --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-      --font-num: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+      --font-num: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
     body {
       background-color: #F9F8F5;
@@ -543,13 +543,13 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.85);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.95), 0 2px 8px -2px rgba(28, 25, 23, 0.04);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.95);
       transition: all 0.25s ease;
     }
     .liquid-metric-tile:hover {
       background: rgba(255, 255, 255, 0.98);
       border-color: rgba(197, 160, 89, 0.4);
-      box-shadow: inset 0 1px 1px #fff, 0 8px 20px -4px rgba(28, 25, 23, 0.1);
+      box-shadow: inset 0 1px 1px #fff;
       transform: translateY(-1px);
     }
 
@@ -607,22 +607,22 @@
       transform: translateY(-1px);
     }
 
-    /* Liquid Glass Highlight and Consideration Cards */
+    /* Liquid Glass Highlight and Consideration Cards (Subtle Apple Radial/Sheen Tint) */
     .liquid-card-highlight {
       border-radius: 8px;
-      background: linear-gradient(180deg, rgba(240, 253, 244, 0.85) 0%, rgba(220, 252, 231, 0.60) 100%);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(134, 239, 172, 0.6);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9), 0 2px 8px -2px rgba(22, 101, 52, 0.06);
+      background: radial-gradient(120% 120% at 0% 0%, rgba(255, 255, 255, 0.95) 0%, rgba(240, 253, 244, 0.70) 50%, rgba(220, 252, 231, 0.40) 100%);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(134, 239, 172, 0.45);
+      box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
     }
     .liquid-card-consideration {
       border-radius: 8px;
-      background: linear-gradient(180deg, rgba(254, 252, 232, 0.85) 0%, rgba(254, 249, 195, 0.60) 100%);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(253, 224, 71, 0.6);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9), 0 2px 8px -2px rgba(133, 77, 14, 0.06);
+      background: radial-gradient(120% 120% at 0% 0%, rgba(255, 255, 255, 0.95) 0%, rgba(254, 252, 232, 0.70) 50%, rgba(254, 249, 195, 0.40) 100%);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(253, 224, 71, 0.45);
+      box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
     }
   </style>
 
@@ -1190,58 +1190,52 @@
       <!-- Main Dossier Container (Propsoch Asymmetric Gallery + 2-Column Responsive Layout) -->
       <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
 
-        <!-- Modern Propsoch-Style Image Gallery Mosaic Grid -->
-        <div class="relative w-full rounded-xl overflow-hidden border border-borderSubtle bg-obsidian mb-8 shadow-sm">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-1.5 h-[340px] sm:h-[440px] lg:h-[500px] p-1.5 bg-obsidian/95">
+        <!-- Modern Propsoch Multi-Image Photo Mosaic Grid (1 Hero on Left + 2x2 Grid on Right) -->
+        <div class="relative w-full rounded-2xl overflow-hidden border border-borderSubtle bg-obsidian mb-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-2 h-[340px] sm:h-[420px] lg:h-[480px]">
             
-            <!-- Large Featured Main Image (8 Cols) -->
-            <div id="modalImgWrapper" class="relative lg:col-span-8 h-full bg-black/60 rounded-lg overflow-hidden group cursor-pointer" onclick="modalCarouselNext()">
-              <img id="modalMainImg" src="" alt="Property" class="w-full h-full object-cover modal-img-enter">
+            <!-- 1 Large Featured Photo (Left Column - 7 Cols) -->
+            <div id="modalHeroTile" class="relative lg:col-span-7 h-full bg-charcoal overflow-hidden group cursor-pointer" onclick="modalCarouselGo(0)">
+              <img id="modalMainImg" src="" alt="Property Hero" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-out">
               
               <!-- Category Badge -->
               <div class="absolute top-4 left-4 z-20">
                 <span id="modalCategoryBadge" class="liquid-badge-dark text-[9.5px] font-bold px-3 py-1 tracking-wider uppercase"></span>
               </div>
-
-              <!-- Persistent Navigation Arrows with High-Contrast Liquid Blur -->
-              <button onclick="event.stopPropagation(); modalCarouselPrev()" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/90 transition-all backdrop-blur-md shadow-lg border border-white/20 hover:scale-105" aria-label="Previous Image">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
-              </button>
-              <button onclick="event.stopPropagation(); modalCarouselNext()" class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/90 transition-all backdrop-blur-md shadow-lg border border-white/20 hover:scale-105" aria-label="Next Image">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-              </button>
             </div>
 
-            <!-- Side Secondary 2-Tile Image Grid (4 Cols) -->
-            <div class="hidden lg:grid lg:col-span-4 grid-rows-2 gap-1.5 h-full">
-              <!-- Top Right Photo -->
-              <div class="relative h-full rounded-lg overflow-hidden bg-black/60 group cursor-pointer" onclick="modalCarouselGo(1)">
+            <!-- 2x2 Photo Grid (Right Column - 5 Cols) -->
+            <div class="hidden lg:grid lg:col-span-5 grid-cols-2 grid-rows-2 gap-2 h-full">
+              <!-- Top Left Small Tile (Photo 2) -->
+              <div class="relative h-full overflow-hidden bg-charcoal group cursor-pointer" onclick="modalCarouselGo(1)">
                 <img id="modalGridImg1" src="" alt="Property View 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
 
-              <!-- Bottom Right Photo with Floating 'View All Photos' Pill -->
-              <div class="relative h-full rounded-lg overflow-hidden bg-black/60 group cursor-pointer" onclick="modalCarouselGo(2)">
+              <!-- Top Right Small Tile (Photo 3) -->
+              <div class="relative h-full overflow-hidden bg-charcoal group cursor-pointer" onclick="modalCarouselGo(2)">
                 <img id="modalGridImg2" src="" alt="Property View 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              </div>
+
+              <!-- Bottom Left Small Tile (Photo 4) -->
+              <div class="relative h-full overflow-hidden bg-charcoal group cursor-pointer" onclick="modalCarouselGo(3)">
+                <img id="modalGridImg3" src="" alt="Property View 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              </div>
+
+              <!-- Bottom Right Small Tile (Photo 5 with "Show all photos" floating pill) -->
+              <div class="relative h-full overflow-hidden bg-charcoal group cursor-pointer" onclick="modalCarouselGo(0)">
+                <img id="modalGridImg4" src="" alt="Property View 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                 
-                <!-- Floating Liquid Glass 'Show all photos' Pill (Bottom Right) -->
+                <!-- Floating Liquid Glass 'Show all photos' Pill (Exact Propsoch Match) -->
                 <div class="absolute bottom-3 right-3 z-20">
-                  <div class="liquid-badge-dark text-xs font-semibold px-3.5 py-1.5 flex items-center space-x-2 border border-white/30 shadow-md">
-                    <svg class="w-4 h-4 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                    <span id="modalImgCounter">1 / 4 Photos</span>
+                  <div class="px-3 py-1.5 rounded-md bg-white/95 text-obsidian text-xs font-semibold flex items-center space-x-1.5 shadow-md border border-white/60 hover:bg-white transition-all">
+                    <svg class="w-3.5 h-3.5 text-obsidian/80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span id="modalImgCounter">Show all photos</span>
                   </div>
                 </div>
               </div>
             </div>
 
-          </div>
-
-          <!-- Thumbnail Strip below Gallery with Clean Horizontal Padding -->
-          <div class="px-3 py-2 bg-obsidian border-t border-white/10">
-            <div id="modalThumbs" class="flex space-x-2 overflow-x-auto pb-0.5">
-              <!-- Thumbnails injected via JS -->
-            </div>
           </div>
         </div>
 
@@ -1350,7 +1344,7 @@
                   <button class="liquid-dossier-pill active" onclick="switchConnectivityTab(this, 'transit')">Transit</button>
                   <button class="liquid-dossier-pill" onclick="switchConnectivityTab(this, 'offices')">Offices</button>
                   <button class="liquid-dossier-pill" onclick="switchConnectivityTab(this, 'schools')">Schools</button>
-                  <button class="liquid-dossier-pill" onclick="switchConnectivityTab(this, 'airports')">Airport</button>
+                  <button class="liquid-dossier-pill" onclick="switchConnectivityTab(this, 'hospitals')">Hospitals</button>
                 </div>
               </div>
 
@@ -1372,8 +1366,8 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
                   </div>
                   <div>
-                    <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Airport Corridor</span>
-                    <span class="font-bold text-obsidian text-sm block">KIA International</span>
+                    <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Airport Expressway</span>
+                    <span class="font-bold text-obsidian text-sm block">KIA International Terminal</span>
                     <span id="modalAirport" class="text-[10px] text-stone font-semibold block mt-0.5">38 Km &bull; 45 mins</span>
                   </div>
                 </div>
@@ -1383,9 +1377,9 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                   </div>
                   <div>
-                    <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Tech Corridor</span>
-                    <span class="font-bold text-obsidian text-sm block">ORR Tech Park</span>
-                    <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5">1.2 Km &bull; 6 mins drive</span>
+                    <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Super-Specialty Hospital</span>
+                    <span class="font-bold text-obsidian text-sm block">Manipal Multi-Specialty</span>
+                    <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5">1.8 Km &bull; 5 mins drive</span>
                   </div>
                 </div>
               </div>
@@ -1500,7 +1494,7 @@
                       <div class="text-[10px] sm:text-[11px] text-stone mt-0.5 truncate">Sanctioned city layout plan, structural footprints, setbacks, and height clearance approvals.</div>
                     </div>
                   </div>
-                  <button onclick="downloadPropertyBrochure(activeModalProperty)" class="text-xs font-semibold text-gold hover:text-obsidian transition-colors underline flex items-center space-x-1 flex-shrink-0">
+                  <button onclick="downloadPropertyBrochure(activeModalProperty)" class="text-xs font-medium text-stone hover:text-obsidian transition-colors underline flex items-center space-x-1 flex-shrink-0">
                     <span>See Document</span>
                     <span>&rarr;</span>
                   </button>
@@ -1516,7 +1510,7 @@
                       <div class="text-[10px] sm:text-[11px] text-stone mt-0.5 truncate">Comprehensive 30-year title audit, non-encumbrance certificate, and advocate clearance report.</div>
                     </div>
                   </div>
-                  <button onclick="downloadPropertyBrochure(activeModalProperty)" class="text-xs font-semibold text-gold hover:text-obsidian transition-colors underline flex items-center space-x-1 flex-shrink-0">
+                  <button onclick="downloadPropertyBrochure(activeModalProperty)" class="text-xs font-medium text-stone hover:text-obsidian transition-colors underline flex items-center space-x-1 flex-shrink-0">
                     <span>See Document</span>
                     <span>&rarr;</span>
                   </button>
@@ -1577,11 +1571,6 @@
                 <a href="tel:+918040008000" class="w-full py-2 text-xs font-semibold text-center text-stone hover:text-obsidian transition-colors block">
                   Or call directly: +91 80 4000 8000
                 </a>
-              </div>
-
-              <!-- Statutory Disclaimer Note -->
-              <div class="mt-4 pt-3 border-t border-borderSubtle text-[10px] text-stoneLight leading-normal">
-                Direct buyer representation policy. Zero brokerage fee charged. Fully compliant with Real Estate Regulatory Authority standards.
               </div>
 
             </div>
@@ -2292,36 +2281,36 @@
             </div>
           </div>
         `;
-      } else if (type === 'airports') {
+      } else if (type === 'hospitals') {
         container.innerHTML = `
           <div class="liquid-metric-tile p-3.5 flex items-start space-x-3">
             <div class="w-8 h-8 rounded-lg bg-obsidian text-white flex items-center justify-center flex-shrink-0 text-xs">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
             </div>
             <div>
-              <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">KIA Terminal 1 &amp; 2</span>
-              <span class="font-bold text-obsidian text-sm block">International Airport</span>
-              <span class="text-[10px] text-stone font-semibold block mt-0.5">${airportDist} Km &bull; Direct Toll Corridor</span>
+              <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Super Specialty</span>
+              <span class="font-bold text-obsidian text-sm block">Manipal Multi-Specialty</span>
+              <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5">1.8 Km &bull; 5 mins</span>
             </div>
           </div>
           <div class="liquid-metric-tile p-3.5 flex items-start space-x-3">
             <div class="w-8 h-8 rounded-lg bg-obsidian text-white flex items-center justify-center flex-shrink-0 text-xs">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
             </div>
             <div>
-              <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Heliport Access</span>
-              <span class="font-bold text-obsidian text-sm block">HAL Corporate Helipad</span>
-              <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5">7.4 Km &bull; 15 mins</span>
+              <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Cardiac &amp; Neuro Center</span>
+              <span class="font-bold text-obsidian text-sm block">Sakra World Hospital</span>
+              <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5">3.2 Km &bull; 8 mins</span>
             </div>
           </div>
           <div class="liquid-metric-tile p-3.5 flex items-start space-x-3">
             <div class="w-8 h-8 rounded-lg bg-obsidian text-white flex items-center justify-center flex-shrink-0 text-xs">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
             </div>
             <div>
-              <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Vande Bharat Express</span>
-              <span class="font-bold text-obsidian text-sm block">Cantonment High-Speed Hub</span>
-              <span class="text-[10px] text-stone font-semibold block mt-0.5">11.2 Km &bull; 25 mins</span>
+              <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Mother &amp; Child Care</span>
+              <span class="font-bold text-obsidian text-sm block">Cloudnine Hospital</span>
+              <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5">2.5 Km &bull; 6 mins</span>
             </div>
           </div>
         `;
@@ -2428,22 +2417,26 @@
       const waBtn = document.getElementById('modalWhatsAppBtn');
       if (waBtn) waBtn.href = `https://wa.me/918040008000?text=Hello%20REM%20Residences,%20I%20am%20interested%20in%20inspecting%20${encodeURIComponent(p.title)}%20(ID:%20${p.id}).`;
 
-      // Thumbnails and Carousel Setup
+      // Photo Mosaic Setup (1 Hero on Left + 4 Grid Photos on Right)
       modalCarouselImages = p.images && p.images.length ? p.images : ['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85'];
       
+      const heroImg = document.getElementById('modalMainImg');
+      if (heroImg) heroImg.src = modalCarouselImages[0];
+
       const gridImg1 = document.getElementById('modalGridImg1');
       if (gridImg1) gridImg1.src = modalCarouselImages[1] || modalCarouselImages[0];
-      const gridImg2 = document.getElementById('modalGridImg2');
-      if (gridImg2) gridImg2.src = modalCarouselImages[2] || modalCarouselImages[0];
 
-      const thumbsContainer = document.getElementById('modalThumbs');
-      if (thumbsContainer) {
-        thumbsContainer.innerHTML = modalCarouselImages.map((img, idx) => `
-          <img src="${img}" onclick="modalCarouselGo(${idx})"
-               class="h-12 w-16 sm:h-14 sm:w-20 object-cover cursor-pointer rounded border border-borderSubtle hover:border-gold transition-colors flex-shrink-0">
-        `).join('');
-      }
-      modalCarouselGo(0);
+      const gridImg2 = document.getElementById('modalGridImg2');
+      if (gridImg2) gridImg2.src = modalCarouselImages[2] || modalCarouselImages[1] || modalCarouselImages[0];
+
+      const gridImg3 = document.getElementById('modalGridImg3');
+      if (gridImg3) gridImg3.src = modalCarouselImages[3] || modalCarouselImages[0];
+
+      const gridImg4 = document.getElementById('modalGridImg4');
+      if (gridImg4) gridImg4.src = modalCarouselImages[4] || modalCarouselImages[1] || modalCarouselImages[0];
+
+      const counter = document.getElementById('modalImgCounter');
+      if (counter) counter.innerText = `Show all ${modalCarouselImages.length} photos`;
 
       // Amenities Categorization into 3 columns
       const amList = p.amenities || [];
