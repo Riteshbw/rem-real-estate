@@ -183,12 +183,66 @@
       border-radius: 3px;
     }
 
-    /* Backdrop blur */
+    /* Apple-style Liquid Glass navigation */
     .glass-nav {
-      background: rgba(249, 248, 245, 0.94);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      position: relative;
+      isolation: isolate;
+      background: linear-gradient(135deg, rgba(255,255,255,0.62) 0%, rgba(255,255,255,0.38) 100%);
+      backdrop-filter: blur(22px) saturate(190%) brightness(1.06);
+      -webkit-backdrop-filter: blur(22px) saturate(190%) brightness(1.06);
+      border: 1px solid rgba(255,255,255,0.55);
+      border-radius: 22px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.85),
+        inset 0 -1px 0 rgba(255,255,255,0.18),
+        inset 0 0 18px rgba(255,255,255,0.22),
+        0 10px 36px -8px rgba(28,25,23,0.18),
+        0 2px 6px rgba(28,25,23,0.05);
+      transition: background .5s var(--ease-out), border-color .5s var(--ease-out), box-shadow .5s var(--ease-out);
     }
+    /* specular sheen across the top edge */
+    .glass-nav::before {
+      content: "";
+      position: absolute; inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.08) 45%, rgba(255,255,255,0) 60%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    /* refraction rim */
+    .glass-nav::after {
+      content: "";
+      position: absolute; inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(120deg, rgba(255,255,255,0.7), rgba(255,255,255,0.06) 35%, rgba(255,255,255,0.03) 65%, rgba(255,255,255,0.45));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      pointer-events: none;
+    }
+    /* adaptive dark variant while floating over the hero */
+    .glass-nav.on-dark {
+      background: linear-gradient(135deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.06) 100%);
+      border-color: rgba(255,255,255,0.22);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.35),
+        inset 0 -1px 0 rgba(255,255,255,0.06),
+        inset 0 0 22px rgba(255,255,255,0.06),
+        0 12px 40px -10px rgba(0,0,0,0.45);
+    }
+    .glass-nav.on-dark::before { background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.03) 45%, rgba(255,255,255,0) 60%); }
+    .glass-nav.on-dark .text-obsidian,
+    .glass-nav.on-dark .text-obsidian\/80,
+    .glass-nav.on-dark .text-obsidian\/85 { color: rgba(255,255,255,0.92) !important; }
+    .glass-nav.on-dark .text-stone { color: rgba(255,255,255,0.6) !important; }
+    .glass-nav.on-dark #authBtn { border-color: rgba(255,255,255,0.45) !important; }
+    .glass-nav.on-dark #authBtn > span:first-child { background: #fff; }
+    .glass-nav.on-dark #authBtn:hover #authBtnText { color: #1C1917 !important; }
+    .glass-nav.on-dark a > div.bg-white { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.35); }
+    .glass-nav.on-dark #conciergeBtn { border-color: #fff !important; color: #1C1917 !important; }
+    .glass-nav.on-dark #conciergeBtn:hover { color: #F9F8F5 !important; }
+
+    section[id] { scroll-margin-top: 96px; }
     
     .modal-backdrop {
       background: rgba(28, 25, 23, 0.80);
@@ -216,8 +270,8 @@
 
 
   <!-- ==================== MAIN NAVIGATION BAR ==================== -->
-  <header class="sticky top-0 z-40 glass-nav border-b border-borderSubtle transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+  <header id="siteHeader" class="fixed top-3 sm:top-4 inset-x-3 sm:inset-x-6 z-40 max-w-7xl mx-auto glass-nav on-dark">
+    <div class="px-4 sm:px-6 lg:px-7 h-16 flex items-center justify-between">
       
       <!-- Brand Logo (Aesthetically Aligned Luxury Emblem) -->
       <a href="#" class="flex items-center space-x-3.5 group flex-shrink-0">
@@ -267,7 +321,7 @@
   </header>
 
   <!-- ==================== HERO SECTION (SLOW PRESENTATION SLIDESHOW & HIGH CONTRAST) ==================== -->
-  <section class="relative min-h-[calc(100vh-81px)] min-h-[calc(100svh-81px)] flex flex-col justify-between pt-16 pb-14 px-4 sm:px-6 lg:px-8 overflow-hidden bg-obsidian">
+  <section id="hero" class="relative min-h-screen min-h-[100svh] flex flex-col justify-between pt-28 sm:pt-32 pb-14 px-4 sm:px-6 lg:px-8 overflow-hidden bg-obsidian">
     
     <!-- Background Slideshow (3 Curated Luxury Slides with Gentle Crossfade) -->
     <div class="absolute inset-0 z-0 overflow-hidden">
@@ -2219,6 +2273,17 @@ Generated: ${new Date().toLocaleString()}
     window.addEventListener('DOMContentLoaded', () => {
       renderProperties();
       updateAuthUI();
+
+      // Liquid glass nav: dark tint while floating over the hero, light tint over page content
+      const siteHeader = document.getElementById('siteHeader');
+      const hero = document.getElementById('hero');
+      const syncHeaderTone = () => {
+        const overHero = hero.getBoundingClientRect().bottom > siteHeader.offsetHeight + 16;
+        siteHeader.classList.toggle('on-dark', overHero);
+      };
+      window.addEventListener('scroll', syncHeaderTone, { passive: true });
+      window.addEventListener('resize', syncHeaderTone);
+      syncHeaderTone();
     });
   </script>
 
