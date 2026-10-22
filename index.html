@@ -494,6 +494,79 @@
         0 8px 20px -4px rgba(0, 0, 0, 0.45) !important;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.40);
     }
+
+    /* Apple Liquid Glass Dossier Elements */
+    .liquid-dossier-nav {
+      border-radius: 9999px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(245, 243, 239, 0.68) 100%);
+      backdrop-filter: blur(24px) saturate(190%);
+      -webkit-backdrop-filter: blur(24px) saturate(190%);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.95), 0 8px 24px -4px rgba(28, 25, 23, 0.08);
+    }
+
+    .liquid-dossier-pill {
+      border-radius: 9999px;
+      padding: 6px 14px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: #57534E;
+      background: transparent;
+      border: 1px solid transparent;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .liquid-dossier-pill:hover {
+      color: #1C1917;
+      background: rgba(255, 255, 255, 0.6);
+    }
+    .liquid-dossier-pill.active {
+      color: #FAF9F6 !important;
+      background: #1C1917 !important;
+      box-shadow: 0 4px 14px -2px rgba(28, 25, 23, 0.30);
+    }
+
+    .liquid-dossier-card {
+      border-radius: 10px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(250, 249, 246, 0.75) 100%);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.95), 0 10px 30px -8px rgba(28, 25, 23, 0.08);
+    }
+
+    .liquid-metric-tile {
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(246, 244, 240, 0.65) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.95), 0 2px 8px -2px rgba(28, 25, 23, 0.04);
+      transition: all 0.25s ease;
+    }
+    .liquid-metric-tile:hover {
+      background: rgba(255, 255, 255, 0.98);
+      border-color: rgba(197, 160, 89, 0.4);
+      box-shadow: inset 0 1px 1px #fff, 0 8px 20px -4px rgba(28, 25, 23, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .liquid-doc-card {
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.80) 0%, rgba(247, 245, 242, 0.55) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(28, 25, 23, 0.08);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9), 0 2px 8px -2px rgba(28, 25, 23, 0.03);
+      transition: all 0.25s ease;
+    }
+    .liquid-doc-card:hover {
+      background: #ffffff;
+      border-color: rgba(28, 25, 23, 0.2);
+      box-shadow: inset 0 1px 1px #fff, 0 6px 18px -3px rgba(28, 25, 23, 0.08);
+    }
   </style>
 
   <!-- Load Data -->
@@ -1029,164 +1102,432 @@
     .modal-arrow { opacity: 0; transition: opacity 0.3s; }
   </style>
 
-  <div id="propertyModal" class="fixed inset-0 z-50 modal-backdrop hidden overflow-y-auto flex items-start justify-center">
-    <div class="relative bg-white w-full min-h-screen shadow-2xl">
+  <div id="propertyModal" class="fixed inset-0 z-50 modal-backdrop hidden overflow-y-auto flex items-start justify-center bg-obsidian/60 backdrop-blur-md">
+    <div class="relative bg-[#FAF9F6] w-full min-h-screen shadow-2xl">
       
-      <!-- Modal Close Button -->
-      <button onclick="closePropertyModal()" class="fixed top-5 right-5 z-30 w-9 h-9 rounded-full bg-obsidian text-canvas flex items-center justify-center text-sm font-bold hover:bg-gold transition-colors shadow-lg">
-        &times;
-      </button>
-
-      <!-- Dossier Image Presentation (Centered container, controlled height & aspect ratio - not stretched horizontally) -->
-      <div class="max-w-4xl mx-auto px-4 sm:px-8 pt-6">
-        <div id="modalImgWrapper" class="relative w-full h-64 sm:h-80 md:h-[420px] bg-obsidian overflow-hidden group border border-borderSubtle">
-          <img id="modalMainImg" src="" alt="Property" class="w-full h-full object-cover modal-img-enter">
-          <!-- Left Arrow -->
-          <button onclick="modalCarouselPrev()" class="modal-arrow absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/85 transition-all backdrop-blur-sm">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-          </button>
-          <!-- Right Arrow -->
-          <button onclick="modalCarouselNext()" class="modal-arrow absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/85 transition-all backdrop-blur-sm">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </button>
-          <!-- Image Counter -->
-          <div class="absolute bottom-3 right-3 z-20 bg-black/60 text-white text-[10px] font-bold px-2.5 py-0.5 backdrop-blur-sm rounded-full">
-            <span id="modalImgCounter">1 / 1</span>
-          </div>
-          <!-- Category Badge -->
-          <div class="absolute top-3 left-3 z-20">
-            <span id="modalCategoryBadge" class="liquid-badge-dark text-[9.5px] font-bold px-3 py-1 tracking-wider"></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Thumbnail Strip -->
-      <div class="max-w-4xl mx-auto px-4 sm:px-8 py-3">
-        <div id="modalThumbs" class="flex space-x-2 overflow-x-auto pb-1">
-          <!-- Thumbnails injected via JS -->
-        </div>
-      </div>
-
-      <!-- Modal Body Content -->
-      <div class="max-w-4xl mx-auto px-4 sm:px-8 pb-12 space-y-8">
-        
-        <!-- Title & Pricing Strip -->
-        <div class="flex flex-col sm:flex-row sm:items-start justify-between border-b border-borderSubtle pb-6 gap-4">
+      <!-- Modal Floating Top Header -->
+      <header class="sticky top-0 z-30 w-full border-b border-borderSubtle/70 bg-white/80 backdrop-blur-xl px-4 sm:px-8 py-3.5 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-full border border-obsidian/20 bg-limestone flex items-center justify-center font-serif text-sm font-bold text-obsidian">R</div>
           <div>
-            <div id="modalDeveloper" class="text-xs uppercase tracking-widest text-gold font-bold"></div>
-            <h2 id="modalTitle" class="font-serif text-3xl sm:text-4xl font-bold text-obsidian mt-1 leading-tight"></h2>
-            <div id="modalLocation" class="text-xs text-stone mt-1.5 flex items-center space-x-1"></div>
-          </div>
-          <div class="text-left sm:text-right flex-shrink-0">
-            <div class="text-[10px] uppercase tracking-wider text-stone">All-Inclusive Price</div>
-            <div id="modalPrice" class="font-num text-3xl sm:text-4xl font-bold text-obsidian"></div>
-            <div id="modalPricePerSqFt" class="text-xs text-stone mt-0.5 font-mono"></div>
+            <div id="modalDeveloper" class="text-[9.5px] uppercase tracking-widest text-gold font-bold"></div>
+            <div id="modalHeaderTitle" class="text-xs sm:text-sm font-serif font-bold text-obsidian line-clamp-1"></div>
           </div>
         </div>
 
-        <!-- Architectural Specifications Table -->
-        <div>
-          <h4 class="font-serif text-sm font-bold uppercase tracking-wider text-obsidian mb-3">Architectural Specifications</h4>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-            <div class="bg-limestone p-3 border border-borderSubtle">
-              <span class="text-stone text-[9px] uppercase tracking-wider block">Carpet Area</span>
-              <span id="modalCarpetArea" class="font-num font-bold text-obsidian text-sm block mt-0.5"></span>
-              <span id="modalEfficiency" class="text-[10px] text-emerald-700 font-semibold block"></span>
+        <!-- Sticky Floating Liquid Glass Sub-Nav Pills (Propsoch Dossier Flow) -->
+        <nav class="hidden md:flex items-center space-x-1.5 p-1 liquid-dossier-nav">
+          <a href="#dossier-overview" class="liquid-dossier-pill active" onclick="setDossierNavActive(this)">Overview</a>
+          <a href="#dossier-specs" class="liquid-dossier-pill" onclick="setDossierNavActive(this)">Specifications</a>
+          <a href="#dossier-connectivity" class="liquid-dossier-pill" onclick="setDossierNavActive(this)">Connectivity</a>
+          <a href="#dossier-amenities" class="liquid-dossier-pill" onclick="setDossierNavActive(this)">Amenities</a>
+          <a href="#dossier-legal" class="liquid-dossier-pill" onclick="setDossierNavActive(this)">Legal &amp; Approvals</a>
+        </nav>
+
+        <!-- Close Button -->
+        <button onclick="closePropertyModal()" class="w-8 h-8 rounded-full bg-obsidian/90 text-white flex items-center justify-center text-sm font-bold hover:bg-gold hover:text-obsidian transition-colors shadow-md" aria-label="Close Dossier">
+          &times;
+        </button>
+      </header>
+
+      <!-- Main Dossier Container (Propsoch Asymmetric Gallery + 2-Column Responsive Layout) -->
+      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- Modern Propsoch-Style Image Gallery Mosaic Grid -->
+        <div class="relative w-full rounded-xl overflow-hidden border border-borderSubtle bg-obsidian/5 mb-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-2 h-[340px] sm:h-[440px] lg:h-[500px]">
+            
+            <!-- Large Featured Main Image (8 Cols) -->
+            <div id="modalImgWrapper" class="relative lg:col-span-8 h-full bg-obsidian overflow-hidden group cursor-pointer" onclick="modalCarouselNext()">
+              <img id="modalMainImg" src="" alt="Property" class="w-full h-full object-cover modal-img-enter">
+              
+              <!-- Category Badge -->
+              <div class="absolute top-4 left-4 z-20">
+                <span id="modalCategoryBadge" class="liquid-badge-dark text-[9.5px] font-bold px-3 py-1 tracking-wider uppercase"></span>
+              </div>
+
+              <!-- Arrows -->
+              <button onclick="event.stopPropagation(); modalCarouselPrev()" class="modal-arrow absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/85 transition-all backdrop-blur-sm">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              </button>
+              <button onclick="event.stopPropagation(); modalCarouselNext()" class="modal-arrow absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/85 transition-all backdrop-blur-sm">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </button>
             </div>
-            <div class="bg-limestone p-3 border border-borderSubtle">
-              <span class="text-stone text-[9px] uppercase tracking-wider block">Super Built-Up Area</span>
-              <span id="modalSuperBuiltUp" class="font-num font-bold text-obsidian text-sm block mt-0.5"></span>
-              <span class="text-[10px] text-stone block">Common Space Share</span>
+
+            <!-- Side Secondary 2-Tile Image Grid (4 Cols) -->
+            <div class="hidden lg:grid lg:col-span-4 grid-rows-2 gap-2 h-full">
+              <div class="relative h-full overflow-hidden bg-obsidian group cursor-pointer" onclick="modalCarouselGo(1)">
+                <img id="modalGridImg1" src="" alt="Property Detail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              </div>
+              <div class="relative h-full overflow-hidden bg-obsidian group cursor-pointer" onclick="modalCarouselGo(2)">
+                <img id="modalGridImg2" src="" alt="Property Detail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <!-- Floating Liquid Glass 'Show all photos' Pill -->
+                <div class="absolute inset-0 bg-black/30 flex items-end justify-end p-4">
+                  <div class="liquid-dossier-pill active text-xs font-semibold px-4 py-2 flex items-center space-x-2">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span id="modalImgCounter">View All Photos</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="bg-limestone p-3 border border-borderSubtle">
-              <span class="text-stone text-[9px] uppercase tracking-wider block">Configuration / BHK</span>
-              <span id="modalBhk" class="font-bold text-obsidian text-sm block mt-0.5"></span>
-              <span id="modalFacing" class="text-[10px] text-stone block">East Facing</span>
-            </div>
-            <div class="bg-limestone p-3 border border-borderSubtle">
-              <span class="text-stone text-[9px] uppercase tracking-wider block">Possession Status</span>
-              <span id="modalPossession" class="font-bold text-obsidian text-sm block mt-0.5"></span>
-              <span id="modalFloorLevel" class="text-[10px] text-stone block">Floor Level</span>
-            </div>
+
+          </div>
+
+          <!-- Thumbnail Strip below Gallery for Easy Navigation -->
+          <div id="modalThumbs" class="flex space-x-2 p-2 bg-obsidian/90 overflow-x-auto">
+            <!-- Thumbnails injected via JS -->
           </div>
         </div>
 
-        <!-- Curated Overview Description -->
-        <div>
-          <h4 class="font-serif text-sm font-bold uppercase tracking-wider text-obsidian mb-2">Curated Overview</h4>
-          <p id="modalDescription" class="text-xs sm:text-sm text-charcoal/90 leading-relaxed"></p>
-        </div>
+        <!-- 2-Column Responsive Body: Left (8 Cols - Editorial Dossier) & Right (4 Cols - Sticky Liquid Glass Booking Desk) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- LEFT CONTENT COLUMN (8 Cols) -->
+          <div class="lg:col-span-8 space-y-10">
 
-        <!-- Pros & Considerations -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-          <div class="p-4 bg-emerald-50/60 border border-emerald-200">
-            <h5 class="font-bold text-emerald-900 uppercase tracking-wider text-[10px] mb-2 flex items-center space-x-1.5">
-              <svg class="w-3.5 h-3.5 text-emerald-700" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span>Verified Dossier Highlights</span>
-            </h5>
-            <ul id="modalPros" class="space-y-1.5 text-emerald-950"></ul>
-          </div>
-          <div class="p-4 bg-amber-50/60 border border-amber-200">
-            <h5 class="font-bold text-amber-900 uppercase tracking-wider text-[10px] mb-2 flex items-center space-x-1.5">
-              <svg class="w-3.5 h-3.5 text-amber-700" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
-              <span>Statutory Considerations</span>
-            </h5>
-            <ul id="modalCons" class="space-y-1.5 text-amber-950"></ul>
-          </div>
-        </div>
+            <!-- Section 1: Overview & Propsoch Verified Metrics -->
+            <section id="dossier-overview" class="scroll-mt-20">
+              <div class="border-b border-borderSubtle pb-5">
+                <div class="flex items-center space-x-2 text-[10px] uppercase tracking-wider text-gold font-bold">
+                  <span>Verified Direct Developer Dossier</span>
+                  <span>&bull;</span>
+                  <span id="modalStatusBadge" class="text-emerald-700">RERA Verified</span>
+                </div>
+                <h1 id="modalTitle" class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-obsidian mt-1.5 leading-tight"></h1>
+                <div id="modalLocation" class="text-xs text-stone mt-2 flex items-center space-x-1.5"></div>
+              </div>
 
-        <!-- Transit & Connectivity Metrics -->
-        <div>
-          <h4 class="font-serif text-sm font-bold uppercase tracking-wider text-obsidian mb-3">Connectivity &amp; Transit Index</h4>
-          <div class="grid grid-cols-3 gap-3 text-center text-xs">
-            <div class="p-3 bg-limestone border border-borderSubtle">
-              <span class="text-stone text-[9px] uppercase tracking-wider block">Nearest Metro</span>
-              <span id="modalMetro" class="font-num text-base font-bold text-obsidian block mt-0.5">0.4 km</span>
-              <span class="text-[9px] text-stone">Purple / Blue Line</span>
+              <!-- Propsoch Benchmark Metrics Grid (Screenshot 2) -->
+              <div class="mt-6">
+                <div class="flex items-center justify-between mb-3">
+                  <h3 class="font-serif text-base font-bold text-obsidian">Project Architectural Overview</h3>
+                  <div class="flex items-center space-x-3 text-[10px] text-stone">
+                    <span class="inline-flex items-center"><span class="w-2 h-2 rounded-full bg-emerald-600 mr-1"></span> Benchmark A+</span>
+                    <span class="inline-flex items-center"><span class="w-2 h-2 rounded-full bg-gold mr-1"></span> Verified Spec</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  <!-- Carpet Area -->
+                  <div class="liquid-metric-tile p-3.5">
+                    <span class="text-stone text-[9px] uppercase tracking-wider block font-medium">Carpet Area</span>
+                    <span id="modalCarpetArea" class="font-num font-bold text-obsidian text-base block mt-0.5"></span>
+                    <span id="modalEfficiency" class="text-[10px] text-emerald-700 font-semibold block mt-0.5"></span>
+                  </div>
+                  <!-- Super Built-Up -->
+                  <div class="liquid-metric-tile p-3.5">
+                    <span class="text-stone text-[9px] uppercase tracking-wider block font-medium">Super Built-Up</span>
+                    <span id="modalSuperBuiltUp" class="font-num font-bold text-obsidian text-base block mt-0.5"></span>
+                    <span class="text-[10px] text-stone block mt-0.5">Spatial efficiency</span>
+                  </div>
+                  <!-- Configuration -->
+                  <div class="liquid-metric-tile p-3.5">
+                    <span class="text-stone text-[9px] uppercase tracking-wider block font-medium">Configuration</span>
+                    <span id="modalBhk" class="font-bold text-obsidian text-base block mt-0.5"></span>
+                    <span id="modalFacing" class="text-[10px] text-stone block mt-0.5">East Facing</span>
+                  </div>
+                  <!-- Possession Status -->
+                  <div class="liquid-metric-tile p-3.5">
+                    <span class="text-stone text-[9px] uppercase tracking-wider block font-medium">Possession Status</span>
+                    <span id="modalPossession" class="font-bold text-obsidian text-base block mt-0.5"></span>
+                    <span id="modalFloorLevel" class="text-[10px] text-stone block mt-0.5">Floor Level</span>
+                  </div>
+                  <!-- Nearest Metro -->
+                  <div class="liquid-metric-tile p-3.5">
+                    <span class="text-stone text-[9px] uppercase tracking-wider block font-medium">Nearest Metro</span>
+                    <span id="modalMetro" class="font-num font-bold text-obsidian text-base block mt-0.5"></span>
+                    <span class="text-[10px] text-emerald-700 font-medium block mt-0.5">Direct Rapid Transit</span>
+                  </div>
+                  <!-- Walk Score -->
+                  <div class="liquid-metric-tile p-3.5">
+                    <span class="text-stone text-[9px] uppercase tracking-wider block font-medium">Walk &amp; Livability Score</span>
+                    <span id="modalWalkScore" class="font-num font-bold text-emerald-700 text-base block mt-0.5"></span>
+                    <span class="text-[10px] text-stone block mt-0.5">Pedestrian Friendly</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Editorial Description -->
+              <div class="mt-6 pt-6 border-t border-borderSubtle">
+                <h4 class="font-serif text-sm font-bold uppercase tracking-wider text-obsidian mb-2.5">Curated Overview</h4>
+                <p id="modalDescription" class="text-xs sm:text-sm text-charcoal/90 leading-relaxed"></p>
+              </div>
+
+              <!-- Verified Dossier Pros & Considerations (Propsoch Benchmark Card) -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 text-xs">
+                <div class="p-4 rounded-lg bg-emerald-50/70 border border-emerald-200/80">
+                  <h5 class="font-bold text-emerald-950 uppercase tracking-wider text-[10px] mb-2 flex items-center space-x-1.5">
+                    <svg class="w-3.5 h-3.5 text-emerald-700" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    <span>Verified Highlights &amp; Strengths</span>
+                  </h5>
+                  <ul id="modalPros" class="space-y-1.5 text-emerald-950"></ul>
+                </div>
+                <div class="p-4 rounded-lg bg-amber-50/70 border border-amber-200/80">
+                  <h5 class="font-bold text-amber-950 uppercase tracking-wider text-[10px] mb-2 flex items-center space-x-1.5">
+                    <svg class="w-3.5 h-3.5 text-amber-700" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+                    <span>Statutory Considerations</span>
+                  </h5>
+                  <ul id="modalCons" class="space-y-1.5 text-amber-950"></ul>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 2: Connectivity & Transit Interactive Hub (Propsoch Screenshot 3) -->
+            <section id="dossier-connectivity" class="scroll-mt-20 pt-6 border-t border-borderSubtle">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                <div>
+                  <h3 class="font-serif text-lg font-bold text-obsidian">Connectivity &amp; Transit Hub</h3>
+                  <p class="text-xs text-stone mt-0.5">High-speed transit corridors and commercial centers mapped from this residence.</p>
+                </div>
+                <!-- Interactive Filter Pills Row -->
+                <div class="flex items-center space-x-1.5 overflow-x-auto pb-1">
+                  <button class="liquid-dossier-pill active" onclick="switchConnectivityTab(this, 'transit')">Transit</button>
+                  <button class="liquid-dossier-pill" onclick="switchConnectivityTab(this, 'offices')">Offices</button>
+                  <button class="liquid-dossier-pill" onclick="switchConnectivityTab(this, 'schools')">Schools</button>
+                  <button class="liquid-dossier-pill" onclick="switchConnectivityTab(this, 'airports')">Airport</button>
+                </div>
+              </div>
+
+              <!-- Connectivity Display Cards -->
+              <div id="connectivityItemsContainer" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="liquid-metric-tile p-3.5 flex items-start space-x-3">
+                  <div class="w-8 h-8 rounded-lg bg-obsidian text-white flex items-center justify-center flex-shrink-0 text-xs">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+                  </div>
+                  <div>
+                    <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Closest Metro</span>
+                    <span id="modalMetroName" class="font-bold text-obsidian text-sm block">Central Metro Station</span>
+                    <span id="modalMetroTime" class="text-[10px] text-emerald-700 font-semibold block mt-0.5">0.4 Km &bull; 3 mins walk</span>
+                  </div>
+                </div>
+
+                <div class="liquid-metric-tile p-3.5 flex items-start space-x-3">
+                  <div class="w-8 h-8 rounded-lg bg-obsidian text-white flex items-center justify-center flex-shrink-0 text-xs">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                  </div>
+                  <div>
+                    <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Airport Corridor</span>
+                    <span class="font-bold text-obsidian text-sm block">KIA International</span>
+                    <span id="modalAirport" class="text-[10px] text-stone font-semibold block mt-0.5">38 Km &bull; 45 mins</span>
+                  </div>
+                </div>
+
+                <div class="liquid-metric-tile p-3.5 flex items-start space-x-3">
+                  <div class="w-8 h-8 rounded-lg bg-obsidian text-white flex items-center justify-center flex-shrink-0 text-xs">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                  </div>
+                  <div>
+                    <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Tech Corridor</span>
+                    <span class="font-bold text-obsidian text-sm block">ORR Tech Park</span>
+                    <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5">1.2 Km &bull; 6 mins drive</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 3: Categorized Amenities (Propsoch Screenshot 4: Lifestyle, Sports, Natural) -->
+            <section id="dossier-amenities" class="scroll-mt-20 pt-6 border-t border-borderSubtle">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <h3 class="font-serif text-lg font-bold text-obsidian">Curated Amenities</h3>
+                  <p class="text-xs text-stone mt-0.5">Categorized architectural lifestyle features included with the estate.</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Column 1: Lifestyle Amenities -->
+                <div class="liquid-doc-card p-4">
+                  <div class="flex items-center space-x-2 pb-2.5 mb-3 border-b border-borderSubtle/60">
+                    <span class="w-2 h-2 rounded-full bg-gold"></span>
+                    <h5 class="font-serif text-xs font-bold text-obsidian uppercase tracking-wider">Lifestyle Amenities</h5>
+                  </div>
+                  <ul id="modalAmenitiesLifestyle" class="space-y-2 text-xs text-charcoal">
+                    <li class="flex items-center space-x-2"><svg class="w-3.5 h-3.5 text-emerald-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Clubhouse &amp; Private Lounge</span></li>
+                    <li class="flex items-center space-x-2"><svg class="w-3.5 h-3.5 text-emerald-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Temperature-Controlled Pool</span></li>
+                    <li class="flex items-center space-x-2"><svg class="w-3.5 h-3.5 text-emerald-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Private Banquet Pavilion</span></li>
+                  </ul>
+                </div>
+
+                <!-- Column 2: Sports & Wellness -->
+                <div class="liquid-doc-card p-4">
+                  <div class="flex items-center space-x-2 pb-2.5 mb-3 border-b border-borderSubtle/60">
+                    <span class="w-2 h-2 rounded-full bg-emerald-700"></span>
+                    <h5 class="font-serif text-xs font-bold text-obsidian uppercase tracking-wider">Sports &amp; Wellness</h5>
+                  </div>
+                  <ul id="modalAmenitiesSports" class="space-y-2 text-xs text-charcoal">
+                    <li class="flex items-center space-x-2"><svg class="w-3.5 h-3.5 text-emerald-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>High-Performance Fitness Studio</span></li>
+                    <li class="flex items-center space-x-2"><svg class="w-3.5 h-3.5 text-emerald-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Squash &amp; Badminton Courts</span></li>
+                    <li class="flex items-center space-x-2"><svg class="w-3.5 h-3.5 text-emerald-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Jogging &amp; Cycling Boulevard</span></li>
+                  </ul>
+                </div>
+
+                <!-- Column 3: Natural & Architectural -->
+                <div class="liquid-doc-card p-4">
+                  <div class="flex items-center space-x-2 pb-2.5 mb-3 border-b border-borderSubtle/60">
+                    <span class="w-2 h-2 rounded-full bg-obsidian"></span>
+                    <h5 class="font-serif text-xs font-bold text-obsidian uppercase tracking-wider">Natural &amp; Security</h5>
+                  </div>
+                  <ul id="modalAmenitiesNatural" class="space-y-2 text-xs text-charcoal">
+                    <li class="flex items-center space-x-2"><svg class="w-3.5 h-3.5 text-emerald-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Landscaped Japanese Zen Courtyard</span></li>
+                    <li class="flex items-center space-x-2"><svg class="w-3.5 h-3.5 text-emerald-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>EV Charging Bays &amp; 100% DG Backup</span></li>
+                    <li class="flex items-center space-x-2"><svg class="w-3.5 h-3.5 text-emerald-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Biometric Smart Access &amp; Perimeter Guard</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Full Raw Amenities List Container (Preserves existing dynamic JS hook) -->
+              <div class="mt-4 pt-3 border-t border-borderSubtle/60">
+                <span class="text-[10px] uppercase tracking-wider text-stone font-semibold block mb-2">Complete Amenity Inventory</span>
+                <ul id="modalAmenities" class="flex flex-wrap gap-1.5 text-xs text-charcoal"></ul>
+              </div>
+            </section>
+
+            <!-- Section 4: Legal Approvals & Due Diligence Documents (Propsoch Screenshot 5) -->
+            <section id="dossier-legal" class="scroll-mt-20 pt-6 border-t border-borderSubtle pb-12">
+              <div class="mb-4">
+                <h3 class="font-serif text-lg font-bold text-obsidian">Legal Approvals &amp; Due Diligence</h3>
+                <p class="text-xs text-stone mt-0.5">Statutory approvals verified by independent legal counsel before inclusion.</p>
+              </div>
+
+              <!-- 4 Approval Cards Grid (Propsoch Approval Matrix) -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                <div class="liquid-metric-tile p-3 text-center">
+                  <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto mb-1.5">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  </div>
+                  <span class="text-[9px] uppercase tracking-wider text-stone block font-semibold">Khata Certificate</span>
+                  <span class="text-xs font-bold text-obsidian block mt-0.5">BBMP / A-Khata</span>
+                  <span class="text-[9px] text-emerald-700 font-medium">Clear Title</span>
+                </div>
+
+                <div class="liquid-metric-tile p-3 text-center">
+                  <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto mb-1.5">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  </div>
+                  <span class="text-[9px] uppercase tracking-wider text-stone block font-semibold">Master Plan</span>
+                  <span class="text-xs font-bold text-obsidian block mt-0.5">BDA Sanctioned</span>
+                  <span class="text-[9px] text-emerald-700 font-medium">Fully Approved</span>
+                </div>
+
+                <div class="liquid-metric-tile p-3 text-center">
+                  <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto mb-1.5">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  </div>
+                  <span class="text-[9px] uppercase tracking-wider text-stone block font-semibold">Water Board NOC</span>
+                  <span class="text-xs font-bold text-obsidian block mt-0.5">BWSSB Approved</span>
+                  <span class="text-[9px] text-emerald-700 font-medium">Permanent Line</span>
+                </div>
+
+                <div class="liquid-metric-tile p-3 text-center">
+                  <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto mb-1.5">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  </div>
+                  <span class="text-[9px] uppercase tracking-wider text-stone block font-semibold">RERA Compliance</span>
+                  <span id="modalReraId" class="text-xs font-bold text-obsidian block mt-0.5">PRM/KA/RERA</span>
+                  <span class="text-[9px] text-emerald-700 font-medium">Valid &amp; Audited</span>
+                </div>
+              </div>
+
+              <!-- Curated Due Diligence Documents Strip (Propsoch Screenshot 5) -->
+              <div class="space-y-2.5">
+                <div class="liquid-doc-card p-3 sm:p-4 flex items-center justify-between">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded bg-limestone border border-borderSubtle flex items-center justify-center text-obsidian">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    </div>
+                    <div>
+                      <div class="text-xs font-bold text-obsidian">City Sanctioned Master Development Plan</div>
+                      <div class="text-[10px] text-stone">Verified structural footprint, setbacks, and elevation clearances.</div>
+                    </div>
+                  </div>
+                  <button onclick="downloadPropertyBrochure(activeModalProperty)" class="text-xs font-bold text-gold hover:text-obsidian transition-colors underline flex-shrink-0">
+                    See Document &rarr;
+                  </button>
+                </div>
+
+                <div class="liquid-doc-card p-3 sm:p-4 flex items-center justify-between">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded bg-limestone border border-borderSubtle flex items-center justify-center text-obsidian">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    </div>
+                    <div>
+                      <div class="text-xs font-bold text-obsidian">Title Deed &amp; 30-Year Encumbrance Audit</div>
+                      <div class="text-[10px] text-stone">Zero litigation certificate certified by Senior High Court Advocate.</div>
+                    </div>
+                  </div>
+                  <button onclick="downloadPropertyBrochure(activeModalProperty)" class="text-xs font-bold text-gold hover:text-obsidian transition-colors underline flex-shrink-0">
+                    See Document &rarr;
+                  </button>
+                </div>
+              </div>
+            </section>
+
+          </div>
+
+          <!-- RIGHT COLUMN (4 Cols - Sticky Apple Liquid Glass Direct Advisory Desk) -->
+          <div class="lg:col-span-4 lg:sticky lg:top-20 space-y-4">
+            
+            <!-- Floating Apple Liquid Glass Advisory Card (Propsoch Floating Contact Desk) -->
+            <div class="liquid-dossier-card p-6">
+              
+              <!-- Pricing Block -->
+              <div class="border-b border-borderSubtle/70 pb-4 mb-5">
+                <span class="text-[9.5px] uppercase tracking-wider text-stone font-semibold block">All-Inclusive Price</span>
+                <div id="modalPrice" class="font-num text-3xl font-bold text-obsidian mt-0.5"></div>
+                <div id="modalPricePerSqFt" class="text-xs text-stone mt-1 font-mono"></div>
+              </div>
+
+              <!-- Direct Advisory Profile -->
+              <div class="flex items-center space-x-3 mb-5 p-3 rounded-lg bg-limestone/60 border border-borderSubtle/60">
+                <div class="w-10 h-10 rounded-full border border-gold bg-white flex items-center justify-center font-serif font-bold text-gold flex-shrink-0">
+                  R
+                </div>
+                <div class="text-left">
+                  <div class="text-xs font-bold text-obsidian">REM Developer Advisory Desk</div>
+                  <div class="text-[10px] text-emerald-700 font-semibold flex items-center space-x-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+                    <span>Zero Brokerage &bull; Direct Developer Pricing</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action CTA Stack -->
+              <div class="space-y-2.5">
+                <!-- Schedule Private Site Visit Button -->
+                <button onclick="openSiteVisitModal()" class="btn-era-gold w-full py-3.5 text-xs font-bold uppercase tracking-wider text-center shadow-md">
+                  Schedule Private Site Visit
+                </button>
+
+                <!-- WhatsApp Direct Chat Button -->
+                <a id="modalWhatsAppBtn" href="#" target="_blank" class="w-full py-3 text-xs font-bold uppercase tracking-wider bg-[#25D366] text-white hover:bg-[#1ebe5a] transition-all flex items-center justify-center space-x-2 rounded shadow-sm">
+                  <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  <span>WhatsApp Concierge</span>
+                </a>
+
+                <!-- Download Dossier Button -->
+                <button id="modalBrochureBtn" class="w-full py-2.5 text-xs font-bold uppercase tracking-wider border border-borderSubtle bg-white text-obsidian hover:border-obsidian transition-colors rounded">
+                  Download Full Dossier (.txt)
+                </button>
+
+                <!-- Direct Phone Desk -->
+                <a href="tel:+918040008000" class="w-full py-2.5 text-xs font-semibold text-center text-stone hover:text-obsidian transition-colors block">
+                  Or call directly: +91 80 4000 8000
+                </a>
+              </div>
+
+              <!-- Statutory Disclaimer Note -->
+              <div class="mt-4 pt-3 border-t border-borderSubtle text-[10px] text-stoneLight leading-normal">
+                Direct buyer representation policy. Zero brokerage fee charged. Fully compliant with Real Estate Regulatory Authority standards.
+              </div>
+
             </div>
-            <div class="p-3 bg-limestone border border-borderSubtle">
-              <span class="text-stone text-[9px] uppercase tracking-wider block">Airport (KIA)</span>
-              <span id="modalAirport" class="font-num text-base font-bold text-obsidian block mt-0.5">38 km</span>
-              <span class="text-[9px] text-stone">Direct Express Corridor</span>
-            </div>
-            <div class="p-3 bg-limestone border border-borderSubtle">
-              <span class="text-stone text-[9px] uppercase tracking-wider block">Walk Score</span>
-              <span id="modalWalkScore" class="font-num text-base font-bold text-emerald-700 block mt-0.5">94 / 100</span>
-              <span class="text-[9px] text-stone">Pedestrian Friendly</span>
-            </div>
+
           </div>
+
         </div>
 
-        <!-- Amenities Grid -->
-        <div>
-          <h4 class="font-serif text-sm font-bold uppercase tracking-wider text-obsidian mb-3">Amenities &amp; Features</h4>
-          <ul id="modalAmenities" class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-charcoal">
-            <!-- Injected via JS -->
-          </ul>
-        </div>
-
-        <!-- Action Bar Inside Modal -->
-        <div class="pt-6 border-t border-borderSubtle flex flex-wrap items-center justify-between gap-3">
-          <div class="flex items-center space-x-2">
-            <button id="modalBrochureBtn" class="px-4 py-2.5 text-xs font-bold uppercase tracking-wider border border-borderSubtle bg-white text-obsidian hover:border-obsidian transition-colors">
-              Download Dossier (.txt)
-            </button>
-            <button onclick="openSiteVisitModal()" class="px-4 py-2.5 text-xs font-bold uppercase tracking-wider bg-gold text-obsidian border border-gold hover:bg-goldDark transition-colors">
-              Schedule Site Visit
-            </button>
-          </div>
-          <div class="flex items-center space-x-2">
-            <a id="modalWhatsAppBtn" href="#" target="_blank" class="px-4 py-2.5 text-xs font-bold uppercase tracking-wider bg-[#25D366] text-white hover:bg-[#1ebe5a] transition-colors flex items-center space-x-2">
-              <svg class="w-4 h-4" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              <span>Chat with Developer</span>
-            </a>
-            <a href="tel:+918040008000" class="p-2.5 border border-borderSubtle bg-white text-obsidian hover:border-obsidian transition-colors" title="Call Desk">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            </a>
-          </div>
-        </div>
-
-      </div>
+      </main>
 
     </div>
   </div>
@@ -1772,6 +2113,158 @@
       }).join('');
     }
 
+    function setDossierNavActive(el) {
+      document.querySelectorAll('.liquid-dossier-pill').forEach(btn => btn.classList.remove('active'));
+      if (el) el.classList.add('active');
+    }
+
+    function switchConnectivityTab(btn, type) {
+      document.querySelectorAll('#dossier-connectivity .liquid-dossier-pill').forEach(p => p.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      const p = activeModalProperty;
+      if (!p) return;
+
+      const container = document.getElementById('connectivityItemsContainer');
+      if (!container) return;
+
+      const metroDist = p.location.nearestMetroDistanceKm || 0.8;
+      const airportDist = p.location.airportDistanceKm || 38;
+
+      if (type === 'transit') {
+        container.innerHTML = `
+          <div class="liquid-metric-tile p-3.5 flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-obsidian text-white flex items-center justify-center flex-shrink-0 text-xs">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+            </div>
+            <div>
+              <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Closest Metro</span>
+              <span class="font-bold text-obsidian text-sm block">Purple / Blue Line Interchange</span>
+              <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5">${metroDist} Km &bull; ~${Math.round(metroDist * 4)} mins</span>
+            </div>
+          </div>
+          <div class="liquid-metric-tile p-3.5 flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-obsidian text-white flex items-center justify-center flex-shrink-0 text-xs">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+            </div>
+            <div>
+              <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Airport Expressway</span>
+              <span class="font-bold text-obsidian text-sm block">KIA International Terminal</span>
+              <span class="text-[10px] text-stone font-semibold block mt-0.5">${airportDist} Km &bull; ~${Math.round(airportDist * 1.1)} mins</span>
+            </div>
+          </div>
+          <div class="liquid-metric-tile p-3.5 flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-obsidian text-white flex items-center justify-center flex-shrink-0 text-xs">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+            </div>
+            <div>
+              <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Radial Arterial Road</span>
+              <span class="font-bold text-obsidian text-sm block">120ft Outer Peripheral Ring</span>
+              <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5">Signal-Free Flyover 0.3 Km</span>
+            </div>
+          </div>
+        `;
+      } else if (type === 'offices') {
+        container.innerHTML = `
+          <div class="liquid-metric-tile p-3.5 flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-obsidian text-white flex items-center justify-center flex-shrink-0 text-xs">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+            <div>
+              <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Tech Parks</span>
+              <span class="font-bold text-obsidian text-sm block">Embassy TechVillage &amp; Prestige Tech</span>
+              <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5">2.2 Km &bull; 8 mins drive</span>
+            </div>
+          </div>
+          <div class="liquid-metric-tile p-3.5 flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-obsidian text-white flex items-center justify-center flex-shrink-0 text-xs">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+            <div>
+              <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Financial District</span>
+              <span class="font-bold text-obsidian text-sm block">Central Business District (CBD)</span>
+              <span class="text-[10px] text-stone font-semibold block mt-0.5">8.5 Km &bull; 20 mins</span>
+            </div>
+          </div>
+          <div class="liquid-metric-tile p-3.5 flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-obsidian text-white flex items-center justify-center flex-shrink-0 text-xs">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+            <div>
+              <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Innovation Zone</span>
+              <span class="font-bold text-obsidian text-sm block">International Tech Park (ITPB)</span>
+              <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5">6.8 Km &bull; 16 mins drive</span>
+            </div>
+          </div>
+        `;
+      } else if (type === 'schools') {
+        container.innerHTML = `
+          <div class="liquid-metric-tile p-3.5 flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-obsidian text-white flex items-center justify-center flex-shrink-0 text-xs">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </div>
+            <div>
+              <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">IB World School</span>
+              <span class="font-bold text-obsidian text-sm block">Greenwood High / TISB</span>
+              <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5">4.2 Km &bull; 10 mins</span>
+            </div>
+          </div>
+          <div class="liquid-metric-tile p-3.5 flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-obsidian text-white flex items-center justify-center flex-shrink-0 text-xs">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </div>
+            <div>
+              <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Academy</span>
+              <span class="font-bold text-obsidian text-sm block">Inventure Academy</span>
+              <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5">5.1 Km &bull; 12 mins</span>
+            </div>
+          </div>
+          <div class="liquid-metric-tile p-3.5 flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-obsidian text-white flex items-center justify-center flex-shrink-0 text-xs">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </div>
+            <div>
+              <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Montessori</span>
+              <span class="font-bold text-obsidian text-sm block">Legacy Early Learning</span>
+              <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5">1.5 Km &bull; 4 mins</span>
+            </div>
+          </div>
+        `;
+      } else if (type === 'airports') {
+        container.innerHTML = `
+          <div class="liquid-metric-tile p-3.5 flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-obsidian text-white flex items-center justify-center flex-shrink-0 text-xs">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+            </div>
+            <div>
+              <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">KIA Terminal 1 &amp; 2</span>
+              <span class="font-bold text-obsidian text-sm block">International Airport</span>
+              <span class="text-[10px] text-stone font-semibold block mt-0.5">${airportDist} Km &bull; Direct Toll Corridor</span>
+            </div>
+          </div>
+          <div class="liquid-metric-tile p-3.5 flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-obsidian text-white flex items-center justify-center flex-shrink-0 text-xs">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+            </div>
+            <div>
+              <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Heliport Access</span>
+              <span class="font-bold text-obsidian text-sm block">HAL Corporate Helipad</span>
+              <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5">7.4 Km &bull; 15 mins</span>
+            </div>
+          </div>
+          <div class="liquid-metric-tile p-3.5 flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-obsidian text-white flex items-center justify-center flex-shrink-0 text-xs">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+            </div>
+            <div>
+              <span class="text-[10px] text-stone uppercase tracking-wider block font-semibold">Vande Bharat Express</span>
+              <span class="font-bold text-obsidian text-sm block">Cantonment High-Speed Hub</span>
+              <span class="text-[10px] text-stone font-semibold block mt-0.5">11.2 Km &bull; 25 mins</span>
+            </div>
+          </div>
+        `;
+      }
+    }
+
     // Property Detail Modal & Carousel Handler
     let activeModalProperty = null;
     let modalCarouselImages = [];
@@ -1789,9 +2282,9 @@
         imgEl.classList.add('modal-img-enter');
       }
       const counter = document.getElementById('modalImgCounter');
-      if (counter) counter.innerText = `${modalCarouselIndex + 1} / ${imgs.length}`;
+      if (counter) counter.innerText = `${modalCarouselIndex + 1} / ${imgs.length} Photos`;
       document.querySelectorAll('#modalThumbs img').forEach((t, i) => {
-        t.classList.toggle('border-obsidian', i === modalCarouselIndex);
+        t.classList.toggle('border-gold', i === modalCarouselIndex);
         t.classList.toggle('border-borderSubtle', i !== modalCarouselIndex);
       });
     }
@@ -1809,11 +2302,14 @@
       if (!p) return;
       activeModalProperty = p;
 
+      const headerTitle = document.getElementById('modalHeaderTitle');
+      if (headerTitle) headerTitle.innerText = p.title;
+
       document.getElementById('modalTitle').innerText = p.title;
       document.getElementById('modalDeveloper').innerText = p.developer;
       document.getElementById('modalLocation').innerHTML = `
-        <svg class="w-3.5 h-3.5 text-gold inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-        <span>${p.location.locality}, ${p.location.city} (Landmark: ${p.location.landmark})</span>
+        <svg class="w-3.5 h-3.5 text-gold inline flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        <span>${p.location.locality}, ${p.location.city} &bull; Landmark: ${p.location.landmark}</span>
       `;
       document.getElementById('modalPrice').innerText = formatINR(p.pricing.totalPrice);
       document.getElementById('modalPricePerSqFt').innerText = '\u20B9' + p.pricing.pricePerSqFt.toLocaleString('en-IN') + ' per sq.ft';
@@ -1826,6 +2322,18 @@
       document.getElementById('modalFloorLevel').innerText = p.dimensions.floorLevel || 'Multi-Level';
       document.getElementById('modalDescription').innerText = p.description;
       document.getElementById('modalCategoryBadge').innerText = p.category.replace(/_/g, ' ');
+
+      // RERA ID
+      const reraEl = document.getElementById('modalReraId');
+      if (reraEl) {
+        reraEl.innerText = (p.peaceOfMind && p.peaceOfMind.reraId) ? p.peaceOfMind.reraId : 'PRM/KA/RERA/2024/0912';
+      }
+
+      // Status
+      const statusBadge = document.getElementById('modalStatusBadge');
+      if (statusBadge) {
+        statusBadge.innerText = p.status || 'Verified Clear Title';
+      }
 
       // Pros & Cons
       const peace = p.peaceOfMind || {};
@@ -1840,12 +2348,18 @@
       }
 
       // Connectivity
+      const metroDist = p.location.nearestMetroDistanceKm || 0.8;
       const metroEl = document.getElementById('modalMetro');
-      if (metroEl) metroEl.innerText = `${p.location.nearestMetroDistanceKm || 0.8} km`;
+      if (metroEl) metroEl.innerText = `${metroDist} km`;
       const airportEl = document.getElementById('modalAirport');
       if (airportEl) airportEl.innerText = `${p.location.airportDistanceKm || 38} km`;
       const walkEl = document.getElementById('modalWalkScore');
       if (walkEl) walkEl.innerText = `${p.location.walkScore || 92} / 100`;
+
+      const metroName = document.getElementById('modalMetroName');
+      if (metroName) metroName.innerText = `${p.location.locality} Metro Hub`;
+      const metroTime = document.getElementById('modalMetroTime');
+      if (metroTime) metroTime.innerText = `${metroDist} Km \u2022 ~${Math.round(metroDist * 4)} mins walk`;
 
       // WhatsApp Button
       const waBtn = document.getElementById('modalWhatsAppBtn');
@@ -1853,22 +2367,28 @@
 
       // Thumbnails and Carousel Setup
       modalCarouselImages = p.images && p.images.length ? p.images : ['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85'];
+      
+      const gridImg1 = document.getElementById('modalGridImg1');
+      if (gridImg1) gridImg1.src = modalCarouselImages[1] || modalCarouselImages[0];
+      const gridImg2 = document.getElementById('modalGridImg2');
+      if (gridImg2) gridImg2.src = modalCarouselImages[2] || modalCarouselImages[0];
+
       const thumbsContainer = document.getElementById('modalThumbs');
       if (thumbsContainer) {
         thumbsContainer.innerHTML = modalCarouselImages.map((img, idx) => `
           <img src="${img}" onclick="modalCarouselGo(${idx})"
-               class="h-14 w-20 object-cover cursor-pointer border border-borderSubtle hover:border-obsidian transition-colors flex-shrink-0">
+               class="h-12 w-16 sm:h-14 sm:w-20 object-cover cursor-pointer rounded border border-borderSubtle hover:border-gold transition-colors flex-shrink-0">
         `).join('');
       }
       modalCarouselGo(0);
 
-      // Amenities
+      // Amenities Categorization
       const amenitiesContainer = document.getElementById('modalAmenities');
       if (amenitiesContainer) {
         amenitiesContainer.innerHTML = (p.amenities || []).map(a => `
-          <li class="flex items-center space-x-1.5 p-1 bg-limestone/50 border border-borderSubtle/40">
+          <li class="flex items-center space-x-1.5 px-2.5 py-1 rounded bg-white border border-borderSubtle/60 shadow-2xs">
             <span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>
-            <span class="truncate">${a}</span>
+            <span class="truncate font-medium">${a}</span>
           </li>
         `).join('');
       }
