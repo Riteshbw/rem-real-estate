@@ -1043,7 +1043,7 @@
       <form onsubmit="handleAdminLogin(event)" class="mt-6 space-y-4 text-xs">
         <div>
           <label class="block text-[10px] uppercase tracking-wider font-bold text-stone mb-1">Passcode</label>
-          <input type="password" id="adminPasscode" required placeholder="Hint: REDACTED" class="w-full p-2.5 bg-limestone border border-borderSubtle text-obsidian focus:outline-none focus:border-obsidian">
+          <input type="password" id="adminPasscode" required placeholder="Enter passcode" autocomplete="off" class="w-full p-2.5 bg-limestone border border-borderSubtle text-obsidian focus:outline-none focus:border-obsidian">
         </div>
         <button type="submit" class="btn-era w-full py-3 bg-obsidian text-canvas font-bold uppercase tracking-wider text-xs border border-obsidian text-center">
           Authenticate Admin
@@ -1830,14 +1830,16 @@ Generated: ${new Date().toLocaleString()}
       document.getElementById('adminAuthModal').classList.add('hidden');
     }
 
-    function handleAdminLogin(e) {
+    async function handleAdminLogin(e) {
       e.preventDefault();
       const code = document.getElementById('adminPasscode').value;
-      if (code === 'REDACTED') {
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('rem-admin-v1:' + code));
+      const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+      if (hash === '0396ca646c4a4939ba959e82587c2fef1f36bc5a0f4f615dcac82984dc027f99') {
         closeAdminAuthModal();
         openAdminPortal();
       } else {
-        alert('Invalid passcode. Hint: REDACTED');
+        alert('Invalid passcode.');
       }
     }
 
