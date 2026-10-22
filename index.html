@@ -272,6 +272,18 @@
       color: #1C1917 !important;
     }
 
+        /* Subtle softened corners for boxes, buttons and inputs */
+    [class~="border"]:not(.rounded-full),
+    button:not(.rounded-full):not(#authBtn):not(#conciergeBtn),
+    a.btn-era:not(.rounded-full), a.btn-era-gold:not(.rounded-full),
+    input:not([type="checkbox"]):not([type="range"]):not([type="radio"]),
+    select, textarea {
+      border-radius: 6px;
+    }
+    .era-card, #collection > div.bg-white.border {
+      border-radius: 10px;
+    }
+
     /* Apple Liquid Glass Hero Interactive Pill (Reference Screenshot 2) */
     .liquid-btn-hero {
       position: relative;
@@ -310,7 +322,7 @@
 
     /* Apple Liquid Glass Property Card Spec Tiles (Reference Screenshot 3) */
     .liquid-spec-box {
-      border-radius: 12px !important;
+      border-radius: 6px !important;
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(250, 249, 246, 0.45) 100%);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -323,7 +335,7 @@
     /* Apple Liquid Glass Card Action Buttons (Reference Screenshot 3) */
     .liquid-btn-dossier {
       position: relative;
-      border-radius: 12px !important;
+      border-radius: 6px !important;
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.80) 0%, rgba(250, 249, 246, 0.40) 100%);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -344,7 +356,7 @@
     }
 
     .liquid-btn-wa {
-      border-radius: 12px !important;
+      border-radius: 6px !important;
       background: linear-gradient(180deg, rgba(46, 213, 115, 0.92) 0%, rgba(38, 185, 98, 0.82) 100%);
       backdrop-filter: blur(20px) saturate(200%);
       -webkit-backdrop-filter: blur(20px) saturate(200%);
@@ -361,7 +373,7 @@
     }
 
     .liquid-btn-phone {
-      border-radius: 12px !important;
+      border-radius: 6px !important;
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(250, 249, 246, 0.45) 100%);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -382,7 +394,7 @@
     /* Apple Liquid Glass Status Badges (Direct match for Reference Screenshot 1 & 2) */
     .liquid-badge-gold,
     .liquid-badge-dark {
-      border-radius: 9999px !important; /* Authentic Apple dynamic glass capsule */
+      border-radius: 6px !important; /* Subtle decurved liquid glass squircle */
       background: linear-gradient(180deg, rgba(38, 34, 32, 0.65) 0%, rgba(18, 16, 15, 0.48) 100%) !important;
       backdrop-filter: blur(24px) saturate(210%) contrast(105%);
       -webkit-backdrop-filter: blur(24px) saturate(210%) contrast(105%);
