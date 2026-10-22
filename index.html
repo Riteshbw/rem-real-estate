@@ -192,84 +192,149 @@
        4. Soft Environmental Occlusion (Deep, diffuse elevation shadow)
        ======================================================== */
 
-    /* Top Floating Navigation Bar (Liquid Glass Container) */
-    .glass-nav {
-      position: relative;
-      isolation: isolate;
-      border-radius: 9999px; /* Apple dynamic floating pill */
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.20) 100%);
-      backdrop-filter: blur(28px) saturate(190%) contrast(102%);
-      -webkit-backdrop-filter: blur(28px) saturate(190%) contrast(102%);
-      border: 1px solid rgba(255, 255, 255, 0.40);
-      box-shadow:
-        inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.70),
-        inset 0 -1px 1px 0 rgba(0, 0, 0, 0.08),
-        0 20px 40px -12px rgba(0, 0, 0, 0.15),
-        0 2px 6px -1px rgba(0, 0, 0, 0.05);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .glass-nav::before {
+    /* ========================================================
+       CLEAR APPLE LIQUID GLASS (Reference: iOS 26 Control Center,
+       Apple Music tab bar, Liquid Glass lens blobs)
+       - Near-colourless body: the backdrop stays visible through it
+       - Light blur + high saturation (lensing, not frosting)
+       - Thin specular rim: bright top-left & bottom-right, fading mid-edge
+       - Soft inner refraction glow along the bottom edge
+       - Gentle top sheen + soft diffuse elevation shadow
+       ======================================================== */
+
+    /* Shared specular rim (gradient border drawn via mask, 1px ring only) */
+    .glass-nav::before,
+    .liquid-btn-hero::before {
       content: "";
       position: absolute;
       inset: 0;
       border-radius: inherit;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.03) 45%, transparent 70%);
+      padding: 1px;
+      background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.85) 0%,
+        rgba(255, 255, 255, 0.28) 18%,
+        rgba(255, 255, 255, 0.06) 42%,
+        rgba(255, 255, 255, 0.06) 58%,
+        rgba(255, 255, 255, 0.30) 82%,
+        rgba(255, 255, 255, 0.70) 100%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
       pointer-events: none;
       z-index: 1;
     }
 
-    /* Apple Liquid Glass over Dark Hero Content */
-    .glass-nav.on-dark {
-      background: linear-gradient(180deg, rgba(30, 27, 25, 0.65) 0%, rgba(18, 16, 15, 0.50) 100%) !important;
-      backdrop-filter: blur(32px) saturate(210%) contrast(105%);
-      -webkit-backdrop-filter: blur(32px) saturate(210%) contrast(105%);
-      border: 1px solid rgba(255, 255, 255, 0.20) !important;
-      box-shadow:
-        inset 0 1px 1px 0 rgba(255, 255, 255, 0.35),
-        inset 0 -1px 1.5px 0 rgba(0, 0, 0, 0.40),
-        0 24px 50px -12px rgba(0, 0, 0, 0.65),
-        0 4px 12px -2px rgba(0, 0, 0, 0.35);
+    /* Shared top sheen (soft specular highlight on the upper body) */
+    .glass-nav::after,
+    .liquid-btn-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(120% 70% at 50% -10%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 45%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
     }
-    .glass-nav.on-dark::before {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 65%);
+
+    /* Top Floating Navigation Bar — clear glass over light page content */
+    .glass-nav {
+      position: relative;
+      isolation: isolate;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.42);
+      backdrop-filter: blur(14px) saturate(185%) brightness(1.04);
+      -webkit-backdrop-filter: blur(14px) saturate(185%) brightness(1.04);
+      border: none;
+      box-shadow:
+        inset 0 -10px 18px -12px rgba(255, 255, 255, 0.85),
+        inset 0 0 0 0.5px rgba(28, 25, 23, 0.06),
+        0 10px 30px -10px rgba(28, 25, 23, 0.14),
+        0 1px 3px rgba(28, 25, 23, 0.05);
+      transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-nav > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Clear glass over the dark hero imagery (no smoky tint) */
+    .glass-nav.on-dark {
+      background: rgba(255, 255, 255, 0.07) !important;
+      backdrop-filter: blur(12px) saturate(190%) brightness(1.08);
+      -webkit-backdrop-filter: blur(12px) saturate(190%) brightness(1.08);
+      box-shadow:
+        inset 0 -10px 20px -12px rgba(255, 255, 255, 0.22),
+        inset 0 10px 20px -14px rgba(255, 255, 255, 0.12),
+        0 14px 36px -12px rgba(0, 0, 0, 0.45),
+        0 2px 6px rgba(0, 0, 0, 0.18);
+    }
+    .glass-nav.on-dark::after {
+      background: radial-gradient(120% 70% at 50% -10%, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.02) 45%, transparent 70%);
     }
     .glass-nav.on-dark .text-obsidian,
     .glass-nav.on-dark .text-obsidian\/80,
     .glass-nav.on-dark .text-obsidian\/85 {
-      color: rgba(255, 255, 255, 0.95) !important;
+      color: rgba(255, 255, 255, 0.96) !important;
     }
     .glass-nav.on-dark .text-stone {
-      color: rgba(255, 255, 255, 0.70) !important;
+      color: rgba(255, 255, 255, 0.72) !important;
+    }
+
+    /* Brand emblem — small clear glass lens */
+    .glass-nav #brandEmblem {
+      background: rgba(255, 255, 255, 0.35) !important;
+      border-color: rgba(255, 255, 255, 0.70) !important;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 1px 3px rgba(28, 25, 23, 0.08);
     }
     .glass-nav.on-dark #brandEmblem {
-      background: rgba(255, 255, 255, 0.12) !important;
-      border-color: rgba(255, 255, 255, 0.25) !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-color: rgba(255, 255, 255, 0.30) !important;
       color: #ffffff !important;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35), inset 0 -1px 1px rgba(255, 255, 255, 0.10);
+    }
+
+    /* Nav capsule buttons — glass droplets inside the glass bar */
+    .glass-nav #authBtn,
+    .glass-nav #conciergeBtn {
+      border-radius: 9999px !important;
+      transition: background 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+    }
+    .glass-nav #authBtn {
+      background: rgba(255, 255, 255, 0.45) !important;
+      border: 1px solid rgba(255, 255, 255, 0.75) !important;
+      color: #1C1917 !important;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9), 0 1px 3px rgba(28, 25, 23, 0.06) !important;
+    }
+    .glass-nav #authBtn:hover {
+      background: rgba(255, 255, 255, 0.70) !important;
+    }
+    .glass-nav #conciergeBtn {
+      background: #1C1917 !important;
+      border: 1px solid rgba(28, 25, 23, 0.9) !important;
+      color: #FAF9F6 !important;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.18), 0 4px 12px -2px rgba(28, 25, 23, 0.25) !important;
+    }
+    .glass-nav #conciergeBtn:hover {
+      background: #000000 !important;
     }
     .glass-nav.on-dark #authBtn {
-      background: rgba(255, 255, 255, 0.10) !important;
-      border-color: rgba(255, 255, 255, 0.25) !important;
-      color: rgba(255, 255, 255, 0.92) !important;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-radius: 9999px !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      border: 1px solid rgba(255, 255, 255, 0.28) !important;
+      color: rgba(255, 255, 255, 0.96) !important;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.30), inset 0 -1px 1px rgba(255, 255, 255, 0.08) !important;
     }
     .glass-nav.on-dark #authBtn:hover {
-      background: rgba(255, 255, 255, 0.20) !important;
-      border-color: rgba(255, 255, 255, 0.45) !important;
+      background: rgba(255, 255, 255, 0.16) !important;
     }
     .glass-nav.on-dark #conciergeBtn {
       background: rgba(255, 255, 255, 0.92) !important;
-      border-color: rgba(255, 255, 255, 0.95) !important;
+      border: 1px solid rgba(255, 255, 255, 0.95) !important;
       color: #1C1917 !important;
-      border-radius: 9999px !important;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+      box-shadow: inset 0 -1px 1px rgba(28, 25, 23, 0.06), 0 4px 14px -2px rgba(0, 0, 0, 0.30) !important;
     }
     .glass-nav.on-dark #conciergeBtn:hover {
       background: #ffffff !important;
-      color: #1C1917 !important;
     }
 
             /* Apple Liquid Glass Slider (Technology Overviews / Adopting Liquid Glass) */
@@ -370,40 +435,40 @@
       border-radius: 10px;
     }
 
-    /* Apple Liquid Glass Hero Interactive Pill (Reference Screenshot 2) */
+    /* Hero CTA — clear Apple Liquid Glass capsule (lens over the hero image) */
     .liquid-btn-hero {
       position: relative;
       isolation: isolate;
-      border-radius: 9999px !important; /* Authentic Apple floating pill */
-      background: linear-gradient(180deg, rgba(38, 34, 32, 0.68) 0%, rgba(20, 18, 16, 0.52) 100%) !important;
-      backdrop-filter: blur(28px) saturate(210%) contrast(106%);
-      -webkit-backdrop-filter: blur(28px) saturate(210%) contrast(106%);
-      border: 1px solid rgba(255, 255, 255, 0.22) !important;
+      border-radius: 9999px !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      backdrop-filter: blur(10px) saturate(190%) brightness(1.1);
+      -webkit-backdrop-filter: blur(10px) saturate(190%) brightness(1.1);
+      border: none !important;
       color: #ffffff !important;
-      font-weight: 500 !important;
+      font-weight: 600 !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
       box-shadow:
-        inset 0 1px 1px 0 rgba(255, 255, 255, 0.40),
-        inset 0 -1px 1px 0 rgba(0, 0, 0, 0.35),
-        0 18px 40px -10px rgba(0, 0, 0, 0.65),
-        0 4px 12px -2px rgba(0, 0, 0, 0.35);
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        inset 0 -10px 18px -10px rgba(255, 255, 255, 0.28),
+        inset 0 10px 18px -14px rgba(255, 255, 255, 0.16),
+        0 12px 32px -10px rgba(0, 0, 0, 0.50),
+        0 2px 6px rgba(0, 0, 0, 0.20);
+      transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .liquid-btn-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.02) 45%, transparent 70%);
-      pointer-events: none;
+    .liquid-btn-hero > * {
+      position: relative;
+      z-index: 2;
     }
     .liquid-btn-hero:hover {
-      background: linear-gradient(180deg, rgba(48, 44, 40, 0.78) 0%, rgba(26, 23, 21, 0.62) 100%) !important;
-      border-color: rgba(255, 255, 255, 0.38) !important;
+      background: rgba(255, 255, 255, 0.14) !important;
       box-shadow:
-        inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.55),
-        0 22px 48px -10px rgba(0, 0, 0, 0.75),
-        0 6px 16px -2px rgba(0, 0, 0, 0.45);
-      transform: translateY(-1.5px);
+        inset 0 -10px 18px -10px rgba(255, 255, 255, 0.36),
+        inset 0 10px 18px -14px rgba(255, 255, 255, 0.22),
+        0 16px 38px -10px rgba(0, 0, 0, 0.55),
+        0 3px 8px rgba(0, 0, 0, 0.22);
+      transform: translateY(-1px);
+    }
+    .liquid-btn-hero:active {
+      transform: scale(0.98);
     }
 
     /* Apple Liquid Glass Property Card Spec Tiles (Reference Screenshot 3) */
