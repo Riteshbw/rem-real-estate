@@ -177,6 +177,18 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
     }
+
+    /* Subtle softened corners for boxes, buttons and inputs */
+    [class~="border"]:not(.rounded-full),
+    button:not(.rounded-full),
+    a.btn-era, a.btn-era-gold,
+    input:not([type="checkbox"]):not([type="range"]):not([type="radio"]),
+    select, textarea {
+      border-radius: 6px;
+    }
+    .era-card, #collection > div.bg-white.border {
+      border-radius: 10px;
+    }
   </style>
 
   <!-- Load Data -->
