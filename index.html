@@ -2373,7 +2373,8 @@
       document.getElementById('modalPossession').innerText = p.possessionDate;
       document.getElementById('modalFloorLevel').innerText = p.dimensions.floorLevel || 'Multi-Level';
       document.getElementById('modalDescription').innerText = p.description;
-      document.getElementById('modalCategoryBadge').innerText = p.category.replace(/_/g, ' ');
+      const catBadge = document.getElementById('modalCategoryBadge');
+      if (catBadge) catBadge.innerText = p.category.replace(/_/g, ' ');
 
       // RERA ID
       const reraEl = document.getElementById('modalReraId');
