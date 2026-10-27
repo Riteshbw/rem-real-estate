@@ -91,7 +91,9 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2560&q=85',
+      'public/images/properties/etv_1.jpg',
+      'public/images/properties/etv_2.jpg',
+      'public/images/properties/etv_3.jpg',
       'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2560&q=85',
       'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=2560&q=85'
     ],
@@ -203,6 +205,9 @@ window.PROPERTIES = [
       ]
     },
     images: [
+      'public/images/properties/bluetokai_2.jpg',
+      'public/images/properties/bluetokai_1.jpg',
+      'public/images/properties/bluetokai_3.jpg',
       'https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=2560&q=85',
       'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=2560&q=85'
     ],
@@ -317,8 +322,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2560&q=85'
+      'public/images/properties/golfshire_3.jpg',
+      'public/images/properties/golfshire_2.jpg',
+      'public/images/properties/pwm_1.jpg',
+      'public/images/properties/ad_apt_1.jpg',
+      'public/images/properties/liv_mbr1.jpg'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-lakefront-villa-with-swimming-pool-and-jetty-43110-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=2560&q=85',
@@ -398,10 +406,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2560&q=85',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2560&q=85',
-      'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=2560&q=85'
+      'public/images/properties/kessaku.jpg',
+      'public/images/properties/te_1.jpg',
+      'public/images/properties/te_2.jpg',
+      'public/images/properties/te_3.jpg',
+      'public/images/properties/ad_apt_2.jpg'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-living-room-in-a-luxury-home-42407-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=2560&q=85',
@@ -480,7 +489,9 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2560&q=85',
+      'public/images/properties/etv_5.jpg',
+      'public/images/properties/etv_4.jpg',
+      'public/images/properties/etv_1.jpg',
       'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2560&q=85',
       'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=2560&q=85'
     ],
@@ -559,9 +570,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2560&q=85',
-      'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2560&q=85',
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=2560&q=85'
+      'public/images/properties/plot_1.jpg',
+      'public/images/properties/plot_2.jpg',
+      'public/images/properties/plot_3.jpg',
+      'public/images/properties/pwm_1.jpg',
+      'public/images/properties/golfshire_3.jpg'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-countryside-residence-42868-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2560&q=85',
@@ -639,9 +652,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2560&q=85',
-      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=2560&q=85',
-      'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=2560&q=85'
+      'public/images/properties/utopia_2.jpg',
+      'public/images/properties/utopia_1.jpg',
+      'public/images/properties/liv_lr1.jpg',
+      'public/images/properties/liv_mbr1.jpg',
+      'public/images/properties/liv_kitchen.jpg'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-with-living-room-and-kitchen-42777-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85',
@@ -662,10 +677,10 @@ window.PROPERTIES = [
   },
   {
     id: 'rem-prop-05',
-    title: 'REM CyberHub Retail Galleria',
+    title: 'REM UB City Luxury Retail Galleria',
     developer: 'REM Commercial Assets',
-    tagline: 'High-visibility corner retail storefront for premium brand lease',
-    description: 'An institutional-grade commercial retail asset situated along the prime commercial nexus with double frontage, escalator connectivity, and 24/7 power backup.',
+    tagline: 'High-visibility corner retail storefront on Lavelle Road for luxury brand lease',
+    description: 'An institutional-grade commercial retail asset situated along Bangalore’s most prestigious luxury retail boulevard with double frontage, escalator connectivity, outdoor piazza seating, and 24/7 power backup.',
     category: 'commercial',
     status: 'Ready to Move',
     isUpcoming: false,
@@ -690,15 +705,15 @@ window.PROPERTIES = [
       totalUnitsInProject: 22,
     },
     location: {
-      locality: 'Cyber City Hub / Golf Course Ext.',
-      city: 'Gurugram',
-      state: 'Haryana',
-      landmark: 'Adjacent to Rapid Metro Cyber Gateway',
-      nearestMetroDistanceKm: 0.2,
-      airportDistanceKm: 14,
+      locality: 'Lavelle Road - UB City Boulevard',
+      city: 'Bangalore',
+      state: 'Karnataka',
+      landmark: 'Adjacent to UB City Piazza & Cubbon Park Metro',
+      nearestMetroDistanceKm: 0.4,
+      airportDistanceKm: 34,
       walkScore: 98,
-      lat: 28.4906,
-      lng: 77.0911,
+      lat: 12.9719,
+      lng: 77.5961,
     },
     peaceOfMind: {
       overall: 95,
@@ -706,16 +721,19 @@ window.PROPERTIES = [
       projectEfficiency: 92,
       legalClearance: 98,
       appreciationPotential: 96,
-      reraId: 'HRERA-PKL-GGM-2023-882190',
+      reraId: 'PRM/KA/RERA/COMM/2024/882190',
       pros: [
-        'Direct footfall from adjacent Fortune 500 corporate towers',
-        'Direct escalator connection from Rapid Metro Station into the Galleria'
+        'Direct footfall from adjacent UB City luxury towers & Lavelle Road offices',
+        'Double-height glass frontage opening onto the central al fresco piazza'
       ],
       cons: [
         'High security deposit required per commercial lease standard'
       ]
     },
     images: [
+      'public/images/properties/ubcity.jpg',
+      'public/images/properties/bluetokai_1.jpg',
+      'public/images/properties/bluetokai_2.jpg',
       'https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=2560&q=85',
       'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=2560&q=85'
     ],
@@ -794,8 +812,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=2560&q=85',
-      'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2560&q=85'
+      'public/images/properties/poarr_1.jpg',
+      'public/images/properties/lake_2.jpg',
+      'public/images/properties/te_1.jpg',
+      'public/images/properties/liv_balcony.jpg',
+      'public/images/properties/ad_apt_3.jpg'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-lakefront-villa-with-swimming-pool-and-jetty-43110-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=2560&q=85',
@@ -870,8 +891,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=2560&q=85',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85'
+      'public/images/properties/peninsula.jpg',
+      'public/images/properties/liv_lr2.jpg',
+      'public/images/properties/ad_apt_3.jpg',
+      'public/images/properties/liv_mbr1.jpg',
+      'public/images/properties/liv_kitchen.jpg'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-interior-of-a-contemporary-flat-42571-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=2560&q=85',
@@ -947,9 +971,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2560&q=85',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85',
-      'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=2560&q=85'
+      'public/images/properties/golfshire_1.jpg',
+      'public/images/properties/pwm_2.jpg',
+      'public/images/properties/golfshire_2.jpg',
+      'public/images/properties/ad_apt_2.jpg',
+      'public/images/properties/te_3.jpg'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-lakefront-villa-with-swimming-pool-and-jetty-43110-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=2560&q=85',
@@ -1025,8 +1051,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=2560&q=85',
-      'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=2560&q=85'
+      'public/images/properties/maia_1.jpg',
+      'public/images/properties/ad_apt_3.jpg',
+      'public/images/properties/ad_apt_1.jpg',
+      'public/images/properties/liv_mbr1.jpg',
+      'public/images/properties/liv_balcony.jpg'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-with-living-room-and-kitchen-42777-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85',
@@ -1101,8 +1130,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2560&q=85'
+      'public/images/properties/ad_khosla.jpg',
+      'public/images/properties/ad_rustic.jpg',
+      'public/images/properties/ad_brick_1.jpg',
+      'public/images/properties/ad_brick_2.jpg',
+      'public/images/properties/te_2.jpg'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-living-room-in-a-luxury-home-42407-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=2560&q=85',

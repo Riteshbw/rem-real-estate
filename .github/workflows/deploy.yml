@@ -30,7 +30,10 @@ jobs:
           cp index.html dist/index.html
           cp properties.js dist/properties.js
           cp index.html dist/404.html
-          if [ -d "public" ]; then cp -r public/* dist/ 2>/dev/null || true; fi
+          if [ -d "public" ]; then
+            cp -r public dist/public 2>/dev/null || true
+            cp -r public/* dist/ 2>/dev/null || true
+          fi
           echo "Static dist prepared."
           ls -la dist/
 
