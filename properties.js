@@ -205,11 +205,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
+      'public/images/properties/bluetokai_1.jpg',
+      'public/images/properties/bluetokai_2.jpg',
+      'public/images/properties/bluetokai_3.jpg',
       'public/images/properties/ubcity.jpg',
-      'public/images/properties/etv_2.jpg',
-      'public/images/properties/etv_3.jpg',
-      'public/images/properties/etv_1.jpg',
-      'public/images/properties/etv_4.jpg'
+      'public/images/properties/etv_2.jpg'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-shopping-mall-hallway-with-visitors-41480-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85',
@@ -574,7 +574,7 @@ window.PROPERTIES = [
       'public/images/properties/plot_2.jpg',
       'public/images/properties/plot_3.jpg',
       'public/images/properties/lake_2.jpg',
-      'public/images/properties/plot_1.jpg'
+      'public/images/properties/poarr_1.jpg'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-countryside-residence-42868-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2560&q=85',
@@ -974,7 +974,7 @@ window.PROPERTIES = [
       'public/images/properties/golfshire_1.jpg',
       'public/images/properties/golfshire_2.jpg',
       'public/images/properties/golfshire_3.jpg',
-      'public/images/properties/ad_apt_2.jpg',
+      'public/images/properties/te_2.jpg',
       'public/images/properties/te_3.jpg'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-lakefront-villa-with-swimming-pool-and-jetty-43110-large.mp4',

@@ -794,7 +794,7 @@
   </style>
 
   <!-- Load Data -->
-  <script src="properties.js?v=20261029g"></script>
+  <script src="properties.js?v=20261030b"></script>
 </head>
 <body class="selection:bg-obsidian selection:text-canvas">
 
@@ -1449,13 +1449,13 @@
             <!-- Side Secondary 2-Tile Image Grid (4 Cols) -->
             <div class="hidden lg:grid lg:col-span-4 grid-rows-2 gap-3 h-full">
               <!-- Top Right Photo -->
-              <div class="relative h-full rounded-2xl overflow-hidden bg-stone-100 group cursor-pointer shadow-sm border border-stone-200/60" onclick="modalCarouselGo(1)">
+              <div id="modalGridWrapper1" class="relative h-full rounded-2xl overflow-hidden bg-stone-100 group cursor-pointer shadow-sm border border-stone-200/60" onclick="modalCarouselGo(1)">
                 <img id="modalGridImg1" src="" alt="Property View 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
 
               <!-- Bottom Right Photo with Floating 'View All Photos' Pill -->
-              <div class="relative h-full rounded-2xl overflow-hidden bg-stone-100 group cursor-pointer shadow-sm border border-stone-200/60" onclick="modalCarouselGo(2)">
+              <div id="modalGridWrapper2" class="relative h-full rounded-2xl overflow-hidden bg-stone-100 group cursor-pointer shadow-sm border border-stone-200/60" onclick="modalCarouselGo(2)">
                 <img id="modalGridImg2" src="" alt="Property View 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                 
@@ -2670,11 +2670,29 @@
         imgEl.src = imgs[modalCarouselIndex];
         imgEl.classList.add('modal-img-enter');
       }
+
+      // Rotate Secondary 2-Tile Image Grid dynamically so every visible photo is unique
+      const next1 = (modalCarouselIndex + 1) % imgs.length;
+      const next2 = (modalCarouselIndex + 2) % imgs.length;
+
+      const grid1 = document.getElementById('modalGridImg1');
+      if (grid1) grid1.src = imgs[next1];
+      const wrap1 = document.getElementById('modalGridWrapper1');
+      if (wrap1) wrap1.onclick = () => modalCarouselGo(next1);
+
+      const grid2 = document.getElementById('modalGridImg2');
+      if (grid2) grid2.src = imgs[next2];
+      const wrap2 = document.getElementById('modalGridWrapper2');
+      if (wrap2) wrap2.onclick = () => modalCarouselGo(next2);
+
       const counter = document.getElementById('modalImgCounter');
       if (counter) counter.innerText = `${modalCarouselIndex + 1} / ${imgs.length} Photos`;
       document.querySelectorAll('#modalThumbs img').forEach((t, i) => {
         if (i === modalCarouselIndex) {
-          t.className = 'h-14 w-20 sm:h-16 sm:w-24 object-cover cursor-pointer rounded-xl border-2 border-gold shadow-md ring-2 ring-gold/25 opacity-100 transition-all flex-shrink-0';
+          t.className = 'h-14 w-20 sm:h-16 sm:w-24 object-cover cursor-pointer rounded-xl border-2 border-gold shadow-md ring-2 ring-gold/25 opacity-100 transition-all flex-shrink-0 scale-105';
+          if (typeof t.scrollIntoView === 'function') {
+            t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          }
         } else {
           t.className = 'h-14 w-20 sm:h-16 sm:w-24 object-cover cursor-pointer rounded-xl border-2 border-stone-200/90 opacity-75 hover:opacity-100 hover:border-obsidian transition-all flex-shrink-0';
         }
