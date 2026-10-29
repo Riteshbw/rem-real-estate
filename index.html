@@ -2025,6 +2025,23 @@
         </div>
       </div>
 
+      <!-- Web3Forms Email Alert Setup Banner -->
+      <div class="mb-6 p-4 bg-limestone border border-borderSubtle flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+        <div>
+          <div class="font-bold text-obsidian flex items-center space-x-1.5">
+            <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span>Email Lead Alerts (Web3Forms &bull; &#8377;0 Free)</span>
+          </div>
+          <p class="text-stone text-[11px] mt-0.5">Leads are delivered instantly to <strong class="text-obsidian">bwritesh@gmail.com</strong>.</p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <input type="text" id="adminWeb3Key" placeholder="Paste Web3Forms Access Key" class="p-2 bg-white border border-stone-200 text-obsidian text-xs rounded font-mono w-56">
+          <button type="button" onclick="saveWeb3FormsKey()" class="px-3 py-2 bg-obsidian text-white font-bold text-xs uppercase tracking-wider rounded hover:bg-gold hover:text-obsidian transition-colors">
+            Save
+          </button>
+        </div>
+      </div>
+
       <!-- Add Property Trigger -->
       <div class="flex items-center justify-between mb-4">
         <h4 class="font-serif text-sm font-bold uppercase tracking-wider text-obsidian">Active Properties Management</h4>
@@ -2904,6 +2921,26 @@ Generated: ${new Date().toLocaleString()}
       URL.revokeObjectURL(url);
     }
 
+    async function sendEmailNotification(leadData) {
+      const apiKey = localStorage.getItem('rem_web3forms_key') || window.WEB3FORMS_KEY || '';
+      if (!apiKey) return;
+      try {
+        await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            access_key: apiKey,
+            subject: `New Lead: ${leadData.type} - ${leadData.clientName}`,
+            from_name: 'REM Residences Lead Desk',
+            to_email: 'bwritesh@gmail.com',
+            ...leadData
+          })
+        });
+      } catch (err) {
+        console.warn('Web3Forms notification error:', err);
+      }
+    }
+
     // Site Visit Booking Modal Handlers
     function openSiteVisitModal() {
       if (activeModalProperty) {
@@ -2932,6 +2969,7 @@ Generated: ${new Date().toLocaleString()}
       };
       adminLeads.unshift(lead);
       localStorage.setItem('rem_admin_leads', JSON.stringify(adminLeads));
+      sendEmailNotification(lead);
 
       alert(`Thank you, ${lead.clientName}! Your private site tour has been confirmed. Our developer liaison will coordinate access.`);
       closeSiteVisitModal();
@@ -3010,6 +3048,7 @@ Generated: ${new Date().toLocaleString()}
       };
       adminLeads.unshift(lead);
       localStorage.setItem('rem_admin_leads', JSON.stringify(adminLeads));
+      sendEmailNotification(lead);
 
       alert(`Congratulations ${name}! Your investment allocation of ${shares} share(s) (${formatINR(amount)}) has been reserved and credited to your Portfolio!`);
       closeInvestModal();
@@ -3131,7 +3170,22 @@ Generated: ${new Date().toLocaleString()}
     function openAdminPortal() {
       renderAdminListings();
       renderAdminLeads();
+      const keyInput = document.getElementById('adminWeb3Key');
+      if (keyInput) {
+        keyInput.value = localStorage.getItem('rem_web3forms_key') || window.WEB3FORMS_KEY || '';
+      }
       document.getElementById('adminPortalModal').classList.remove('hidden');
+    }
+
+    function saveWeb3FormsKey() {
+      const key = (document.getElementById('adminWeb3Key').value || '').trim();
+      if (!key) {
+        localStorage.removeItem('rem_web3forms_key');
+        alert('Web3Forms key removed.');
+        return;
+      }
+      localStorage.setItem('rem_web3forms_key', key);
+      alert('Web3Forms key saved! Form submissions will now be emailed instantly to bwritesh@gmail.com.');
     }
 
     function closeAdminPortalModal() {
