@@ -794,7 +794,7 @@
   </style>
 
   <!-- Load Data -->
-  <script src="properties.js?v=20261029f"></script>
+  <script src="properties.js?v=20261029g"></script>
 </head>
 <body class="selection:bg-obsidian selection:text-canvas">
 
@@ -1424,12 +1424,12 @@
       <!-- Main Dossier Container (Propsoch Asymmetric Gallery + 2-Column Responsive Layout) -->
       <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
 
-        <!-- Modern Propsoch-Style Image Gallery Mosaic Grid -->
-        <div class="relative w-full rounded-xl overflow-hidden border border-borderSubtle bg-obsidian mb-8 shadow-sm">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-1.5 h-[340px] sm:h-[440px] lg:h-[500px] p-1.5 bg-obsidian/95">
+        <!-- Modern Clean Transparent Image Gallery Mosaic Grid -->
+        <div class="relative w-full mb-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 h-[340px] sm:h-[440px] lg:h-[500px]">
             
             <!-- Large Featured Main Image (8 Cols) -->
-            <div id="modalImgWrapper" class="relative lg:col-span-8 h-full bg-black/60 rounded-lg overflow-hidden group cursor-pointer" onclick="modalCarouselNext()">
+            <div id="modalImgWrapper" class="relative lg:col-span-8 h-full bg-stone-100 rounded-2xl overflow-hidden group cursor-pointer shadow-sm border border-stone-200/60" onclick="modalCarouselNext()">
               <img id="modalMainImg" src="" alt="Property" class="w-full h-full object-cover modal-img-enter">
               
               <!-- Category Badge -->
@@ -1437,33 +1437,33 @@
                 <span id="modalCategoryBadge" class="liquid-badge-dark text-[9.5px] font-bold px-3 py-1 tracking-wider uppercase"></span>
               </div>
 
-              <!-- Persistent Navigation Arrows with High-Contrast Liquid Blur -->
-              <button type="button" onclick="event.stopPropagation(); modalCarouselPrev()" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/90 transition-all backdrop-blur-md shadow-lg border border-white/20 hover:scale-105" aria-label="Previous Image">
+              <!-- Persistent Navigation Arrows with Clean Translucent Glass -->
+              <button type="button" onclick="event.stopPropagation(); modalCarouselPrev()" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/85 hover:bg-white text-obsidian flex items-center justify-center transition-all backdrop-blur-md shadow-lg border border-white/60 hover:scale-105" aria-label="Previous Image">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
               </button>
-              <button type="button" onclick="event.stopPropagation(); modalCarouselNext()" class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/90 transition-all backdrop-blur-md shadow-lg border border-white/20 hover:scale-105" aria-label="Next Image">
+              <button type="button" onclick="event.stopPropagation(); modalCarouselNext()" class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/85 hover:bg-white text-obsidian flex items-center justify-center transition-all backdrop-blur-md shadow-lg border border-white/60 hover:scale-105" aria-label="Next Image">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
               </button>
             </div>
 
             <!-- Side Secondary 2-Tile Image Grid (4 Cols) -->
-            <div class="hidden lg:grid lg:col-span-4 grid-rows-2 gap-1.5 h-full">
+            <div class="hidden lg:grid lg:col-span-4 grid-rows-2 gap-3 h-full">
               <!-- Top Right Photo -->
-              <div class="relative h-full rounded-lg overflow-hidden bg-black/60 group cursor-pointer" onclick="modalCarouselGo(1)">
+              <div class="relative h-full rounded-2xl overflow-hidden bg-stone-100 group cursor-pointer shadow-sm border border-stone-200/60" onclick="modalCarouselGo(1)">
                 <img id="modalGridImg1" src="" alt="Property View 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
 
               <!-- Bottom Right Photo with Floating 'View All Photos' Pill -->
-              <div class="relative h-full rounded-lg overflow-hidden bg-black/60 group cursor-pointer" onclick="modalCarouselGo(2)">
+              <div class="relative h-full rounded-2xl overflow-hidden bg-stone-100 group cursor-pointer shadow-sm border border-stone-200/60" onclick="modalCarouselGo(2)">
                 <img id="modalGridImg2" src="" alt="Property View 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                 
                 <!-- Floating Liquid Glass 'Show all photos' Pill (Bottom Right) -->
                 <div class="absolute bottom-3 right-3 z-20">
                   <div class="liquid-badge-dark text-xs font-semibold px-3.5 py-1.5 flex items-center space-x-2 border border-white/30 shadow-md">
                     <svg class="w-4 h-4 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                    <span id="modalImgCounter">1 / 4 Photos</span>
+                    <span id="modalImgCounter">1 / 5 Photos</span>
                   </div>
                 </div>
               </div>
@@ -1471,9 +1471,9 @@
 
           </div>
 
-          <!-- Thumbnail Strip below Gallery with Clean Horizontal Padding -->
-          <div class="px-4 py-3 bg-obsidian border-t border-white/10">
-            <div id="modalThumbs" class="flex items-center space-x-3 overflow-x-auto py-1">
+          <!-- Thumbnail Strip below Gallery (Clean Transparent Background) -->
+          <div class="pt-3 pb-1">
+            <div id="modalThumbs" class="flex items-center space-x-2.5 overflow-x-auto py-1">
               <!-- Thumbnails injected via JS -->
             </div>
           </div>
@@ -2674,9 +2674,9 @@
       if (counter) counter.innerText = `${modalCarouselIndex + 1} / ${imgs.length} Photos`;
       document.querySelectorAll('#modalThumbs img').forEach((t, i) => {
         if (i === modalCarouselIndex) {
-          t.className = 'h-14 w-20 sm:h-16 sm:w-24 object-cover cursor-pointer rounded-md border-2 border-gold shadow-md opacity-100 transition-all flex-shrink-0';
+          t.className = 'h-14 w-20 sm:h-16 sm:w-24 object-cover cursor-pointer rounded-xl border-2 border-gold shadow-md ring-2 ring-gold/25 opacity-100 transition-all flex-shrink-0';
         } else {
-          t.className = 'h-14 w-20 sm:h-16 sm:w-24 object-cover cursor-pointer rounded-md border-2 border-white/20 opacity-70 hover:opacity-100 hover:border-white/60 transition-all flex-shrink-0';
+          t.className = 'h-14 w-20 sm:h-16 sm:w-24 object-cover cursor-pointer rounded-xl border-2 border-stone-200/90 opacity-75 hover:opacity-100 hover:border-obsidian transition-all flex-shrink-0';
         }
       });
     }
@@ -2774,7 +2774,7 @@
       if (thumbsContainer) {
         thumbsContainer.innerHTML = modalCarouselImages.map((img, idx) => `
           <img src="${img}" onclick="modalCarouselGo(${idx})" alt="View ${idx + 1}"
-               class="h-14 w-20 sm:h-16 sm:w-24 object-cover cursor-pointer rounded-md border-2 ${idx === 0 ? 'border-gold shadow-md' : 'border-white/20 opacity-70 hover:opacity-100 hover:border-white/60'} transition-all flex-shrink-0">
+               class="h-14 w-20 sm:h-16 sm:w-24 object-cover cursor-pointer rounded-xl border-2 ${idx === 0 ? 'border-gold shadow-md ring-2 ring-gold/25' : 'border-stone-200/90 opacity-75 hover:opacity-100 hover:border-obsidian'} transition-all flex-shrink-0">
         `).join('');
       }
       modalCarouselGo(0);
