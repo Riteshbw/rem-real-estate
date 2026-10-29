@@ -91,11 +91,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'public/images/properties/etv_2.jpg',
-      'public/images/properties/etv_3.jpg',
-      'public/images/properties/etv_1.jpg',
-      'public/images/properties/etv_4.jpg',
-      'public/images/properties/etv_5.jpg'
+      'public/images/properties/etv_2.jpg?v=3',
+      'public/images/properties/etv_3.jpg?v=3',
+      'public/images/properties/etv_1.jpg?v=3',
+      'public/images/properties/etv_4.jpg?v=3',
+      'public/images/properties/etv_5.jpg?v=3'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-modern-office-space-with-tables-and-chairs-41682-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2560&q=85',
@@ -205,11 +205,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'public/images/properties/bluetokai_1.jpg',
-      'public/images/properties/bluetokai_2.jpg',
-      'public/images/properties/bluetokai_3.jpg',
-      'public/images/properties/ubcity.jpg',
-      'public/images/properties/etv_2.jpg'
+      'public/images/properties/bluetokai_1.jpg?v=3',
+      'public/images/properties/bluetokai_2.jpg?v=3',
+      'public/images/properties/bluetokai_3.jpg?v=3',
+      'public/images/properties/ubcity.jpg?v=3',
+      'public/images/properties/etv_5.jpg?v=3'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-shopping-mall-hallway-with-visitors-41480-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85',
@@ -322,11 +322,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'public/images/properties/golfshire_3.jpg',
-      'public/images/properties/golfshire_2.jpg',
-      'public/images/properties/golfshire_1.jpg',
-      'public/images/properties/te_1.jpg',
-      'public/images/properties/te_2.jpg'
+      'public/images/properties/golfshire_3.jpg?v=3',
+      'public/images/properties/golfshire_1.jpg?v=3',
+      'public/images/properties/golfshire_2.jpg?v=3',
+      'public/images/properties/te_2.jpg?v=3',
+      'public/images/properties/liv_mbr1.jpg?v=3'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-lakefront-villa-with-swimming-pool-and-jetty-43110-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=2560&q=85',
@@ -406,11 +406,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'public/images/properties/kessaku.jpg',
-      'public/images/properties/te_1.jpg',
-      'public/images/properties/te_2.jpg',
-      'public/images/properties/te_3.jpg',
-      'public/images/properties/ad_apt_2.jpg'
+      'public/images/properties/kessaku.jpg?v=3',
+      'public/images/properties/te_1.jpg?v=3',
+      'public/images/properties/te_2.jpg?v=3',
+      'public/images/properties/ad_apt_2.jpg?v=3',
+      'public/images/properties/liv_balcony.jpg?v=3'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-living-room-in-a-luxury-home-42407-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=2560&q=85',
@@ -489,11 +489,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'public/images/properties/etv_5.jpg',
-      'public/images/properties/etv_4.jpg',
-      'public/images/properties/etv_1.jpg',
-      'public/images/properties/etv_2.jpg',
-      'public/images/properties/etv_3.jpg'
+      'public/images/properties/etv_5.jpg?v=3',
+      'public/images/properties/etv_4.jpg?v=3',
+      'public/images/properties/etv_1.jpg?v=3',
+      'public/images/properties/etv_2.jpg?v=3',
+      'public/images/properties/etv_3.jpg?v=3'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-modern-office-space-with-tables-and-chairs-41682-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2560&q=85',
@@ -570,11 +570,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'public/images/properties/plot_1.jpg',
-      'public/images/properties/plot_2.jpg',
-      'public/images/properties/plot_3.jpg',
-      'public/images/properties/lake_2.jpg',
-      'public/images/properties/poarr_1.jpg'
+      'public/images/properties/plot_1.jpg?v=3',
+      'public/images/properties/plot_2.jpg?v=3',
+      'public/images/properties/plot_3.jpg?v=3',
+      'public/images/properties/pwm_1.jpg?v=3',
+      'public/images/properties/pwm_2.jpg?v=3'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-countryside-residence-42868-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2560&q=85',
@@ -652,11 +652,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'public/images/properties/utopia_1.jpg',
-      'public/images/properties/liv_lr1.jpg',
-      'public/images/properties/liv_kitchen.jpg',
-      'public/images/properties/liv_lr2.jpg',
-      'public/images/properties/ad_apt_3.jpg'
+      'public/images/properties/utopia_1.jpg?v=3',
+      'public/images/properties/liv_lr1.jpg?v=3',
+      'public/images/properties/liv_kitchen.jpg?v=3',
+      'public/images/properties/liv_lr2.jpg?v=3',
+      'public/images/properties/liv_mbr1.jpg?v=3'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-with-living-room-and-kitchen-42777-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85',
@@ -731,11 +731,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'public/images/properties/ubcity.jpg',
-      'public/images/properties/etv_2.jpg',
-      'public/images/properties/etv_3.jpg',
-      'public/images/properties/etv_4.jpg',
-      'public/images/properties/etv_5.jpg'
+      'public/images/properties/ubcity.jpg?v=3',
+      'public/images/properties/bluetokai_1.jpg?v=3',
+      'public/images/properties/bluetokai_2.jpg?v=3',
+      'public/images/properties/etv_5.jpg?v=3',
+      'public/images/properties/etv_4.jpg?v=3'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-shopping-mall-hallway-with-visitors-41480-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85',
@@ -812,11 +812,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'public/images/properties/poarr_1.jpg',
-      'public/images/properties/lake_2.jpg',
-      'public/images/properties/te_1.jpg',
-      'public/images/properties/ad_apt_3.jpg',
-      'public/images/properties/te_3.jpg'
+      'public/images/properties/poarr_1.jpg?v=3',
+      'public/images/properties/lake_2.jpg?v=3',
+      'public/images/properties/te_1.jpg?v=3',
+      'public/images/properties/ad_apt_3.jpg?v=3',
+      'public/images/properties/liv_balcony.jpg?v=3'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-lakefront-villa-with-swimming-pool-and-jetty-43110-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=2560&q=85',
@@ -891,11 +891,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'public/images/properties/peninsula.jpg',
-      'public/images/properties/liv_lr2.jpg',
-      'public/images/properties/ad_apt_3.jpg',
-      'public/images/properties/liv_lr1.jpg',
-      'public/images/properties/liv_kitchen.jpg'
+      'public/images/properties/peninsula.jpg?v=3',
+      'public/images/properties/ad_apt_3.jpg?v=3',
+      'public/images/properties/liv_lr1.jpg?v=3',
+      'public/images/properties/liv_lr2.jpg?v=3',
+      'public/images/properties/liv_kitchen.jpg?v=3'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-interior-of-a-contemporary-flat-42571-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=2560&q=85',
@@ -971,11 +971,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'public/images/properties/golfshire_1.jpg',
-      'public/images/properties/golfshire_2.jpg',
-      'public/images/properties/golfshire_3.jpg',
-      'public/images/properties/te_2.jpg',
-      'public/images/properties/te_3.jpg'
+      'public/images/properties/golfshire_1.jpg?v=3',
+      'public/images/properties/golfshire_2.jpg?v=3',
+      'public/images/properties/golfshire_3.jpg?v=3',
+      'public/images/properties/te_3.jpg?v=3',
+      'public/images/properties/te_2.jpg?v=3'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-lakefront-villa-with-swimming-pool-and-jetty-43110-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=2560&q=85',
@@ -1051,11 +1051,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'public/images/properties/maia_1.jpg',
-      'public/images/properties/ad_apt_3.jpg',
-      'public/images/properties/ad_apt_1.jpg',
-      'public/images/properties/liv_lr1.jpg',
-      'public/images/properties/liv_kitchen.jpg'
+      'public/images/properties/maia_1.jpg?v=3',
+      'public/images/properties/ad_apt_1.jpg?v=3',
+      'public/images/properties/ad_apt_2.jpg?v=3',
+      'public/images/properties/liv_mbr1.jpg?v=3',
+      'public/images/properties/liv_kitchen.jpg?v=3'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-with-living-room-and-kitchen-42777-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85',
@@ -1130,11 +1130,11 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'public/images/properties/ad_brick_1.jpg',
-      'public/images/properties/ad_brick_2.jpg',
-      'public/images/properties/te_2.jpg',
-      'public/images/properties/te_1.jpg',
-      'public/images/properties/te_3.jpg'
+      'public/images/properties/ad_khosla.jpg?v=3',
+      'public/images/properties/ad_brick_1.jpg?v=3',
+      'public/images/properties/ad_brick_2.jpg?v=3',
+      'public/images/properties/te_2.jpg?v=3',
+      'public/images/properties/te_3.jpg?v=3'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-living-room-in-a-luxury-home-42407-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=2560&q=85',
