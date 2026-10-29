@@ -91,9 +91,9 @@ window.PROPERTIES = [
       ]
     },
     images: [
-      'public/images/properties/etv_1.jpg',
       'public/images/properties/etv_2.jpg',
       'public/images/properties/etv_3.jpg',
+      'public/images/properties/etv_1.jpg',
       'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2560&q=85',
       'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=2560&q=85'
     ],
