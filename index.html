@@ -794,7 +794,7 @@
   </style>
 
   <!-- Load Data -->
-  <script src="properties.js?v=20261029d"></script>
+  <script src="properties.js?v=20261029e"></script>
 </head>
 <body class="selection:bg-obsidian selection:text-canvas">
 
@@ -1472,8 +1472,8 @@
           </div>
 
           <!-- Thumbnail Strip below Gallery with Clean Horizontal Padding -->
-          <div class="px-3 py-2 bg-obsidian border-t border-white/10">
-            <div id="modalThumbs" class="flex space-x-2 overflow-x-auto pb-0.5">
+          <div class="px-4 py-3 bg-obsidian border-t border-white/10">
+            <div id="modalThumbs" class="flex items-center space-x-3 overflow-x-auto py-1">
               <!-- Thumbnails injected via JS -->
             </div>
           </div>
@@ -2673,8 +2673,11 @@
       const counter = document.getElementById('modalImgCounter');
       if (counter) counter.innerText = `${modalCarouselIndex + 1} / ${imgs.length} Photos`;
       document.querySelectorAll('#modalThumbs img').forEach((t, i) => {
-        t.classList.toggle('border-gold', i === modalCarouselIndex);
-        t.classList.toggle('border-borderSubtle', i !== modalCarouselIndex);
+        if (i === modalCarouselIndex) {
+          t.className = 'h-14 w-20 sm:h-16 sm:w-24 object-cover cursor-pointer rounded-md border-2 border-gold shadow-md opacity-100 transition-all flex-shrink-0';
+        } else {
+          t.className = 'h-14 w-20 sm:h-16 sm:w-24 object-cover cursor-pointer rounded-md border-2 border-white/20 opacity-70 hover:opacity-100 hover:border-white/60 transition-all flex-shrink-0';
+        }
       });
     }
 
@@ -2770,8 +2773,8 @@
       const thumbsContainer = document.getElementById('modalThumbs');
       if (thumbsContainer) {
         thumbsContainer.innerHTML = modalCarouselImages.map((img, idx) => `
-          <img src="${img}" onclick="modalCarouselGo(${idx})"
-               class="h-12 w-16 sm:h-14 sm:w-20 object-cover cursor-pointer rounded border border-borderSubtle hover:border-gold transition-colors flex-shrink-0">
+          <img src="${img}" onclick="modalCarouselGo(${idx})" alt="View ${idx + 1}"
+               class="h-14 w-20 sm:h-16 sm:w-24 object-cover cursor-pointer rounded-md border-2 ${idx === 0 ? 'border-gold shadow-md' : 'border-white/20 opacity-70 hover:opacity-100 hover:border-white/60'} transition-all flex-shrink-0">
         `).join('');
       }
       modalCarouselGo(0);

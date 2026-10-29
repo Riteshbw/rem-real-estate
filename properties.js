@@ -94,8 +94,8 @@ window.PROPERTIES = [
       'public/images/properties/etv_2.jpg',
       'public/images/properties/etv_3.jpg',
       'public/images/properties/etv_1.jpg',
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2560&q=85',
-      'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=2560&q=85'
+      'public/images/properties/etv_4.jpg',
+      'public/images/properties/etv_5.jpg'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-modern-office-space-with-tables-and-chairs-41682-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2560&q=85',
@@ -208,8 +208,8 @@ window.PROPERTIES = [
       'public/images/properties/bluetokai_2.jpg',
       'public/images/properties/bluetokai_1.jpg',
       'public/images/properties/bluetokai_3.jpg',
-      'https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=2560&q=85',
-      'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=2560&q=85'
+      'public/images/properties/ubcity.jpg',
+      'public/images/properties/ad_apt_1.jpg'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-shopping-mall-hallway-with-visitors-41480-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85',
@@ -492,8 +492,8 @@ window.PROPERTIES = [
       'public/images/properties/etv_5.jpg',
       'public/images/properties/etv_4.jpg',
       'public/images/properties/etv_1.jpg',
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2560&q=85',
-      'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=2560&q=85'
+      'public/images/properties/etv_2.jpg',
+      'public/images/properties/etv_3.jpg'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-modern-office-space-with-tables-and-chairs-41682-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2560&q=85',
@@ -734,8 +734,8 @@ window.PROPERTIES = [
       'public/images/properties/ubcity.jpg',
       'public/images/properties/bluetokai_1.jpg',
       'public/images/properties/bluetokai_2.jpg',
-      'https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=2560&q=85',
-      'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=2560&q=85'
+      'public/images/properties/bluetokai_3.jpg',
+      'public/images/properties/ad_apt_2.jpg'
     ],
     videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-shopping-mall-hallway-with-visitors-41480-large.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2560&q=85',
